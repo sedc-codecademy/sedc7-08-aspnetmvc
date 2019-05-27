@@ -65,5 +65,5 @@ This is the base agenda for this subject. The agenda is flexible and will evolve
 	* Entity framework models, relationships and context
 ## Contact and Communication 📢
 Learning programming and software development is a team effort. This means that we are a team and going through this process we will need to work together so that we can succeed. Communication is a key point in this process so please, give feedback for the lectures and communicate any problems that you might have with us so that we can try and improve the quality of the lectures. You can contact us at:
-**Dragan Gelevski :** gdragan6@gmail.com
-**Viktor Jakovlev :** viktorjakovlev@hotmail.com
+* **Dragan Gelevski :** gdragan6@gmail.com
+* **Viktor Jakovlev :** viktorjakovlev@hotmail.com
