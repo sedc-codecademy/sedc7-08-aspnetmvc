@@ -4,11 +4,11 @@
 2. Might need to update the installer
 ![Update Installer](https://github.com/sedc-codecademy/sedc7-08-aspnetmvc/blob/master/g5/img/vs2.jpg?raw=true)
 2. Modify your version of Visual Studio by clicking Modify
-	2.1 If there is an Update button instead of modify, click update
-	2.2 Visual studio will update to the latest version and after that the modify button will be shown
+	* If there is an Update button instead of modify, click update
+	* Visual studio will update to the latest version and after that the modify button will be shown
 ![Modify Installation](https://github.com/sedc-codecademy/sedc7-08-aspnetmvc/blob/master/g5/img/vs3.PNG?raw=true)
 3. Check ASP.NET and web development feature:
-	3.1 Check the boxes on the right as in the picture
+	* Check the boxes on the right as in the picture
 ![Check all features](https://github.com/sedc-codecademy/sedc7-08-aspnetmvc/blob/master/g5/img/vs4.PNG?raw=true)
 4. Click the Modify button
 5. Wait for the installation to finish
