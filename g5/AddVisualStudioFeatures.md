@@ -10,5 +10,8 @@
 3. Check ASP.NET and web development feature:
 	* Check the boxes on the right as in the picture
 ![Check all features](https://github.com/sedc-codecademy/sedc7-08-aspnetmvc/blob/master/g5/img/vs4.PNG?raw=true)
-4. Click the Modify button
-5. Wait for the installation to finish
+4. Check .NET Core cross-platform development
+	* Check the boxes on the right as in the picture
+![Check all features](https://github.com/sedc-codecademy/sedc7-08-aspnetmvc/blob/master/g5/img/vs5.PNG?raw=true)	
+5. Click the Modify button
+6. Wait for the installation to finish
