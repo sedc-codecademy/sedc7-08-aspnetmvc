@@ -1,6 +1,11 @@
 # sedc7-08-aspnetmvc
 Source code repository for SEDC Code Academy 7.0 8th subject 'ASP.NET MVC' G1 students exercises.
 
+# Contact
+
+**Xhevat Ibraimi:** <xhevat.ibraimi@gmail.com> <br/>
+**Dejan Blazheki:** <dejan.pblazheski@seavus.com> <br/>
+
 ## How to update Visual Studio 2017 with all necessary features ⭐
 1. Run Visual Studio Installer ( Search for Visual Studio Installer in your start menu )
 ![Visual Studio Installer](https://github.com/sedc-codecademy/sedc7-08-aspnetmvc/blob/master/g5/img/vs1.PNG?raw=true)
@@ -18,8 +23,3 @@ Source code repository for SEDC Code Academy 7.0 8th subject 'ASP.NET MVC' G1 st
 ![Check all features](https://github.com/sedc-codecademy/sedc7-08-aspnetmvc/blob/master/g5/img/vs5.PNG?raw=true)	
 5. Click the Modify button
 6. Wait for the installation to finish
-
-# Contact
-
-**Xhevat Ibraimi:** <xhevat.ibraimi@gmail.com> <br/>
-**Dejan Blazheki:** <dejan.pblazheski@seavus.com> <br/>
