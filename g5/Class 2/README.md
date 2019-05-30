@@ -12,7 +12,7 @@ public class HomeController : Controller // Must inherit from Controller
 }
 ```
 ## Actions 🔹
-Actions are basically the methods that we have in the controller. Actions are the main source of interaction in and out of the controller. Every action has an address and when that address is called, the action is executed. With this the action can execute some code and return a view or a view with some result in it. The actions can be annotated depending on the request they are waiting for. This means that we can have actions that wait for a GET request, POST request etc. In ASP.NET Core MVC applications if we don't annotate our actions, they are by default GET. If we want to explicitly mark an action with what kind of request it waits we can use the [HttpGet] attribute.
+Actions are basically the methods that we have in the controller. Actions are the main source of interaction in and out of the controller. Every action has an address and when that address is called, the action is executed. With this the action can execute some code and return a view or a view with some result in it. The actions can be annotated depending on the request they are waiting for. This means that we can have actions that wait for a GET request, POST request etc. In ASP.NET Core MVC applications if we don't annotate our actions, they are by default GET. If we want to explicitly mark an action with what kind of request it waits we can use the [HttpXXX] attribute. Ex: GET -> [HttpGet]
 ```csharp
 public class HomeController : Controller
 {
