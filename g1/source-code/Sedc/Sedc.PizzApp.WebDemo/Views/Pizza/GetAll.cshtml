@@ -1,0 +1,32 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>GetAll</title>
+</head>
+<body>
+    @{
+        var listOfPizzas = new List<string>
+{
+            "capri", "tono","margarita", "napolitana"
+        };
+    }
+    <h1>All Pizzas:</h1>
+    <h3>There are @listOfPizzas.Count pizzas in total:</h3>
+    <ul>
+        @{
+            var i = 0;
+            while (i < listOfPizzas.Count)
+            {
+                <li>@listOfPizzas[i++]</li>
+            }
+        }
+    </ul>
+</body>
+</html>
