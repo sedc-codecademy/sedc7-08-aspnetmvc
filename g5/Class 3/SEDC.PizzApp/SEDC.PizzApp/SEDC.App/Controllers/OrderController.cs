@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using SEDC.App.Models.DomainModels;
+using SEDC.App.Models.ViewModels;
 
 namespace SEDC.App.Controllers
 {
@@ -56,16 +57,46 @@ namespace SEDC.App.Controllers
         {
             //ViewData.Add("Title", "Welcome to the Orders page!");
             ViewBag.Title = "Welcome to the Orders page!";
-            return View();
+            Order firstOrder = _ordersDb[0];
+            OrdersViewModel ordersViewModel = new OrdersViewModel()
+            {
+                FirstPizza = firstOrder.Pizza,
+                NumberOfOrders = _ordersDb.Count,
+                FirstPersonName = $"{firstOrder.User.FirstName} {firstOrder.User.LastName}"
+            };
+            return View(ordersViewModel);
         }
         public IActionResult Details(int? id)
         {
+            #region ViewBag and ViewData
             //ViewData.Add("Title", "These are your orders:");
             //ViewData["Title"] = "These are your orders:";
-            Order order = _ordersDb[0];
-            ViewBag.Title = $"This is order no. {order.Id}";
-            if (id == order.Id) return View(order);
-            return RedirectToAction("Index", "Home");
+            #endregion
+            #region FirstOrDefault solution
+            Order order = _ordersDb.FirstOrDefault(x => x.Id == id);
+            if (order != null)
+            {
+                ViewBag.Title = $"This is order no. {order.Id}";
+                return View(order);
+            }
+            return RedirectToAction("Index");
+            #endregion
+            #region try/catch solution
+            //try
+            //{
+            //    Order order = _ordersDb.Find(x => x.Id == id);
+            //    ViewBag.Title = $"This is order no. {order.Id}";
+            //    if (order != null) return View(order);
+            //}
+            //catch
+            //{
+            //    return RedirectToAction("Index");
+            //}
+            //return RedirectToAction("Index");
+            #endregion
+            #region Redirecting to a different controller
+            //return RedirectToAction("Index", "Home");
+            #endregion
         }
     }
 }
