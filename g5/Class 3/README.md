@@ -25,9 +25,9 @@ In order to send a model to a view we create an object from the class representi
 ```csharp
 public IActionResult Index()
 {
-    User person = new User() { FirstName = "Bob", LastName = "Bobsky", Address = "Bob Street", Phone = 0800234234 };
+	User person = new User() { FirstName = "Bob", LastName = "Bobsky", Address = "Bob Street", Phone = 0800234234 };
 	Order order = new Order(){ Id = 12, User = person, Pizza = "Kapri", Price = 10.5 };
-    return View(order);
+	return View(order);
 }
 ```
 ### Intercepting ( View ) 🔽
@@ -51,11 +51,11 @@ ViewData is a special Dictionary that can be accessed in the controller as well 
 // Controller
 public IActionResult Index()
 {
-    User person = new User() { FirstName = "Bob", LastName = "Bobsky", Address = "Bob Street", Phone = 0800234234 };
+	User person = new User() { FirstName = "Bob", LastName = "Bobsky", Address = "Bob Street", Phone = 0800234234 };
 	Order order = new Order(){ Id = 12, User = person, Pizza = "Kapri", Price = 10.5 };
-    ViewData.Add("Title", "Home Page");
-    ViewData.Add("Order", order);
-    return View();
+	ViewData.Add("Title", "Home Page");
+	ViewData.Add("Order", order);
+	return View();
 }
 ```
 ```csharp.cshtml
@@ -76,9 +76,9 @@ public IActionResult Index()
 {
 	User person = new User() { FirstName = "Bob", LastName = "Bobsky", Address = "Bob Street", Phone = 0800234234 };
 	Order order = new Order(){ Id = 12, User = person, Pizza = "Kapri", Price = 10.5 };
-    ViewBag.Title = "Home Page";
-    ViewBag.Order = order;
-    return View();
+	ViewBag.Title = "Home Page";
+	ViewBag.Order = order;
+	return View();
 }
 ```
 ```csharp.cshtml
