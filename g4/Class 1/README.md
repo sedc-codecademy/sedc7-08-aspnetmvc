@@ -11,7 +11,7 @@ When building applications with the MVC design pattern in mind we want to divide
 5. **MODEL** returns data to the **CONTROLLER**
 6. **CONTROLLER** updates the **VIEW**
 7. The user sees the data they requested in the **VIEW**
-![MVC how it works - Animated](https://github.com/sedc-codecademy/sedc7-08-aspnetmvc/blob/master/g4/Class%201/img/class12.gif?raw=true)
+![MVC how it works - Animated](https://github.com/sedc-codecademy/sedc7-08-aspnetmvc/blob/master/g3/Class%201/img/class12.gif?raw=true)
 ### Controller 🔽
 The controller is the middle man of the whole operation. The controller has 2 main responsibilities.
 * Accepting requests from the view ( user interactions ), processing those requests to a suitable format and informing the model of the request
