@@ -1,0 +1,23 @@
+﻿@*@{
+    var pizzas = new List<string>
+        {
+        "capri", "tuna","margarita","pepperoni"
+        };
+        }*@
+<ul>
+    @foreach (var pizza in ViewBag.Pizzas)
+    {
+        <li>@pizza</li>
+    }
+    @this.ViewBag
+</ul>
+@*@functions {
+        public List<string>
+    GetAllPizzas()
+    {
+    return new List<string>
+        {
+        "capri", "tuna","margarita","pepperoni"
+        };
+        }
+        }*@
