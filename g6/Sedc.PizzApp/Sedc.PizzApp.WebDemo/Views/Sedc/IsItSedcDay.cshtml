@@ -1,0 +1,26 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>GetAll</title>
+</head>
+<body>
+    DateTime: @DateTime.Now.ToString("MM/dd/yyyy")
+    
+    <h1>Is it Sedc Day?</h1>
+    
+    @if (DateTime.Now.Day==1&& DateTime.Now.Month==7)
+    {
+        <h2>Yes</h2>
+    }
+    else
+    {
+        <h2>No</h2>
+    }
+</body>
+</html>

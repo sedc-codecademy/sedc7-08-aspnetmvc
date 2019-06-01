@@ -1,0 +1,23 @@
+﻿@model SEDC.App.Models.DomainModels.Order
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <h1>@ViewData["Title"]</h1>
+    <ul>
+        <li>Name: @Model.User.FirstName @Model.User.LastName</li>
+        <li>Address: @Model.User.Address</li>
+        <li>Phone: @Model.User.Phone</li>
+        <li>Pizza: @Model.Pizza</li>
+        <li>Price: @Model.Price</li>
+    </ul>
+</body>
+</html>
