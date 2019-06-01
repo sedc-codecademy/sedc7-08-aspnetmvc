@@ -199,7 +199,17 @@ public class HomeController : Controller
     }
 }
 ```
+### Routing with extra paramters 🔽
+As we can tell from the default router of an ASP.NET Core MVC application, we can access an action by writing the controller name first and then the action name. But we can add an extra parameter as well. This is optional. To use this optional parameter we need to create an action first that accepts a parameter to begin with. This is because C# as a language sees methods with same names but different parameters as different methods. This is why our method that does not wait for anything ( does not have a parameter ) can't catch the requests from the address when we pass in an extra parameter. 
+```csharp
+// id will get the number from the address ( 12 )
+public IActionResult Contact(int? id) // localhost:port/home/contact/12
+{
+	return View();
+}
+```
 ![How a Controller works](https://github.com/sedc-codecademy/sedc7-08-aspnetmvc/blob/master/g5/Class%202/img/class21.png?raw=true)
+
 ## Extra Materials 📘
 * [ASP.NET Core Action Results In Depth](http://hamidmosalla.com/2017/03/29/asp-net-core-action-results-explained/)
 * [Deep Dive in ASP.NET Core Routing](https://stormpath.com/blog/routing-in-asp-net-core)
