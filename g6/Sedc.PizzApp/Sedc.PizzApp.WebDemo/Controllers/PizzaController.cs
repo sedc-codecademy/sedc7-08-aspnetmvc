@@ -13,5 +13,11 @@ namespace Sedc.PizzApp.WebDemo.Controllers
             };
             return View();
         }
+
+
+        public IActionResult TestView()
+        {
+            return View();
+        }
     }
 }
