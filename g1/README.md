@@ -6,10 +6,12 @@ Source code repository for SEDC Code Academy 7.0 8th subject 'ASP.NET MVC' G1 st
 **Xhevat Ibraimi:** <xhevat.ibraimi@gmail.com> <br/>
 **Dejan Blazheki:** <dejan.pblazheski@seavus.com> <br/>
 
-## Useful links
-[**Git Cheatsheet**](https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf)
+# Useful links
+[**What is the concept of MVC?**](https://www.youtube.com/watch?v=fa8eUcu30Lw) <br/>
+[**Git Cheatsheet**](https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf) <br/>
 
-## How to update Visual Studio 2017 with all necessary features ⭐
+## How to update Visual Studio 2017 with all necessary features
+---
 1. Run Visual Studio Installer ( Search for Visual Studio Installer in your start menu )
 ![Visual Studio Installer](https://github.com/sedc-codecademy/sedc7-08-aspnetmvc/blob/master/g5/img/vs1.PNG?raw=true)
 2. Might need to update the installer
