@@ -11,17 +11,17 @@
 </head>
 <body>
     @*@{
-    var pizzas = new List<string>
-        {
-        "capri", "tuna","margarita","pepperoni"
-        };
-        }*@
-        <ul>
-            @foreach (var pizza in ViewBag.Pizzas)
+        var pizzas = new List<string>
             {
+            "capri", "tuna","margarita","pepperoni"
+            };
+            }*@
+    <ul>
+        @foreach (var pizza in ViewBag.Pizzas)
+        {
             <li>@pizza</li>
-            }
-        </ul>
+        }
+    </ul>
 </body>
 </html>
 
