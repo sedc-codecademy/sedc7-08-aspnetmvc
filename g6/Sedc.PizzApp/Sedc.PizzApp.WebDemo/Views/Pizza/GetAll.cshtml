@@ -1,37 +1,27 @@
 ﻿@{
-    Layout = "_MyCustomLayout";
+    Layout = "_PizzaLayout";
 }
 
-<!DOCTYPE html>
+<ul>
+    @foreach (var pizza in ViewBag.Pizzas)
+    {
+        <li>@pizza</li>
+    }
+</ul>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>GetAll</title>
-</head>
-<body>
-    @*@{
+ @*@{
         var pizzas = new List<string>
+    {
+    "capri", "tuna","margarita","pepperoni"
+    };
+    }*@
+    @*@functions {
+            public List<string>
+        GetAllPizzas()
+        {
+        return new List<string>
             {
             "capri", "tuna","margarita","pepperoni"
             };
+            }
             }*@
-    <ul>
-        @foreach (var pizza in ViewBag.Pizzas)
-        {
-            <li>@pizza</li>
-        }
-    </ul>
-</body>
-</html>
-
-@*@functions {
-        public List<string>
-    GetAllPizzas()
-    {
-    return new List<string>
-        {
-        "capri", "tuna","margarita","pepperoni"
-        };
-        }
-        }*@
