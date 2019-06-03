@@ -1,3 +1,7 @@
-# sedc7-08-aspnetmvc
-Source code repository for SEDC Code Academy 7.0 8th subject 'ASP.NET MVC' G2 students exercises.
+# ASP.NET MVC
+
+## Contact
+You can contact us at:
+* **Milica Markova :** markova.milica@gmail.com
+* **Risto Pavlov :** ristopavlov@hotmail.com
 
