@@ -2,36 +2,26 @@
     Layout = "_Layout";
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>GetAll</title>
-</head>
-<body>
-    @*@{
-    var pizzas = new List<string>
-        {
-        "capri", "tuna","margarita","pepperoni"
-        };
-        }*@
-        <ul>
-            @foreach (var pizza in ViewBag.Pizzas)
-            {
-            <li>@pizza</li>
-            }
-        </ul>
-</body>
-</html>
-
-@*@functions {
-        public List<string>
-    GetAllPizzas()
+<ul>
+    @foreach (var pizza in ViewBag.Pizzas)
     {
-    return new List<string>
+        <li>@pizza</li>
+    }
+</ul>
+
+ @*@{
+        var pizzas = new List<string>
+    {
+    "capri", "tuna","margarita","pepperoni"
+    };
+    }*@
+    @*@functions {
+            public List<string>
+        GetAllPizzas()
         {
-        "capri", "tuna","margarita","pepperoni"
-        };
-        }
-        }*@
+        return new List<string>
+            {
+            "capri", "tuna","margarita","pepperoni"
+            };
+            }
+            }*@
