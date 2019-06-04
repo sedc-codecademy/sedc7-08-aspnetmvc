@@ -63,6 +63,16 @@ This is the base agenda for this subject. The agenda is flexible and will evolve
 	* What is an ORM
 	* Introduction to Entity Framework
 	* Entity framework models, relationships and context
+8. Multi Layer Architecture
+	* Repository Pattern
+	* Creating First Repositories
+9. Entity Framework
+	* Object Relational Mapper(ORM)
+	* Some famous ORMs
+	* Entity Framework
+	* DbContext
+	* DbSet<>
+	* DbSet<> Operations
 ## Contact and Communication 📢
 Learning programming and software development is a team effort. This means that we are a team and going through this process we will need to work together so that we can succeed. Communication is a key point in this process so please, give feedback for the lectures and communicate any problems that you might have with us so that we can try and improve the quality of the lectures. You can contact us at:
 * **Milica Markova :** markova.milica@gmail.com
