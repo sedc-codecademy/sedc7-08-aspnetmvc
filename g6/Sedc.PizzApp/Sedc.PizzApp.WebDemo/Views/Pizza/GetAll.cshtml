@@ -1,37 +1,67 @@
-﻿@model List<string>
+﻿@model List<Pizza>
 
 @{
     Layout = "_Layout";
 }
 
-    <ul>
-        @*@foreach (var pizza in ViewBag.Pizzas)
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Pizza pizza in Model)
+        {
+            <tr>
+                <td>#ID</td>
+                <td>@pizza</td>
+                <td>
+                    <a asp-controller="Pizza"
+                       asp-action="Details"
+                       asp-route-id="@pizza.Id"
+                       class="btn btn-info">Details</a>
+                    <a asp-controller="Pizza"
+                       asp-action="Edit"
+                       asp-route-id="@pizza.Id" class="btn btn-warning">Edit</a>
+                    <a asp-controller="Pizza"
+                       asp-action="Delete"
+                       asp-route-id="@pizza.Id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@*<ul>
+        @foreach (var pizza in ViewBag.Pizzas)
         {
             <li>@pizza</li>
-        }*@
-        @*@foreach (var pizza in (IEnumerable<string>)ViewData["pizzas"])
+        }@foreach (var pizza in (IEnumerable<string>)ViewData["pizzas"])
         {
             <li>@pizza</li>
-        }*@
+        }
         @foreach (var pizza in Model)
         {
             <li>@pizza</li>
         }
-    </ul>
+    </ul>*@
 
- @*@{
+@*@{
         var pizzas = new List<string>
     {
     "capri", "tuna","margarita","pepperoni"
     };
     }*@
-    @*@functions {
-            public List<string>
-        GetAllPizzas()
+@*@functions {
+        public List<string>
+    GetAllPizzas()
+    {
+    return new List<string>
         {
-        return new List<string>
-            {
-            "capri", "tuna","margarita","pepperoni"
-            };
-            }
-            }*@
+        "capri", "tuna","margarita","pepperoni"
+        };
+        }
+        }*@

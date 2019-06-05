@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Sedc.PizzApp.WebDemo.Models;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -6,13 +7,16 @@ namespace Sedc.PizzApp.WebDemo.Controllers
 {
     public class PizzaController : Controller
     {
-        private readonly IEnumerable<string> pizzas;
+        private readonly IEnumerable<Pizza> pizzas;
 
         public PizzaController()
         {
-            pizzas = new List<string>
+            pizzas = new List<Pizza>
             {
-                "capri", "tuna","margarita","pepperoni"
+               new Pizza{ Id=1,Name="capri"    },
+               new Pizza{ Id=2,Name="tuna"     },
+               new Pizza{ Id=3,Name="margarita"},
+               new Pizza{ Id=4,Name="pepperoni"},
             };
         }
 
@@ -28,7 +32,7 @@ namespace Sedc.PizzApp.WebDemo.Controllers
             //}
 
             //ViewData["pizzas"] = pizzas;
-            
+
             return View(pizzas.ToList());
         }
 
