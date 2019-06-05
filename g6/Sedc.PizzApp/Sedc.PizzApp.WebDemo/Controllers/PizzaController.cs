@@ -27,9 +27,9 @@ namespace Sedc.PizzApp.WebDemo.Controllers
             //    //enumerator.Current;
             //}
 
-            ViewData["pizzas"] = pizzas;
+            //ViewData["pizzas"] = pizzas;
             
-            return View();
+            return View(pizzas.ToList());
         }
 
         //get pizza that is longer than 4 character

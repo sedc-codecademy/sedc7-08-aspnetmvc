@@ -1,4 +1,6 @@
-﻿@{
+﻿@model List<string>
+
+@{
     Layout = "_Layout";
 }
 
@@ -11,6 +13,10 @@
         {
             <li>@pizza</li>
         }*@
+        @foreach (var pizza in Model)
+        {
+            <li>@pizza</li>
+        }
     </ul>
 
  @*@{
