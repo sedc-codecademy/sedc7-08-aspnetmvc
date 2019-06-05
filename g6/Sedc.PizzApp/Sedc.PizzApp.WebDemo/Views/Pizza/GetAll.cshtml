@@ -2,12 +2,16 @@
     Layout = "_Layout";
 }
 
-<ul>
-    @foreach (var pizza in ViewBag.Pizzas)
-    {
-        <li>@pizza</li>
-    }
-</ul>
+    <ul>
+        @*@foreach (var pizza in ViewBag.Pizzas)
+        {
+            <li>@pizza</li>
+        }*@
+        @*@foreach (var pizza in (IEnumerable<string>)ViewData["pizzas"])
+        {
+            <li>@pizza</li>
+        }*@
+    </ul>
 
  @*@{
         var pizzas = new List<string>

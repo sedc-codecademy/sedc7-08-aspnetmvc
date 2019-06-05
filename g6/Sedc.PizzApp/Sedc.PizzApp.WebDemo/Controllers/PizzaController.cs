@@ -6,12 +6,29 @@ namespace Sedc.PizzApp.WebDemo.Controllers
 {
     public class PizzaController : Controller
     {
-        public IActionResult GetAll()
+        private readonly IEnumerable<string> pizzas;
+
+        public PizzaController()
         {
-            ViewBag.Pizzas = new List<string>
+            pizzas = new List<string>
             {
                 "capri", "tuna","margarita","pepperoni"
             };
+        }
+
+        public IActionResult GetAll()
+        {
+            //TIPP: how foreach works
+            //IEnumerator<string> enumerator = pizzas.GetEnumerator();
+            //enumerator.Reset();
+            //while (enumerator.MoveNext())
+            //{
+            //    //do something with the current value;
+            //    //enumerator.Current;
+            //}
+
+            ViewData["pizzas"] = pizzas;
+            
             return View();
         }
 
@@ -21,7 +38,7 @@ namespace Sedc.PizzApp.WebDemo.Controllers
             ViewBag.Pizzas = new List<string>
             {
                 "capri", "tuna","margarita","pepperoni"
-            }.Where(p=>p.Length > 4);
+            }.Where(p => p.Length > 4);
             return View("~/Views/Pizza/GetAll.cshtml");
         }
 
