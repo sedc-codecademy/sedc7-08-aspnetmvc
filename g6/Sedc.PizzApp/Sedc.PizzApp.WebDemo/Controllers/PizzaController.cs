@@ -7,17 +7,22 @@ namespace Sedc.PizzApp.WebDemo.Controllers
 {
     public class PizzaController : Controller
     {
-        private readonly IEnumerable<Pizza> pizzas;
-
-        public PizzaController()
-        {
-            pizzas = new List<Pizza>
+        private static readonly IEnumerable<Pizza> pizzas= new List<Pizza>
             {
                new Pizza{ Id=1,Name="capri"    },
                new Pizza{ Id=2,Name="tuna"     },
                new Pizza{ Id=3,Name="margarita"},
                new Pizza{ Id=4,Name="pepperoni"},
             };
+
+        public PizzaController()
+        {
+        }
+        
+        public IActionResult Details(int id)
+        {
+            var pizza = pizzas.FirstOrDefault(p=>p.Id == id);
+            return View(pizza);
         }
 
         public IActionResult GetAll()
