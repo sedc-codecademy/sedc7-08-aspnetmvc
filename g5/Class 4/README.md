@@ -196,7 +196,7 @@ For displaying things from the model we can also use Html Helpers. The display H
 @Html.Display("Name")
 // Displaying a property of the Model passed strongly typed
 @Html.DisplayFor(x => x.Name)
-
+```
 ## Extra Materials 📘
 * TutorialsPoint Articles on Views
   * [Layout](https://www.tutorialspoint.com/asp.net_core/asp.net_core_razor_layout_views.htm)

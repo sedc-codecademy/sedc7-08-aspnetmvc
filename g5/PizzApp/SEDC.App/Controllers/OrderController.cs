@@ -48,21 +48,24 @@ namespace SEDC.App.Controllers
                     Id = 1,
                     User = bob,
                     Pizza = kapri,
-                    Price = 10.5
+                    Price = 10.5,
+                    Delivered = true
                 },
                 new Order()
                 {
                     Id = 2,
                     User = bob,
                     Pizza = peperoni,
-                    Price = 8
+                    Price = 8,
+                    Delivered = false
                 },
                 new Order()
                 {
                     Id = 3,
                     User = jill,
                     Pizza = peperoni,
-                    Price = 11.5
+                    Price = 11.5,
+                    Delivered = false
                 }
             };
         }
