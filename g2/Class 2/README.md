@@ -204,3 +204,6 @@ public class HomeController : Controller
 * [ASP.NET Core Action Results In Depth](http://hamidmosalla.com/2017/03/29/asp-net-core-action-results-explained/)
 * [Deep Dive in ASP.NET Core Routing](https://stormpath.com/blog/routing-in-asp-net-core)
 * [ASP.NET Core MVC and Controllers](https://www.youtube.com/watch?v=2n7keI_E8tE)
+* [Layout View](https://www.tutorialsteacher.com/mvc/layout-view-in-asp.net-mvc)
+* [Partial View](https://www.tutorialsteacher.com/mvc/partial-view-in-asp.net-mvc)
+* [Razor Syntax](https://www.tutorialsteacher.com/mvc/razor-syntax)
