@@ -1,4 +1,4 @@
-﻿
+﻿@model List<string>
 @{
     Layout = null;
 }
@@ -11,22 +11,34 @@
     <title>GetAll</title>
 </head>
 <body>
-    @{
-        var listOfPizzas = new List<string>
-{
-            "capri", "tono","margarita", "napolitana"
-        };
-    }
-    <h1>All Pizzas:</h1>
-    <h3>There are @listOfPizzas.Count pizzas in total:</h3>
+    @*@{
+            var listOfPizzas = new List<string>
+            {
+                "capri", "tono","margarita", "napolitana"
+            };
+        }*@
+
+    <h1>Hi @ViewBag.Username, please choose a pizza:</h1>
+    <h3>There are @Model.Count pizzas in total:</h3>
     <ul>
         @{
-            var i = 0;
-            while (i < listOfPizzas.Count)
+            foreach (var item in Model)
             {
-                <li>@listOfPizzas[i++]</li>
+                <li>@item</li>
             }
         }
+        @*@{
+            foreach (var item in ViewBag.pizzas)
+            {
+                <li>@item</li>
+            }
+        }
+        @{
+            foreach (var item in (IEnumerable<string>)ViewData["pizzas"])
+            {
+                <li>@item</li>
+            }
+        }*@
     </ul>
 </body>
 </html>
