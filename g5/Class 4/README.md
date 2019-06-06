@@ -65,7 +65,7 @@ With this we can write if statements, for statements and almost all features C# 
 <h4>Time:</h4>
 <p>@DateTime.Now</p>
 ```
-#### If statement in a View 🔽
+#### If statement in a View
 ```csharp cshtml
 @if (!Model.Delivered)
 {
@@ -196,3 +196,11 @@ For displaying things from the model we can also use Html Helpers. The display H
 @Html.Display("Name")
 // Displaying a property of the Model passed strongly typed
 @Html.DisplayFor(x => x.Name)
+
+## Extra Materials 📘
+* TutorialsPoint Articles on Views
+  * [Layout](https://www.tutorialspoint.com/asp.net_core/asp.net_core_razor_layout_views.htm)
+  * [ViewStart](https://www.tutorialspoint.com/asp.net_core/asp.net_core_razor_view_start.htm)
+  * [ViewImport](https://www.tutorialspoint.com/asp.net_core/asp.net_core_razor_view_import.htm)
+* [Microsoft on Partial Views](https://docs.microsoft.com/en-us/aspnet/core/mvc/views/partial?view=aspnetcore-2.1)
+* [Quick Refference to Razor Syntax](https://haacked.com/archive/2011/01/06/razor-syntax-quick-reference.aspx/)
