@@ -125,8 +125,8 @@ ViewBag.Title  =  "Home"; // Changing the ViewBag.Title (shows in the layout)
 Layout  =  "~/Views/Shared/_Layout.cshtml"; // Using the layout to this view
 }
 ```
-### ViewStart and ViewImport 🔽
-ViewStart and ViewImport are views that affect all the views that we create in our ASP.NET application. They are not imported or used. If the framework finds them it uses them automatically. They are placed directly in the Views folder. Both of these views start with an **_** before their names. 
+### ViewStart and ViewImports 🔽
+ViewStart and ViewImports are views that affect all the views that we create in our ASP.NET application. They are not imported or used. If the framework finds them it uses them automatically. They are placed directly in the Views folder. Both of these views start with an **_** before their names. 
 #### ViewStart
 When we want to use the same code in every view that we create we use the ViewStart view. In it we can write some code and the razor engine will execute that code upon every loading of any view. Usually in this view we write code that is repeating on every view such as adding a layout.
 ```csharp cshtml
@@ -135,8 +135,8 @@ When we want to use the same code in every view that we create we use the ViewSt
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 ```
-#### ViewImport
-As by the name, ViewImport is a view where we store all our imports for every view that we create. This is a view where we usually write using statements that we need in all of our views. For instance if we need a using statement to our models we create a using statement in the ViewImport to the folder Models so that we don't have to write the whole namespace when importing models in our views.
+#### ViewImports
+As by the name, ViewImports is a view where we store all our imports for every view that we create. This is a view where we usually write using statements that we need in all of our views. For instance if we need a using statement to our models we create a using statement in the ViewImports to the folder Models so that we don't have to write the whole namespace when importing models in our views.
 ```csharp cshtml
 using SEDC.PizzApp.Models
 ```
