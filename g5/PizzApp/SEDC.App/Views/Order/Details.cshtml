@@ -1,6 +1,11 @@
 ﻿@model SEDC.App.Models.DomainModels.Order
 @{
     Layout = null;
+    string status = "The order is not yet delivered. Please be patient.";
+    if (Model.Delivered)
+    {
+        status = "The order is delivered";
+    }
 }
 
 <!DOCTYPE html>
@@ -18,6 +23,8 @@
         <li>Phone: @Model.User.Phone</li>
         <li>Pizza: @Model.Pizza.Name</li>
         <li>Price: @Model.Price</li>
+        <li>Status: @status</li>
+        
     </ul>
 </body>
 </html>
