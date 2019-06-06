@@ -207,7 +207,7 @@ public IActionResult Contact(int? id) // localhost:port/home/contact/12
 	return View();
 }
 ```
-![How a Controller works](https://github.com/sedc-codecademy/sedc7-08-aspnetmvc/blob/master/g1/Class%203/img/class21.png?raw=true)
+![How a Controller works](https://github.com/sedc-codecademy/sedc7-08-aspnetmvc/blob/master/g1/Class%202/img/class21.png?raw=true)
 ## Extra Materials 📘
 * [ASP.NET Core Action Results In Depth](http://hamidmosalla.com/2017/03/29/asp-net-core-action-results-explained/)
 * [Deep Dive in ASP.NET Core Routing](https://stormpath.com/blog/routing-in-asp-net-core)
