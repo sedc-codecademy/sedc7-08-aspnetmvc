@@ -1,0 +1,25 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>GetAll</title>
+</head>
+<body>
+    <p>What time is it?</p>
+    Tochno e: @(System.DateTime.Now.ToString())
+    @if (System.DateTime.Now.Date == new DateTime(day: 7, month: 1, year: 2020))
+    {
+        <h1>It Is</h1>
+    }
+    else
+    {
+        <h1>It Is Not</h1>
+    }
+</body>
+</html>
