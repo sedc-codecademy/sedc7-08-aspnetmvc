@@ -5,6 +5,10 @@ namespace Sedc.PizzApp.WebDemo.Controllers
 {
     public class PizzaController : Controller
     {
+        public IActionResult Index()
+        {
+            return View();
+        }
         public IActionResult GetAll()
         {
             //get from database
