@@ -6,6 +6,14 @@ Welcome to the ASP.NET MVC Subject. Through out this subject we will learn to cr
 3. Knowledge of manipulating databases using MSSQL
 4. Installed Visual Studio 2017
 5. [Updated Visual Studio 2017 with all necessary features](https://github.com/sedc-codecademy/sedc7-08-aspnetmvc/blob/master/g5/AddVisualStudioFeatures.md)
+## Books, NewsLetters and Materials
+* [Weekly Newsletter about C#](https://csharpdigest.net/?utm_source=medium&utm_medium=blog&utm_campaign=how+to+keep+up+to+date+csharp)
+* [Visual Studio Magazine](https://visualstudiomagazine.com/Home.aspx)
+* [DotNet Podcast](https://www.dotnetrocks.com/)
+* [dev.to C# Section](https://dev.to/t/csharp)
+* [dev.to .NET Section](https://dev.to/t/dotnet)
+* [A great book about C#](https://www.bookdepository.com/C--in-Depth--4E/9781617294532)
+* [A great book about ASP.NET MVC Core](https://www.bookdepository.com/ASP-NET-Core-Action-Andrew-Lock/9781617294617)
 ## Agenda 🎯
 This is the base agenda for this subject. The agenda is flexible and will evolve and change based on the progress that we make through out the classes. 
 1. Building Web-Sites
