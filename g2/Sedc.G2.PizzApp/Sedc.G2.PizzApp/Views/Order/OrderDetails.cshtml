@@ -1,0 +1,15 @@
+﻿@model OrderModel
+@{
+    ViewData["Title"] = "OrderDetails";
+}
+
+<h2>OrderDetails</h2>
+
+<div class="form-control" style="height: 300px">
+    <div class="form-control-static">Order ID: @Html.Label(Model.Id.ToString())</div>
+    <div class="form-control-static">Order Name: @Html.Label(Model.OrderName)</div>
+    <div class="form-control-static">Pizza: @Html.Label(Model.Pizza)</div>
+    <div class="form-control-static">Quantity: @Html.Label(Model.Quantity.ToString())</div>
+    <div class="form-control-static">Price: @Html.Label(Model.Price.ToString())</div>
+    <div class="form-control-static">User: @Html.Label(Model.User ?? string.Empty)</div>
+</div>

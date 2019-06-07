@@ -1,0 +1,16 @@
+﻿@model PizzaModel
+@{
+    ViewData["Title"] = "Pizza Details";
+}
+
+<h2>PizzaDetails</h2>
+<h3>@Html.ActionLink("Back", "Index")</h3><br />
+<div class="body-content">
+    <div>
+        <div class="form-control-static">ID: <strong>@Model.Id</strong></div>
+        <div class="form-control-static">Name: <strong>@Model.Name</strong></div>
+        <div class="form-control-static">Description: <strong>@Model.Description</strong></div>
+        <div class="form-control-static">Size: <strong>@Model.Size</strong></div>
+        <div class="form-control-static">Price: <strong>@Model.Price</strong></div>
+    </div>
+</div>
