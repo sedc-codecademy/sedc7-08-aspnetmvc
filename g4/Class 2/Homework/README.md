@@ -6,4 +6,4 @@ In the Pizza Hut project from class:
 	* See employee details. 
 * Use ViewBag, ViewData and TempData to pass some data to View.
 
- **Bonus** Create action with View for Creating new employee.
+ **Bonus** Create action with View for Creating new employee..
