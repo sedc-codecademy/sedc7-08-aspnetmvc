@@ -1,0 +1,20 @@
+﻿@model Order
+@{
+    string status = "The order is not yet delivered. Please be patient.";
+    if (Model.Delivered)
+    {
+        status = "The order is delivered";
+    }
+    ViewBag.Title = "Details";
+}
+
+<h1>@ViewData["Title"]</h1>
+<ul>
+    <li>Name: @Model.User.FirstName @Model.User.LastName</li>
+    <li>Address: @Model.User.Address</li>
+    <li>Phone: @Model.User.Phone</li>
+    <li>Pizza: @Model.Pizza.Name</li>
+    <li>Price: @Model.Price</li>
+    <li>Status: @status</li>
+        
+</ul>

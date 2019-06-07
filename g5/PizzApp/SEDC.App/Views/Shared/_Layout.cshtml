@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title - PizzApp</title>
+    <link rel="stylesheet" href="~/css/site.css"/>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                @*<li><a href="#"></a></li>*@
+                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                @*<li><a href="#/Home/Contact"></a></li>*@
+                <li>@Html.ActionLink("About Us", "AboutUs", "Home")</li>
+                @*<li><a href="#/Home/AboutUs"></a></li>*@
+                <li>@Html.ActionLink("Orders", "Index", "Order")</li>
+                @*<li><a href="#/orders"></a></li>*@
+            </ul>
+        </nav>
+    </header>
+    @RenderBody()
+    <footer>
+        <p>&copy;PizzApp</p>
+        <p>All rights reserved</p>
+    </footer>
+    <script src="~/js/site.js"></script>
+</body>
+</html>

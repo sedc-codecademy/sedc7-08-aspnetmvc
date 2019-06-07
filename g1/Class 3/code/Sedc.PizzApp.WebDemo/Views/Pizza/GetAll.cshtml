@@ -1,0 +1,34 @@
+﻿@model List<string>
+@{
+    Layout = "_Layout";
+}
+
+@*@{
+        var listOfPizzas = new List<string>
+        {
+            "capri", "tono","margarita", "napolitana"
+        };
+    }*@
+
+<h1>Hi @ViewBag.Username, please choose a pizza:</h1>
+<h3>There are @Model.Count pizzas in total:</h3>
+<ul>
+    @{
+        foreach (var item in Model)
+        {
+            <li>@item</li>
+        }
+    }
+    @*@{
+            foreach (var item in ViewBag.pizzas)
+            {
+                <li>@item</li>
+            }
+        }
+        @{
+            foreach (var item in (IEnumerable<string>)ViewData["pizzas"])
+            {
+                <li>@item</li>
+            }
+        }*@
+</ul>

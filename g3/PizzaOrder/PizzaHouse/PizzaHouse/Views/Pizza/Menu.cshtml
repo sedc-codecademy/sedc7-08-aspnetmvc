@@ -1,0 +1,59 @@
+﻿@using System.Globalization
+@model Menu
+
+@{
+    ViewData["Title"] = "Menu";
+}
+
+<h2>@Model.RestaurantName</h2>
+
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Pizza</th>
+                @{
+                    foreach (var size in Model.Sizes)
+                    {
+                        <th>@size.ToString()</th>
+                    }
+                }
+            </tr>
+        </thead>
+        @*<tbody>
+            @{
+                foreach (var pizza in Model.PizzasList)
+                {
+            <tr>
+                <td>
+                    <h4>@pizza.Name</h4>
+                    <p>@pizza.Description</p>
+                </td>
+                <td>@pizza.GetPrice(SizeEnum.Small).ToString("C", new CultureInfo("mk-MK"))</td>
+                <td>@pizza.GetPrice(SizeEnum.Medium).ToString("C", new CultureInfo("mk-MK"))</td>
+                <td>@pizza.GetPrice(SizeEnum.Large).ToString("C", new CultureInfo("mk-MK"))</td>
+            </tr>
+                }
+            }
+        </tbody>*@
+        
+        <tbody>
+           @{ 
+               foreach (var pizza in Model.PizzasList)
+               {
+            <tr>
+                <td>
+                    <h4>@pizza.Name</h4>
+                    <p>@pizza.Description</p>
+                </td>
+                <td>@pizza.GetPrice(SizeEnum.Small).ToString("C", new CultureInfo("mk-Mk"))</td>
+                <td>@pizza.GetPrice(SizeEnum.Medium).ToString("C", new CultureInfo("mk-Mk"))</td>
+                <td>@pizza.GetPrice(SizeEnum.Large).ToString("C", new CultureInfo("mk-Mk"))</td>
+            </tr>
+               }
+           }
+        </tbody>
+    </table>
+</div>
+
+

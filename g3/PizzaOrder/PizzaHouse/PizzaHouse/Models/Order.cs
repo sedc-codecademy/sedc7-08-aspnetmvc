@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace PizzaHouse.Models
 {
@@ -7,26 +9,18 @@ namespace PizzaHouse.Models
     {
         public User User { get; set; }
         public List<OrderItem> OrderItems { get; set; }
-        public DateTime OrderDate { get; set; }
+
         public int TotalPrice
         {
             get
             {
-                var totalSum = 0;
-
+                int totalSum = 0;
                 foreach (var item in OrderItems)
                 {
                     totalSum += item.Pizza.GetPrice(item.Size) * item.Quantity;
                 }
-
                 return totalSum;
             }
-        }
-
-        public Order(User user, List<OrderItem> orderItems)
-        {
-            User = user;
-            OrderItems = orderItems;
         }
     }
 }
