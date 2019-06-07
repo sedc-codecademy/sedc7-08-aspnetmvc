@@ -10,4 +10,4 @@
 
 5. Create views for each action method 
 
-### Bonus: Create a View that will contain form using the HTML Helpers
+### Bonus: Create Partial View that will contain component using the HTML Helpers
