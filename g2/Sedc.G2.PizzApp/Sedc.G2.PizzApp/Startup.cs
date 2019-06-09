@@ -54,13 +54,10 @@ namespace Sedc.G2.PizzApp
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
-            });
 
-            app.UseMvc(routes =>
-            {
                 routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    name: "SaveRoute",
+                    template: "{action}");
             });
         }
     }
