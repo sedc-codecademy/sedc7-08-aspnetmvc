@@ -228,6 +228,6 @@ public IActionResult Register(RegisterViewModel model)
 }
 ```
 ## Extra Materials 📘
-[Posting data from html to mvc core controller](https://jonhilton.net/2017/08/17/how-to-get-data-from-an-html-form-to-your-asp.net-mvc-core-controller/)
-[Good article on HTML Helpers](https://www.c-sharpcorner.com/article/html-helpers-in-Asp-Net-mvc/)
+* [Posting data from html to mvc core controller](https://jonhilton.net/2017/08/17/how-to-get-data-from-an-html-form-to-your-asp.net-mvc-core-controller/)
+* [Good article on HTML Helpers](https://www.c-sharpcorner.com/article/html-helpers-in-Asp-Net-mvc/)
 
