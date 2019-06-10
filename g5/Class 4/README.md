@@ -1,4 +1,4 @@
-# Views 🍰
+# Views part 1 🍰
 The views in ASP.NET MVC are the main and only interface from which a user can interact with the application. Views in ASP.NET are basically HTML pages with an integrated engine that helps manipulate, integrate and bind the view and it's contents with the back-end part of  the application using C# code. This is why the extension to the views is cshtml. Views are always added in the Views folder of the ASP.NET application, views for certain controllers are added in a folder with the controller name ( without controller ) and views that are shared between multiple controllers and actions are added in a folder named Shared. The application can easily find it's way to the views if they are properly named and in the correctly positioned and named folder. 
 ## Razor Engine 🔹
 The Razor View Engine is the engine that allows us to write C# in our HTML page directly and help us build and connect pages to the back-end of our application quickly and easily. The Razor View Engine has a lot of features. To access the Razor syntax we use the @ sign. We can access that way
