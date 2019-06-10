@@ -1,4 +1,4 @@
-## Views part 2 🍰
+# Views part 2 🍰
 ## HTML Helpers 🔹
 HTML Helpers are helper methods from the razor engine that we can call with a few parameters. After calling these methods, they generate HTML code tailored to the data passed as a parameter. With these methods we can do almost anything in our HTML view within a function call. There are HTML helpers for almost everything such as generic lings to other routes, binding labels to our model, binding input fields to our model, creating forms with submit functionality to the right address etc. 
 ### Links 🔽
