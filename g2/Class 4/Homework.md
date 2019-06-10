@@ -4,7 +4,7 @@
 
 Use homework from [Class 2](https://github.com/sedc-codecademy/sedc7-08-aspnetmvc/blob/master/g2/Class%202/Homework.md) and [Class 3](https://github.com/sedc-codecademy/sedc7-08-aspnetmvc/blob/master/g2/Class%203/Homework.md) (homwork added at the buttom of this page) to complete following steps:
 
-1. Create Action method for downloading a file (use any file for download)
+1. Create Action method for downloading a file (you can use any file for download)
 
 2. Create custom route that will be used for this Action method
 
