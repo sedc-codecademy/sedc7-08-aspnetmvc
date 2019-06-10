@@ -4,13 +4,10 @@
 
 Use homework from [Class 2](https://github.com/sedc-codecademy/sedc7-08-aspnetmvc/blob/master/g2/Class%202/Homework.md) and [Class 3](https://github.com/sedc-codecademy/sedc7-08-aspnetmvc/blob/master/g2/Class%203/Homework.md) (homwork added at the buttom of this page) to complete following steps:
 
-1. Create model for movies with some default properties
+1. Create Action method for downloading a file
 
-2. Create view that will display moview previously saved in static list
+2. Create custom route that will be used for this Action method
 
-3. Create 2 additional views "Add" and "Edit".
-
-4. Add the logic in action methods for Add and Edit
 
 ### Bonus: Create custom route that will be used for action method for downloading some file
 ----------------------------------------------------------------------------------
