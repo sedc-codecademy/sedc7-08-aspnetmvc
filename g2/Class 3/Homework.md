@@ -1,7 +1,7 @@
 
 # Homework
 
-Use homework from [Class 2](https://github.com/sedc-codecademy/sedc7-08-aspnetmvc/blob/master/g2/Class%202/Homework.md) *(homwork added at the buttom of this page) to complete following steps:
+Use homework from [Class 2](https://github.com/sedc-codecademy/sedc7-08-aspnetmvc/blob/master/g2/Class%202/Homework.md) (homwork added at the buttom of this page) to complete following steps:
 
 1. Create model for movies with some default properties
 
