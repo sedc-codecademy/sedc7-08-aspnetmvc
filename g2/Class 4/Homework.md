@@ -14,7 +14,7 @@ Use homework from [Class 2](https://github.com/sedc-codecademy/sedc7-08-aspnetmv
 
 ### Bonus: Create custom route that will be used for action method for downloading some file
 ----------------------------------------------------------------------------------
-##### Homework from Class 2 & Class 2
+##### Homework from Class 2 & Class 3
 1. Create MVC Project named MovieStore using the Asp.net Core MVC pattern
 
 2. Make changes in the layout page...fell free to make design as you wish compatible with Movie store application 
