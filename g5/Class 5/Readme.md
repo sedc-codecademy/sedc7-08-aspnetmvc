@@ -1,7 +1,7 @@
-## Views part 2
-## HTML Helpers
+## Views part 2 🍰
+## HTML Helpers 🔹
 HTML Helpers are helper methods from the razor engine that we can call with a few parameters. After calling these methods, they generate HTML code tailored to the data passed as a parameter. With these methods we can do almost anything in our HTML view within a function call. There are HTML helpers for almost everything such as generic lings to other routes, binding labels to our model, binding input fields to our model, creating forms with submit functionality to the right address etc. 
-### Links
+### Links 🔽
 The link html helper is a helper that lets us create links to our routes in our MVC application by adding our action and even controller name as parameters. The razor engine will generate an HTML element that represents link and that in the attributes has the right address to the action in question.
 ##### Razor View
 ```csharp cshtml
@@ -19,7 +19,7 @@ The link html helper is a helper that lets us create links to our routes in our 
 <!-- Third example -->
 <a href="/Orders/Order/0">To First Item</a>
 ```
-### Display
+### Display 🔽
 For displaying things from the model we can also use Html Helpers. The display HTML helper lets us display a string in our views by requesting the name as a string ( loosely typed ) or requesting it by a lambda ( strongly typed )
 ##### Razor View
 ```csharp cshtml
@@ -33,7 +33,7 @@ For displaying things from the model we can also use Html Helpers. The display H
 <!-- Only text is printed -->
 Bob Bobsky
 ```
-### Label
+### Label 🔽
 When adding a label for a property we use the Label HTML helper. This helper creates a label html tag with the content of the name of the property. Unlike Display Html Helper this helper creates a HTML element. The default value will always be the name of the property, but this can be changed by adding annotation to the properties in the class. 
 ##### Razor View
 ```csharp cshtml
@@ -46,7 +46,7 @@ When adding a label for a property we use the Label HTML helper. This helper cre
 ```html
 <label for="Name">Name</label>
 ```
-### TextBox
+### TextBox 🔽
 The TextBox helper is the helper for creating and binding input fields with values. This helper is used when we want to create an input and the value that will be added in that input to be bound to some property of the model. This helper creates an input parameter with all the attributes automatically to bind the property that was added. This means that if that property has a value on the start of the page, that value will be written in the input field. If the input field is changed and the data is posted back to the back-end the value of that property will also be changed. 
 ##### Razor View
 ```csharp cshtml
@@ -62,7 +62,7 @@ The TextBox helper is the helper for creating and binding input fields with valu
 <!-- If there is no value for the property -->
 <input id="Name" name="Name" type="text" value="">
 ```
-### DropDownList
+### DropDownList 🔽
 Drop down lists can also be created with a Html Helper. There are two ways of creating a drop down list. The hard way is to create a SelectList with SelectListItems ( like a dictionary with the values and keys for the drop down ) and send that to the view. The easier way is to just send an enum to the view and all the values from the enum will be generated with the html helper. 
 ##### Razor View
 ```csharp cshtml
@@ -88,7 +88,7 @@ Drop down lists can also be created with a Html Helper. There are two ways of cr
 	<option value="3">Family</option>
 </select>
 ```
-### HiddenField
+### HiddenField 🔽
 The hidden field helper is used a lot and it's main objective is to send data that the user does not need to see on the screen. Since the back-end does not know from where the model came from, we must send data to identify models that we send to views. The properties that we send for identifying the model later are stored in these hidden fields. Data like this is an Id of some object or some status that we need to keep and send back to the back-end application with the model. Hidden fields is basically an input that is not displayed.
 ##### Razor View
 ```csharp cshtml
@@ -102,7 +102,7 @@ The hidden field helper is used a lot and it's main objective is to send data th
 <!-- Will not show for the user. No need for extra css or js -->
 <input id="FirstName" name="FirstName" type="hidden" value="Dragan">
 ```
-## Forms
+## Forms 🔹
 In order to send some data back to the back-end we need to add all our data in to a form. Basically all the TextBoxes that are bound to some properties need to be in a form so we can send them back. There is a HTML helper for a form that automatically knows which path to post to and detects the inputs that are bound with the model. When using this helper we just write TextBoxes in it that are bound to the model properties and a submit button or input. The rest is already set by the helper. The helper posts back to an action in the current controller that has the same name as the action that called the view and has the [HttpPost] attribute
 #### With Helper
 ##### Razor View
@@ -130,10 +130,10 @@ In order to send some data back to the back-end we need to add all our data in t
 	<button type="submit"> Submit </button>
 </form>
 ```
-## Model attributes
+## Model attributes 🔹
 In the model we can decorate the properties with attributes to get an extra layer of data for our properties. This means that we can add some extra significance on the properties and the razor engine will treat them differently or add some extra data when necessary. These attributes are added above the properties and can be used for validating, displaying different names and pointing out how to be mapped in a database.
 
-### Display attribute
+### Display attribute 🔽
 The display attribute basically changes the name of the property so that every time the name of the property is used, instead of the code name ( Ex. FirstName ) we get a different name ( Ex. First name of user ). This helps us when putting labels for our properties. If we decorate our properties with a Display property the label will be displayed in the way we wanted, but the name of the property in the code will stay the same. Attributes related to the database are usually added in the domain models and the ones that affect how the properties are displayed are added in the view models
 ##### In model 
 ```csharp
@@ -161,7 +161,7 @@ public class RegisterViewModel
 <label for="LastName">Last name of user</label>
 <input id="LastName" name="LastName" type="text" value="">
 ```
-## Sending form data to controller
+## Sending form data to controller 🔹
 Sending data from controller to a view is pretty easy. We just return a View() and add the model as a parameter. But in order to return data from the view to a controller back we need a few extra steps. First we need to create an action with the same name as the action that returned the view in the first place. This new action will accept the model that we are sending to the view ( the same model that we will return back from the view ) and has the [HttpPost] attribute. If we have a form and a submit button on the view, ASP.NET will know how to connect and submit the form to the Post action that we created by the name of the actions being the same
 ##### In model
 ```csharp
@@ -218,7 +218,7 @@ public IActionResult Register(RegisterViewModel model)
 <h1> Register </h1>
 @using(Html.BeginForm())
 {
-	@Html.LabelFor(x => x.FirstName)
+	@H`tml.LabelFor(x => x.FirstName)
     @Html.TextBoxFor(x => x.FirstName)
     <br/>
     @Html.LabelFor(x => x.LastName)
@@ -227,7 +227,7 @@ public IActionResult Register(RegisterViewModel model)
     <button type="submit"> Submit </button>
 }
 ```
-## Extra Materials
+## Extra Materials 📘
 [Posting data from html to mvc core controller](https://jonhilton.net/2017/08/17/how-to-get-data-from-an-html-form-to-your-asp.net-mvc-core-controller/)
 [Good article on HTML Helpers](https://www.c-sharpcorner.com/article/html-helpers-in-Asp-Net-mvc/)
 
