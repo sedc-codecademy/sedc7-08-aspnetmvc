@@ -9,5 +9,10 @@ namespace PizzaHouse.Data
         {
             return Storage.RestaurantMenu;
         }
+
+        public void Create(Pizza pizza)
+        {
+            Storage.Pizzas.Add(pizza);
+        }
     }
 }

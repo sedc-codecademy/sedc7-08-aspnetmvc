@@ -7,13 +7,15 @@ namespace PizzaHouse.Models
 {
     public class Pizza
     {
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public List<Ingredient> Ingredients { get; set; }
         private readonly int _price;
 
-        public Pizza(string name, string description,List<Ingredient> ingredients, int price)
+        public Pizza(int id, string name, string description,List<Ingredient> ingredients, int price)
         {
+            Id = id;
             Name = name;
             Description = description;
             Ingredients = ingredients;

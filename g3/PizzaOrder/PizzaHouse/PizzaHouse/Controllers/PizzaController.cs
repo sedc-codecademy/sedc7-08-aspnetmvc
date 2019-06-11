@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using PizzaHouse.Models;
 using PizzaHouse.Services;
+using PizzaHouse.ViewModels;
 
 namespace PizzaHouse.Controllers
 {
-    //[Route("pizzahouse")]
     public class PizzaController : Controller
     {
         private readonly IPizzaService _pizzaService;
@@ -18,13 +14,29 @@ namespace PizzaHouse.Controllers
             _pizzaService = pizzaService;
         }
 
-
-
-        //[Route("menu")]
         public IActionResult Menu()
         {
             Menu menu = _pizzaService.GetMenu();
             return View(menu);
+        }
+
+        [HttpGet]
+        public IActionResult Create()
+        {
+            var pizza = new PizzaViewModel();
+            return View(pizza);
+        }
+
+        [HttpPost]
+        public IActionResult Create(PizzaViewModel pizza)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(pizza);
+            }
+
+            _pizzaService.CreatePizza(pizza);
+            return RedirectToAction("Menu", "Pizza");
         }
     }
 }

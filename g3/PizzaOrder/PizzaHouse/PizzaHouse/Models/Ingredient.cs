@@ -7,11 +7,13 @@ namespace PizzaHouse.Models
 {
     public class Ingredient
     {
+        public int Id { get; set; }
         public string Name { get; set; }
         public List<string> Allergens { get; set; }
 
-        public Ingredient(string name, List<string> allergens)
+        public Ingredient(int id, string name, List<string> allergens)
         {
+            Id = id;
             Name = name;
             Allergens = allergens;
         }
