@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using SEDC.App.Models.DomainModels;
+using SEDC.App.Models.Enums;
 using SEDC.App.Models.ViewModels;
 
 namespace SEDC.App.Controllers
@@ -32,14 +33,14 @@ namespace SEDC.App.Controllers
                 Id = 1,
                 Name = "Kapri",
                 Price = 9,
-                Size = "Large"
+                Size = PizzaSize.Large
             };
             Pizza peperoni = new Pizza()
             {
                 Id = 2,
                 Name = "Peperoni",
                 Price = 7,
-                Size = "Medium"
+                Size = PizzaSize.Medium
             };
             _ordersDb = new List<Order>()
             {
@@ -115,6 +116,18 @@ namespace SEDC.App.Controllers
             #region Redirecting to a different controller
             //return RedirectToAction("Index", "Home");
             #endregion
+        }
+        [HttpGet("Order")]
+        public IActionResult Order()
+        {
+            OrderViewModel model = new OrderViewModel();
+            return View(model);
+        }
+
+        [HttpPost("Order")]
+        public IActionResult Order(OrderViewModel model)
+        {
+            return View("_ThankYou");
         }
     }
 }

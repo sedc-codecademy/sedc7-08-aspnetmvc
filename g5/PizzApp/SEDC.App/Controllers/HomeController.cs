@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using SEDC.App.Models.DomainModels;
+using SEDC.App.Models.Enums;
 
 namespace SEDC.App.Controllers
 {
@@ -18,7 +19,7 @@ namespace SEDC.App.Controllers
                 Id = 1,
                 Name = "Margarita",
                 Price = 7,
-                Size = "Medium"
+                Size = PizzaSize.Medium
             };
         }
         //[Route("Begin")]
