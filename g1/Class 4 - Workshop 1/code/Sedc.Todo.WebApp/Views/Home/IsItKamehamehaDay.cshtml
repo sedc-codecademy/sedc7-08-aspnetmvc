@@ -1,0 +1,25 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>IsItKamehamehaDay</title>
+</head>
+<body>
+    <p>What time is it?</p>
+    The current time is: @(DateTime.Now.ToString())
+    @if (DateTime.Now.Date == new DateTime(day: 11, month: 6, year: 2019))
+    {
+        <h1>Today is Kamehameha day! Yay!</h1>
+    }
+    else
+    {
+        <h1>Today is NOT Kamehameha day! Boo!</h1>
+    }
+</body>
+</html>
