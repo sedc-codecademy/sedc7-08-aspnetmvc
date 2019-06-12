@@ -4,11 +4,7 @@
     Layout = "_Layout";
 }
 
-create pizza:
-    <form action="/pizza/create" method="post">
-        <input type="text" name="Name" placeholder="Name" />
-        <input type="submit" value="create user" />
-    </form>
+<a class="btn btn-info" asp-controller="Pizza" asp-action="Create">Create Pizza</a>
 
 <table class="table table-striped">
     <thead>
@@ -22,8 +18,8 @@ create pizza:
         @foreach (Pizza pizza in Model)
         {
             <tr>
-                <td>#ID</td>
-                <td>@pizza</td>
+                <td>@pizza.Id</td>
+                <td>@pizza.Name</td>
                 <td>
                     <a asp-controller="Pizza"
                        asp-action="Details"
