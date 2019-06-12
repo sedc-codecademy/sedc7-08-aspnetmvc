@@ -1,0 +1,13 @@
+﻿@model List<OrderModel>
+@{
+    ViewData["Title"] = "Orders";
+}
+
+<h2>Orders</h2>
+
+<div class="form-control" style="height: 200px">
+    @foreach (var order in Model)
+    {
+        <span>@Html.Label(order.OrderName) - @Html.ActionLink("details", "OrderDetails", new { id = order.Id })</span> <br />
+    }
+</div>

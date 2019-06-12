@@ -1,17 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace PizzaHouse.Models
 {
     public class Pizza
     {
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public List<Ingredient> Ingredients { get; set; }
         private readonly int _price;
 
-        public Pizza(string name, string description, List<Ingredient> ingredients, int price)
+        public Pizza(int id, string name, string description,List<Ingredient> ingredients, int price)
         {
+            Id = id;
             Name = name;
             Description = description;
             Ingredients = ingredients;
@@ -25,11 +29,11 @@ namespace PizzaHouse.Models
                 case SizeEnum.Small:
                     return _price;
                 case SizeEnum.Medium:
-                    return (int) Math.Ceiling(_price * 1.2);
+                    return (int)Math.Ceiling(_price * 1.2);
                 case SizeEnum.Large:
                     return (int)Math.Ceiling(_price * 1.4);
                 default:
-                    throw new ArgumentException($"We do not have specified price for this size {size.ToString()}");
+                    return (int)Math.Ceiling(_price * 1.2);
             }
         }
     }

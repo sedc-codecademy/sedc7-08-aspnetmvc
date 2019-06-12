@@ -1,0 +1,35 @@
+﻿@model PizzaModel
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+@*used Html.BeginRouteForm in order to use custom route for saving the changes on edit*@
+@using (@Html.BeginRouteForm("SaveRoute", new { action = "UpdatePizza" }, FormMethod.Post))
+{
+    @Html.ValidationSummary()
+    //Id is hidden because we dont want to edit the Id of the pizza
+    @Html.HiddenFor(m => m.Id)
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name, new { @class = "form-label" })@*label for displaying the property name*@
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-label" })@*TextBox filled with the value of the propreti that we can edit*@
+        @Html.ValidationMessageFor(m => m.Name, "", new { @class = "label-danger" })@*Validation message that will be displayed in case the validations are not fulfiled*@
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Description, new { @class = "form-label" })
+        @Html.TextAreaFor(m => m.Description, new { @class = "form-label" })
+        @Html.ValidationMessageFor(m => m.Description)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Price, new { @class = "form-label" })
+        @Html.TextBoxFor(m => m.Price, new { @class = "form-label" })
+        @Html.ValidationMessageFor(m => m.Price)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Size, new { @class = "form-label" })
+        @Html.TextBoxFor(m => m.Size, new { @class = "form-label" })
+        @Html.ValidationMessageFor(m => m.Size)
+    </div>
+    @*Submit button the will triger the post method in BeginRouteForm method*@
+    <input value="Save" type="submit" />
+}

@@ -76,5 +76,8 @@ This is the base agenda for this subject. The agenda is flexible and will evolve
 ## Contact and Communication 📢
 Learning programming and software development is a team effort. This means that we are a team and going through this process we will need to work together so that we can succeed. Communication is a key point in this process so please, give feedback for the lectures and communicate any problems that you might have with us so that we can try and improve the quality of the lectures. You can contact us at:
 * **Milica Markova :** markova.milica@gmail.com
-* **Risto Pavlov :** ristopavlov@hotmail.com
+* **Risto Pavlov :** ristopavlov@gmail.com
+
+## OneDrive content
+* [OneDrive](https://onedrive.live.com/?authkey=%21AKif4xveYQO4AG4&id=DDF106F93141B4F9%2111162&cid=DDF106F93141B4F9)
 

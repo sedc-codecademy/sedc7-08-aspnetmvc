@@ -1,4 +1,4 @@
-# Views 🍰
+# Views part 1 🍰
 The views in ASP.NET MVC are the main and only interface from which a user can interact with the application. Views in ASP.NET are basically HTML pages with an integrated engine that helps manipulate, integrate and bind the view and it's contents with the back-end part of  the application using C# code. This is why the extension to the views is cshtml. Views are always added in the Views folder of the ASP.NET application, views for certain controllers are added in a folder with the controller name ( without controller ) and views that are shared between multiple controllers and actions are added in a folder named Shared. The application can easily find it's way to the views if they are properly named and in the correctly positioned and named folder. 
 ## Razor Engine 🔹
 The Razor View Engine is the engine that allows us to write C# in our HTML page directly and help us build and connect pages to the back-end of our application quickly and easily. The Razor View Engine has a lot of features. To access the Razor syntax we use the @ sign. We can access that way
@@ -177,26 +177,7 @@ Partial views are basically view within a view. If a component in our applicatio
 ```
 ### Other shared Views 🔽
 We can create our own shared views if we need them. All views that can be used multiple times on different places and occasions are added in the Shared folder. These views can then be accessed whenever we need them. Usually these views are connected to some general that all view have in common such as an Error or a Thank You page. 
-## HTML Helpers 🔹
-HTML Helpers are helper methods from the razor engine that we can call with a few parameters. After calling these methods, they generate HTML code tailored to the data passed as a parameter. With these methods we can do almost anything in our HTML view within a function call. There are HTML helpers for almost everything such as generic lings to other routes, binding labels to our model, binding input fields to our model, creating forms with submit functionality to the right address etc. 
-### Links 🔽
-The link html helper is a helper that lets us create links to our routes in our MVC application by adding our action and even controller name as parameters. The razor engine will generate an HTML element that represents link and that in the attributes has the right address to the action in question.
-```csharp cshtml
-// Calling an action in the same controller
-@Html.ActionLink("Back To Home", "Index")
-// Calling an action in a different controller and action
-@Html.ActionLink("Back to Home","Index","Home")
-// Calling an action with parameters
-@Html.ActionLink("To First Item", "Order", "Orders", new { id = 0 })
-```
-### Display 🔽
-For displaying things from the model we can also use Html Helpers. The display HTML helper lets us display a string in our views by requesting the name as a string ( loosely typed ) or requesting it by a lambda ( strongly typed )
-```csharp cshtml
-// Displaying a property of the Model passed loosely typed
-@Html.Display("Name")
-// Displaying a property of the Model passed strongly typed
-@Html.DisplayFor(x => x.Name)
-```
+
 ## Extra Materials 📘
 * TutorialsPoint Articles on Views
   * [Layout](https://www.tutorialspoint.com/asp.net_core/asp.net_core_razor_layout_views.htm)

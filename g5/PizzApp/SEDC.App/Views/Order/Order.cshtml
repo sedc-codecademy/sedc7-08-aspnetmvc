@@ -1,0 +1,26 @@
+﻿@model OrderViewModel
+@{
+    ViewBag.Title = "Make Order";
+}
+
+<h1>Order a pizza</h1>
+<h4 style="color:red">@ViewBag.Error</h4>
+<p>Please enter the correct data to order a pizza</p>
+@using (Html.BeginForm())
+{
+    <h3>User info:</h3>
+    @Html.LabelFor(x => x.FirstName)
+    @Html.TextBoxFor(x => x.FirstName)<br />
+    @Html.LabelFor(x => x.LastName)
+    @Html.TextBoxFor(x => x.LastName)<br />
+    @Html.LabelFor(x => x.Address)
+    @Html.TextBoxFor(x => x.Address)<br />
+    @Html.LabelFor(x => x.Phone)
+    @Html.TextBoxFor(x => x.Phone)<br />
+    @Html.LabelFor(x => x.Pizza)
+    @Html.TextBoxFor(x => x.Pizza)<br />
+    @Html.LabelFor(x => x.Size)
+    @Html.DropDownListFor(x => x.Size, Html.GetEnumSelectList(Model.Size.GetType()))
+    <br/><br />
+    <button type="submit"> Order pizza </button>
+}

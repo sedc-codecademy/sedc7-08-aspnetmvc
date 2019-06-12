@@ -4,83 +4,25 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using SEDC.App.Models.DomainModels;
+using SEDC.App.Models.Enums;
 using SEDC.App.Models.ViewModels;
 
 namespace SEDC.App.Controllers
 {
     public class OrderController : Controller
     {
-        private List<Order> _ordersDb;
-        public OrderController()
-        {
-            User bob = new User()
-            {
-                FirstName = "Bob",
-                LastName = "Bobsky",
-                Address = "Bob Street",
-                Phone = 080012312345
-            };
-            User jill = new User()
-            {
-                FirstName = "Jill",
-                LastName = "Wayne",
-                Address = "Jill Street",
-                Phone = 08006546345
-            };
-            Pizza kapri = new Pizza()
-            {
-                Id = 1,
-                Name = "Kapri",
-                Price = 9,
-                Size = "Large"
-            };
-            Pizza peperoni = new Pizza()
-            {
-                Id = 2,
-                Name = "Peperoni",
-                Price = 7,
-                Size = "Medium"
-            };
-            _ordersDb = new List<Order>()
-            {
-                new Order()
-                {
-                    Id = 1,
-                    User = bob,
-                    Pizza = kapri,
-                    Price = 10.5,
-                    Delivered = true
-                },
-                new Order()
-                {
-                    Id = 2,
-                    User = bob,
-                    Pizza = peperoni,
-                    Price = 8,
-                    Delivered = false
-                },
-                new Order()
-                {
-                    Id = 3,
-                    User = jill,
-                    Pizza = peperoni,
-                    Price = 11.5,
-                    Delivered = false
-                }
-            };
-        }
         [Route("Orders")]
         public IActionResult Index()
         {
             //ViewData.Add("Title", "Welcome to the Orders page!");
             ViewBag.Title = "Welcome to the Orders page!";
-            Order firstOrder = _ordersDb[0];
+            Order firstOrder = Db.Orders[0];
             OrdersViewModel ordersViewModel = new OrdersViewModel()
             {
                 FirstPizza = firstOrder.Pizza.Name,
-                NumberOfOrders = _ordersDb.Count,
+                NumberOfOrders = Db.Orders.Count,
                 FirstPersonName = $"{firstOrder.User.FirstName} {firstOrder.User.LastName}",
-                Orders = _ordersDb
+                Orders = Db.Orders
             };
             return View(ordersViewModel);
         }
@@ -91,7 +33,7 @@ namespace SEDC.App.Controllers
             //ViewData["Title"] = "These are your orders:";
             #endregion
             #region FirstOrDefault solution
-            Order order = _ordersDb.FirstOrDefault(x => x.Id == id);
+            Order order = Db.Orders.FirstOrDefault(x => x.Id == id);
             if (order != null)
             {
                 ViewBag.Title = $"This is order no. {order.Id}";
@@ -115,6 +57,44 @@ namespace SEDC.App.Controllers
             #region Redirecting to a different controller
             //return RedirectToAction("Index", "Home");
             #endregion
+        }
+        [HttpGet("Order")]
+        public IActionResult Order(string error)
+        {
+            ViewBag.Error = error == null ? "" : error;
+            OrderViewModel model = new OrderViewModel();
+            return View(model);
+        }
+
+        [HttpPost("Order")]
+        public IActionResult Order(OrderViewModel model)
+        {
+            // We check if the pizza exists in the menu
+            Pizza pizza = Db.Menu.FirstOrDefault(x =>
+            x.Name == model.Pizza && x.Size == model.Size);
+            // If it does not exist ( null is default for object ) then return to Order view
+            if (pizza == null) return RedirectToAction("Order", "Home",new { error = "There is no pizza like that in the menu!"});
+            Db.UserId++;
+            User user = new User()
+            {
+                Id = Db.UserId,
+                FirstName = model.FirstName,
+                LastName = model.LastName,
+                Address = model.Address,
+                Phone = model.Phone
+            };
+            Db.OrderId++;
+            Order order = new Order()
+            {
+                Id = Db.OrderId,
+                Delivered = false,
+                Pizza = pizza,
+                Price = pizza.Price + 2,
+                User = user
+            };
+            Db.Orders.Add(order);
+            Db.Users.Add(user);
+            return View("_ThankYou");
         }
     }
 }

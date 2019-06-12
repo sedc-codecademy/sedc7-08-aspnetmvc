@@ -1,0 +1,17 @@
+﻿@model List<PizzaModel>
+@{
+    ViewData["Title"] = "Menu";
+}
+
+<h2>Index</h2>
+<div class="btn">@Html.ActionLink("Add new pizza", "Add")</div>
+<div class="body-content">
+    @foreach (var pizza in Model)
+    {
+        <div class="form-control">
+            Name: @pizza.Name (@pizza.Size) - @Html.ActionLink("details", "PizzaDetails", new { id = pizza.Id })
+            | @Html.ActionLink("edit", "Edit", new { id = pizza.Id })
+            | @Html.ActionLink("delete", "Delete", new { id = pizza.Id })
+        </div><br />
+    }
+</div>
