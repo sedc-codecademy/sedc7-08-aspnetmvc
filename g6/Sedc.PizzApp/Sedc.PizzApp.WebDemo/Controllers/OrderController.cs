@@ -5,8 +5,10 @@ namespace Sedc.PizzApp.WebDemo.Controllers
 
     public class OrderController : Controller
     {
-        [Route("/user/{userId:range(1,2000000000)}/pizza/{pizzaId:int}/order/{orderId}")]
         //[ActionName("history")]
+        //[HttpPut]
+        //[Route("/user/{userId:range(1,2000000000)}/pizza/{pizzaId:int}/order/{orderId}")]
+        [HttpGet("/user/{userId:range(1,2000000000)}/pizza/{pizzaId:int}/order/{orderId}")]
         public IActionResult GetUserPizzaOrder
             (int userId, int pizzaId, string orderId)
         {
