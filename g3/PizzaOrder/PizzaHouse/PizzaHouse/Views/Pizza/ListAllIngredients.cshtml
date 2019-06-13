@@ -1,0 +1,29 @@
+﻿@model List<Ingredient>
+@{
+    ViewData["Title"] = "ListAllIngredients";
+}
+
+<h2>ListAllIngredients</h2>
+
+<ul>
+
+    @foreach (var ingredient in Model)
+    {
+        <li>
+            @ingredient.Name
+            @if (ingredient.Allergens.Any())
+            {
+                <span>[Allergens: </span>
+                foreach (var allergen in ingredient.Allergens)
+                {
+                    @allergen
+                }
+                <span>]</span>
+            }
+        </li>
+
+    }
+
+
+</ul>
+
