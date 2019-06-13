@@ -1,4 +1,4 @@
-## Routing 🔹
+# Routing 🔹
 To access our actions in our controllers from the browser we need an address. In our application, the handling of requests to addresses is called routing and the addresses to the actions are called routes. The routing is already set with the default setup of our ASP.NET MVC project. That is the default routing and there is no need for extra configuration. If we leave the routing by default the routes would look like this:
 * website(localhost)/ControllerName/ActionName
 * website(localhost)/ControllerName/ActionName/ExtraParameter
