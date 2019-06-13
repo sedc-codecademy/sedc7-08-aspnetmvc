@@ -21,7 +21,54 @@ Multi tier architecture is a system of structuring an application in to layers o
 Design patterns were ideas or solutions to some problems that we can reuse to solve some kind of problem. These patterns are present in the software development as well as the design phase. We can use patterns like these to build a better and scalable applications. 
 ### Repository Pattern 🔽
 The repository pattern is a solution to the problems with organization to the methods that connect to the database. The pattern is simple, we create a class or multiple classes that we call *Entity*Repository or just Repository depending in the data access layer usually ( if we are using 3-tier architecture ) and in that class or classes we put the CRUD ( Create, Read, Update, Delete ) operation that we need in order to manipulate with the database. This gives us multiple advantages. By having the methods in one class it is easier to find and access a method. It is also easier to use some external class, address or library since all the methods are in one place and can use the same fields in the class. This also makes all the methods divided from the other methods that are not accessing directly to the database. It is just an abstraction for our database manipulation methods.
+```csharp
+// Generic repository with the basic CRUD methods
+public interface IRepository<T>
+{
+	T GetById(int id);
+	List<T> GetAll();
+	void Insert(T entity);
+	void Update(T entity);
+	void DeleteById(int id);
+}
 
+// Repository
+public class OrderRepository : IRepository<Order>
+{
+	public void DeleteById(int id)
+	{
+	    Order order = Db.Orders.FirstOrDefault(x => x.Id == id);
+	    if (order != null) Db.Orders.Remove(order);
+	}
+
+	public List<Order> GetAll()
+	{
+	    return Db.Orders;
+	}
+
+	public Order GetById(int id)
+	{
+	    return Db.Orders.FirstOrDefault(x => x.Id == id);
+	}
+
+	public void Insert(Order entity)
+	{
+	    Db.OrderId++;
+	    entity.Id = Db.OrderId;
+	    Db.Orders.Add(entity);
+	}
+
+	public void Update(Order entity)
+	{
+	    Order order = Db.Orders.FirstOrDefault(x => x.Id == entity.Id);
+	    if (order != null)
+	    {
+		int index = Db.Orders.IndexOf(order);
+		Db.Orders[index] = entity;
+	    }
+	}
+}
+```
 ## Interfaces 🔹
 Interfaces are a key part in creating a good and scalable application. We use them to set some rule-set over our classes, but most importantly we use them as an abstraction to using service classes. Service classes unlike entity classes need only one instance and that instance is usually always the same. That is why we can make an abstraction and just wait for an instance to be built instead of creating it on our own. We can do this with Dependency Injection technique.
 
