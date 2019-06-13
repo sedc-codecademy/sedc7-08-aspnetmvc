@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Sedc.Todo.WebApp.Models.Todo>;
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Todo list @(ViewBag.DayLabel != null ? $": {ViewBag.DayLabel}" : string.Empty)</h2>
+<span>Total todos: @Model.Count()</span>
+@if (ViewBag.TodoDate != null && ViewBag.TodoDate == new DateTime(day: 11, month: 6, year: 2019))
+{
+    switch (ViewBag.DayLabel)
+    {
+        case "Yesterday":
+            <h4>Yesterday was Kamehameha day! Hope you had a nice day off!</h4>
+            break;
+        case "Today":
+            <h4>Today is Kamehameha day! Close this application and enjoy!</h4>
+            break;
+        case "Tomorrow":
+            <h4>Tomorrow is Kamehameha day! Prepare for party!</h4>
+            break;
+        case null:
+        default:
+            <h4>@(ViewBag.TodoDate.ToShortDateString()) is Kamehameha day!</h4>
+            break;
+    }
+}
+else
+{
+    <ul>
+        @foreach (var todo in Model)
+        {
+            <li>
+                <div>
+                    <span>Title:&nbsp;</span>
+                    <span>@todo.Title</span>
+                </div>
+                <div>
+                    <span>Description:&nbsp;</span>
+                    <span>@todo.Description</span>
+                </div>
+                <div>
+                    <span>Due date:&nbsp;</span>
+                    <span>@todo.DueDate</span>
+                </div>
+            </li>
+        }
+    </ul>
+}
+<div>
+    <a asp-controller="Todo" asp-action="Index" class="btn btn-primary">All</a>
+    <a asp-controller="Todo" asp-action="Yesterday" class="btn btn-primary">Yesterday</a>
+    <a asp-controller="Todo" asp-action="Today" class="btn btn-primary">Today</a>
+    <a asp-controller="Todo" asp-action="Tomorrow" class="btn btn-primary">Tomorrow</a>
+</div>

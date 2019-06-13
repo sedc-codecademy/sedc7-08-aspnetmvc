@@ -303,26 +303,6 @@ Partial views are basically view within a view. If a component in our applicatio
 ```
 ### Other shared Views 🔽
 We can create our own shared views if we need them. All views that can be used multiple times on different places and occasions are added in the Shared folder. These views can then be accessed whenever we need them. Usually these views are connected to some general that all view have in common such as an Error or a Thank You page. 
-## HTML Helpers 🔹
-HTML Helpers are helper methods from the razor engine that we can call with a few parameters. After calling these methods, they generate HTML code tailored to the data passed as a parameter. With these methods we can do almost anything in our HTML view within a function call. There are HTML helpers for almost everything such as generic lings to other routes, binding labels to our model, binding input fields to our model, creating forms with submit functionality to the right address etc. 
-### Links 🔽
-The link html helper is a helper that lets us create links to our routes in our MVC application by adding our action and even controller name as parameters. The razor engine will generate an HTML element that represents link and that in the attributes has the right address to the action in question.
-```csharp cshtml
-// Calling an action in the same controller
-@Html.ActionLink("Back To Home", "Index")
-// Calling an action in a different controller and action
-@Html.ActionLink("Back to Home","Index","Home")
-// Calling an action with parameters
-@Html.ActionLink("To First Item", "Order", "Orders", new { id = 0 })
-```
-### Display 🔽
-For displaying things from the model we can also use Html Helpers. The display HTML helper lets us display a string in our views by requesting the name as a string ( loosely typed ) or requesting it by a lambda ( strongly typed )
-```csharp cshtml
-// Displaying a property of the Model passed loosely typed
-@Html.Display("Name")
-// Displaying a property of the Model passed strongly typed
-@Html.DisplayFor(x => x.Name)
-```
 ## Extra Materials 📘
 * [When to use ViewBag and ViewData](https://rachelappel.com/2014/01/02/when-to-use-viewbag-viewdata-or-tempdata-in-asp-net-mvc-3-applications/)
 * [Model and ViewModel](https://www.tektutorialshub.com/asp-net-core/asp-net-core-model-and-viewmodel/)
