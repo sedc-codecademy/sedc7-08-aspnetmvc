@@ -8,7 +8,6 @@ namespace PizzaHouse.Controllers
     public class PizzaController : Controller
     {
         private readonly IPizzaService _pizzaService;
-
         public PizzaController(IPizzaService pizzaService)
         {
             _pizzaService = pizzaService;
@@ -18,6 +17,12 @@ namespace PizzaHouse.Controllers
         {
             Menu menu = _pizzaService.GetMenu();
             return View(menu);
+        }
+
+        public IActionResult ListAllIngredients()
+        {
+            var allIngredients = _pizzaService.GetAllIngredients();
+            return View(allIngredients);
         }
 
         [HttpGet]

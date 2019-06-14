@@ -4,6 +4,8 @@
     Layout = "_Layout";
 }
 
+<a class="btn btn-info" asp-controller="Pizza" asp-action="Create">Create Pizza</a>
+
 <table class="table table-striped">
     <thead>
         <tr>
@@ -16,8 +18,8 @@
         @foreach (Pizza pizza in Model)
         {
             <tr>
-                <td>#ID</td>
-                <td>@pizza</td>
+                <td>@pizza.Id</td>
+                <td>@pizza.Name</td>
                 <td>
                     <a asp-controller="Pizza"
                        asp-action="Details"

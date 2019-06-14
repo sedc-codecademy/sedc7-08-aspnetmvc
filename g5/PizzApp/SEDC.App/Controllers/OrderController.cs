@@ -73,7 +73,7 @@ namespace SEDC.App.Controllers
             Pizza pizza = Db.Menu.FirstOrDefault(x =>
             x.Name == model.Pizza && x.Size == model.Size);
             // If it does not exist ( null is default for object ) then return to Order view
-            if (pizza == null) return RedirectToAction("Order", "Home",new { error = "There is no pizza like that in the menu!"});
+            if (pizza == null) return RedirectToAction("Order", new { error = "There is no pizza like that in the menu!"});
             Db.UserId++;
             User user = new User()
             {
