@@ -16,8 +16,8 @@ Luckily we have our Team Leader to help us with that, so he did:
     - **Phone Number**
 * There should be one controller named **CoolController**, it's route should be: *"/contacts"*. This controller should have a few actions:  
 **Note:** try to re-use views
-    - An action to get all contacts, named **GetEveryone** with route:  *"/getallcontacts"*
-    - An action to get all closest friends, named **GetFriends** with route: *"/getclosestcontacts"*
+    - An action to get all contacts, named **GetEveryone** with route:  *"/get-all-contacts"*
+    - An action to get all closest friends, named **GetFriends** with route: *"/get-closest-contacts"*
     - An action to add a contact to the contacts list, named **AddContact**  
     **Note:** This one should be **POST** method
     - An action of the same name as previous, only a **GET** method with a purpose to render(get) the view of the form to fill information  
@@ -27,4 +27,4 @@ Luckily we have our Team Leader to help us with that, so he did:
     - The phone number should be a range from 9 to 11 digits
 
 **NOTE 1:** You can instantiate the list of contacts in the **CoolController**, or you can create a static class named for ex. ContactsDatabase and define a static property ContactsList  
-**NOTE 2:** Example on how to call GetEveryone action in CoolController: */contacts/getallcontacts*
+**NOTE 2:** Example on how to call GetEveryone action in CoolController: */contacts/get-all-contacts*
