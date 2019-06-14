@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Sedc.G2.PizzApp.Model.SizeModel>
+
+@{
+    ViewData["Title"] = "SizeList";
+}
+
+<h2>SizeList</h2>
+
+<p>
+    <a asp-action="AddSize">Add New Size</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dimension)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Dimension)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "EditSize", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "DeleteSize", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
