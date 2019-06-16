@@ -35,3 +35,5 @@ The application will be done bit by bit. The tasks will be added here. Here is w
 6. Add a button above the table with tasks that says: Add Task
 7. The button shloud redirect to a view that will take the needed information for a task and save the task in some static list
 8. After the info is filled the view should redirect back to the first view where the new task is visible in the table
+9. Create a multi architecture organization for the project
+11. Create repositories for the models
