@@ -1,6 +1,6 @@
 # Homework
 
-Use homework from [Class 4](https://github.com/sedc-codecademy/sedc7-08-aspnetmvc/blob/master/g2/Class%204/Homework.md) (homework added at the bottom of this page) to complete following steps:
+Use homework from [Class 2](https://github.com/sedc-codecademy/sedc7-08-aspnetmvc/blob/master/g2/Class%202/Homework.md),  [Class 3](https://github.com/sedc-codecademy/sedc7-08-aspnetmvc/blob/master/g2/Class%203/Homework.md) and [Class 4](https://github.com/sedc-codecademy/sedc7-08-aspnetmvc/blob/master/g2/Class%204/Homework.md) (homework added at the bottom of this page) to complete following steps:
 
 We will be developing functionality that will provide online movie download. The user will be able to access the web site and to be able to list all movies that will insert in the database. 
 Additionally the user will be able to search through the available movies and the ones that he wants to download (for a certain price) to be able to add to a download cart. 
