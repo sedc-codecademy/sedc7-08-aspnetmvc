@@ -1,0 +1,22 @@
+﻿@model IEnumerable<PizzaHut.Models.User>
+@inject PizzaHut.Models.IRepositories.IUserRepository userRepo
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2></h2>
+<p><a class="btn btn-primary" asp-action="Create">Create New User</a></p>
+<table class="table">
+    <partial name="_PartialUserHeadView" />
+    @*@await Html.PartialAsync("_PartialUserHeadView")
+    @{await Html.RenderPartialAsync("_PartialUserHeadView");}*@
+
+    @{await Html.RenderPartialAsync("_PartialUserBodyView", Model);}
+</table>
+
+@*Total users (ViewBag): <a style="color:blueviolet">@ViewBag.TotalCount</a> <br />
+Total users (ViewData): @ViewData["TotalCount2"] <br />
+Total users (ViewData): @ViewData["TotalCount3"] <br />*@
+<hr />
+Total users (inject): @userRepo.GetAll().Count()
