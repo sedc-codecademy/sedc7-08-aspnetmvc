@@ -29,6 +29,11 @@ namespace PizzaHouse.Data
             }, 160)
         };
 
+        public static List<User> Users = new List<User>()
+        {
+            new User(1, "Risto", "Skopje", "12234445")
+        };
+
         public static Menu RestaurantMenu = new Menu("Pizza House", Pizzas);
     }
 }

@@ -65,8 +65,9 @@ This is the base agenda for this subject. The agenda is flexible and will evolve
 	* Entity framework models, relationships and context
 ## Contact and Communication 📢
 Learning programming and software development is a team effort. This means that we are a team and going through this process we will need to work together so that we can succeed. Communication is a key point in this process so please, give feedback for the lectures and communicate any problems that you might have with us so that we can try and improve the quality of the lectures. You can contact us at:
+* **Vladimir Simonovski :** vladimir.simonovski@gmail.com
 * **Xhevat Ibraimi :** xhevat.ibraimi@gmail.com
-* **Dejan Blazheki :** dejan.pblazheski@seavus.com
+* **Dejan Blazheski :** dejan.pblazheski@seavus.com
 ## Useful links
 * [**What is the concept of MVC?**](https://www.youtube.com/watch?v=fa8eUcu30Lw)
 * [**Git Cheatsheet**](https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf)

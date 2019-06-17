@@ -1,0 +1,54 @@
+﻿@model MenuViewModel
+@{
+    ViewData["Title"] = "Menu";
+}
+
+<h2>Menu</h2>
+<h4>Offers</h4>
+<ul>
+    @foreach (var offer in Model.Offers)
+    {
+        <li>
+            <div>
+                <span>Name:&nbsp;</span>
+                <span>@offer.Name</span>
+            </div>
+            <div>
+                <span>Description:&nbsp;</span>
+                <span>@offer.Description</span>
+            </div>
+            <div>
+                <span>Included pizzas:&nbsp;</span>
+                <span>@string.Join(';', offer.Pizzas.Select(x => x.Name))</span>
+            </div>
+            <div>
+                <span>Price:&nbsp;</span>
+                <span>@offer.Price</span>
+            </div>
+        </li>
+    }
+</ul>
+<h4>Pizzas</h4>
+<ul>
+    @foreach (var pizza in Model.Pizzas)
+    {
+        <li>
+            <div>
+                <span>Name:&nbsp;</span>
+                <span>@pizza.Name</span>
+            </div>
+            <div>
+                <span>Description:&nbsp;</span>
+                <span>@pizza.Description</span>
+            </div>
+            <div>
+                <span>Included ingredients:&nbsp;</span>
+                <span>@string.Join(';', pizza.Ingredients.Select(x => x.Name))</span>
+            </div>
+            <div>
+                <span>Price:&nbsp;</span>
+                <span>@pizza.Price</span>
+            </div>
+        </li>
+    }
+</ul>
