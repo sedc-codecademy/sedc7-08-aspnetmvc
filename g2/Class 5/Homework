@@ -1,15 +1,1 @@
 # Homework
-
-Use homework from [Class 4](https://github.com/sedc-codecademy/sedc7-08-aspnetmvc/blob/master/g2/Class%204/Homework.md) (homework added at the bottom of this page) to complete following steps:
-
-We will be developing functionality that will provide online movie download. The user will be able to access the web site and to be able to list all movies that will insert in the database. 
-Additionally the user will be able to search through the available movies and the ones that he wants to download (for a certain price) to be able to add to a download cart. 
-In the download cart all the movies that the user have added will be displayed and price for each movie will be displayed, on the bottom of the form total amount that the user need to pay will be displayed.
-The user should be able to Add specific movie Genre's (action, comedy, ...), Actors, Directors,...
-When the admin inserts new movie he will be able to select, Genre, Actors and Directors from a predefined list. 
-If an Actor does not exist he will have to go to Actor add view and add the actor, in order to be able to add the actor to some movie, the same goes for Directors and for Genre.
-
-And this is what is needed to be done it this homework:
-
-1. Using the description of the homework create your own domain model and add it to the existing MovieStore solution as new project. 
-When creating the domain model use separate Class library project where you will store your models.
