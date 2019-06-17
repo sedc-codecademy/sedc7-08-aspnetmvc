@@ -63,13 +63,13 @@ namespace Sedc.PizzApp.WebDemo.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(string Name)
+        public IActionResult Create(Pizza model)
         {
             //submit the pizza from form
             var newPizza = new Pizza
             {
                 Id = pizzas.Max(pizza => pizza.Id) + 1,
-                Name = Name
+                Name = model.Name
             };
             pizzas.Add(newPizza);
 
@@ -87,10 +87,10 @@ namespace Sedc.PizzApp.WebDemo.Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit(int Id, string Name)
+        public IActionResult Edit(int Id, Pizza model)
         {
             var pizza = pizzas.First(x => x.Id == Id);
-            pizza.Name = Name;
+            pizza.Name = model.Name;
             return RedirectToAction("Details", new
             {
                 id = pizza.Id
@@ -105,7 +105,7 @@ namespace Sedc.PizzApp.WebDemo.Controllers
         }
 
         [HttpPost]
-        public IActionResult Delete(int Id, string Name)
+        public IActionResult Delete(int Id, Pizza model)
         {
             var pizza = pizzas.First(x => x.Id == Id);
             pizzas.Remove(pizza);
