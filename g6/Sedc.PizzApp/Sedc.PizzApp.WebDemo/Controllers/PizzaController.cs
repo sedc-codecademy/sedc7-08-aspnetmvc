@@ -50,8 +50,6 @@ namespace Sedc.PizzApp.WebDemo.Controllers
             }.Where(p => p.Length > 4);
             return View("~/Views/Pizza/GetAll.cshtml");
         }
-
-
         public IActionResult TestView()
         {
             return View();
@@ -78,6 +76,24 @@ namespace Sedc.PizzApp.WebDemo.Controllers
             return RedirectToAction("Details", new
             {
                 id = newPizza.Id
+            });
+        }
+
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            var pizza = pizzas.First(x => x.Id == id);
+            return View(pizza);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(int Id, string Name)
+        {
+            var pizza = pizzas.First(x => x.Id == Id);
+            pizza.Name = Name;
+            return RedirectToAction("Details", new
+            {
+                id = pizza.Id
             });
         }
     }
