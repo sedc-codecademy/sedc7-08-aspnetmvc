@@ -25,7 +25,7 @@ namespace Sedc.PizzApp.WebDemo.Controllers
             return View(pizza);
         }
 
-        public IActionResult GetAll()
+        public IActionResult Index()
         {
             //TIPP: how foreach works
             //IEnumerator<string> enumerator = pizzas.GetEnumerator();
@@ -95,6 +95,21 @@ namespace Sedc.PizzApp.WebDemo.Controllers
             {
                 id = pizza.Id
             });
+        }
+
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            var pizza = pizzas.First(x => x.Id == id);
+            return View(pizza);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(int Id, string Name)
+        {
+            var pizza = pizzas.First(x => x.Id == Id);
+            pizzas.Remove(pizza);
+            return RedirectToAction("Index");
         }
     }
 }
