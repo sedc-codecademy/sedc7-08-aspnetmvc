@@ -12,32 +12,13 @@ namespace SEDC.PizzApp.WebApp.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            return View(new HomeViewModel());
         }
-
-        public IActionResult About()
+        [HttpPost]
+        public IActionResult Index(HomeViewModel model)
         {
-            ViewData["Message"] = "Your application description page.";
-
+            // TODO
             return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }
