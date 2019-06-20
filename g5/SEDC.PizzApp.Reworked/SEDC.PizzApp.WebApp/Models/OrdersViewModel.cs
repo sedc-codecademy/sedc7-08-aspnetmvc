@@ -8,6 +8,10 @@ namespace SEDC.PizzApp.WebApp.Models
 {
     public class OrdersViewModel
     {
-        public List<Order> Orders { get; set; }
+        public List<OrderItemViewModel> Orders { get; set; }
+        public int OrderCount { get; set; }
+        public string LastPizza { get; set; }
+        public string MostPopularPizza { get; set; }
+        public string NameOfFirstCustomer { get; set; }
     }
 }

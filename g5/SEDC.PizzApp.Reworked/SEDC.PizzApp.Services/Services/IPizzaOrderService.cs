@@ -14,6 +14,6 @@ namespace SEDC.PizzApp.Services.Services
         List<Pizza> GetMenu();
         Order GetLastOrder();
         string GetMostPopularPizza();
-
+        Pizza GetPizzaFromMenu(string name, PizzaSize size);
     }
 }

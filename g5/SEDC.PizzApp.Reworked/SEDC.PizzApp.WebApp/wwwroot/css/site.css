@@ -35,3 +35,7 @@ body {
         display: none;
     }
 }
+
+button a {
+    color: white !important;
+}

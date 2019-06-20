@@ -17,8 +17,7 @@ namespace SEDC.PizzApp.WebApp.Controllers
         [HttpPost]
         public IActionResult Index(HomeViewModel model)
         {
-            // TODO
-            return View();
+            return RedirectToAction("Order", "Order", new { pizzas = model.NumberOfPizzas });
         }
         public IActionResult Contact()
         {
@@ -27,6 +26,16 @@ namespace SEDC.PizzApp.WebApp.Controllers
         public IActionResult AboutUs()
         {
             return View();
+        }
+        public IActionResult Feedback()
+        {
+            return View(new FeedbackViewModel());
+        }
+        [HttpPost]
+        public IActionResult Feedback(FeedbackViewModel model)
+        {
+            // Code to save feedback to DB
+            return RedirectToAction("Index");
         }
     }
 }
