@@ -150,3 +150,5 @@ public class HomeController : Controller
 * [Dependency Injection explained simple ( With drawing )](https://www.youtube.com/watch?v=IKD2-MAkXyQ)
 * [Repository Design Pattern in C#](https://dotnettutorials.net/lesson/repository-design-pattern-csharp/)
 * [Bootstrap 3.3 components](https://getbootstrap.com/docs/3.3/components/)
+* [Introduction to bootstrap](https://www.taniarascia.com/what-is-bootstrap-and-how-do-i-use-it/)
+* [Video about bootstrap grid](https://www.youtube.com/watch?v=qmPmwdshCMw)

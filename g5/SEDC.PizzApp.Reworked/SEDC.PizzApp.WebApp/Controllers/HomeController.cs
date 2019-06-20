@@ -12,32 +12,30 @@ namespace SEDC.PizzApp.WebApp.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            return View(new HomeViewModel());
         }
-
-        public IActionResult About()
+        [HttpPost]
+        public IActionResult Index(HomeViewModel model)
         {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
+            return RedirectToAction("Order", "Order", new { pizzas = model.NumberOfPizzas });
         }
-
         public IActionResult Contact()
         {
-            ViewData["Message"] = "Your contact page.";
-
             return View();
         }
-
-        public IActionResult Privacy()
+        public IActionResult AboutUs()
         {
             return View();
         }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        public IActionResult Feedback()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View(new FeedbackViewModel());
+        }
+        [HttpPost]
+        public IActionResult Feedback(FeedbackViewModel model)
+        {
+            // Code to save feedback to DB
+            return RedirectToAction("Index");
         }
     }
 }

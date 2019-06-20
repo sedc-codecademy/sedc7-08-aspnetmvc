@@ -1,0 +1,77 @@
+﻿@model Pizza
+@{
+    ViewData["Title"] = "AddPizza";
+
+    var pizzaStyles = new SelectList(new[]
+    {
+        "Neapolitan",
+        "New Heaven",
+        "Grandma Style",
+        "New York Style",
+        "Pan Style",
+    });
+}
+
+<h2>Add Pizza</h2>
+<form asp-action="AddPizza" method="post">
+    <div>
+        <div>
+            <label asp-for="Name"></label>
+            <input asp-for="Name" />
+        </div>
+
+        <div>
+            <label asp-for="Description"></label>
+            <input asp-for="Description" />
+        </div>
+
+        <div>
+            <label asp-for="Style"></label>
+            <select asp-for="Style" asp-items="pizzaStyles"></select>
+        </div>
+
+        <div>
+            <label asp-for="Ingredients"></label>
+            <input asp-for="Ingredients" />
+        </div>
+
+        <div>
+            <label asp-for="Allergens"></label>
+            <input asp-for="Allergens" />
+        </div>
+
+        <div>
+            <label asp-for="IsVegan"></label>
+            <input asp-for="IsVegan" />
+        </div>
+
+        <div>
+            <label asp-for="IsFasting"></label>
+            <input asp-for="IsFasting" />
+        </div>
+
+        <div>
+            <label asp-for="IsHalal"></label>
+            <input asp-for="IsHalal" />
+        </div>
+
+        <div>
+            <label asp-for="IsKosher"></label>
+            <input asp-for="IsKosher" />
+        </div>
+
+        <div>
+            <label asp-for="Price"></label>
+            <input asp-for="Price" />
+        </div>
+    </div>
+
+    <div>
+        <input type="submit" value="Save" />
+    </div>
+</form>
+
+@if (ViewBag.Message != null)
+{
+    <h4>@ViewBag.Message</h4>
+}

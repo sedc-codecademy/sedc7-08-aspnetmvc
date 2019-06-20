@@ -25,7 +25,7 @@ namespace Sedc.PizzApp.WebDemo.Controllers
             return View(pizza);
         }
 
-        public IActionResult GetAll()
+        public IActionResult Index()
         {
             //TIPP: how foreach works
             //IEnumerator<string> enumerator = pizzas.GetEnumerator();
@@ -50,8 +50,6 @@ namespace Sedc.PizzApp.WebDemo.Controllers
             }.Where(p => p.Length > 4);
             return View("~/Views/Pizza/GetAll.cshtml");
         }
-
-
         public IActionResult TestView()
         {
             return View();
@@ -65,13 +63,13 @@ namespace Sedc.PizzApp.WebDemo.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(string Name)
+        public IActionResult Create(Pizza model)
         {
             //submit the pizza from form
             var newPizza = new Pizza
             {
                 Id = pizzas.Max(pizza => pizza.Id) + 1,
-                Name = Name
+                Name = model.Name
             };
             pizzas.Add(newPizza);
 
@@ -79,6 +77,39 @@ namespace Sedc.PizzApp.WebDemo.Controllers
             {
                 id = newPizza.Id
             });
+        }
+
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            var pizza = pizzas.First(x => x.Id == id);
+            return View(pizza);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(int Id, Pizza model)
+        {
+            var pizza = pizzas.First(x => x.Id == Id);
+            pizza.Name = model.Name;
+            return RedirectToAction("Details", new
+            {
+                id = pizza.Id
+            });
+        }
+
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            var pizza = pizzas.First(x => x.Id == id);
+            return View(pizza);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(int Id, Pizza model)
+        {
+            var pizza = pizzas.First(x => x.Id == Id);
+            pizzas.Remove(pizza);
+            return RedirectToAction("Index");
         }
     }
 }

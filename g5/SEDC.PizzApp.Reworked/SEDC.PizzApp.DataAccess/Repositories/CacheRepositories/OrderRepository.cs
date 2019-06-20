@@ -24,11 +24,12 @@ namespace SEDC.PizzApp.DataAccess.Repositories.CacheRepositories
             return CacheDb.Orders.FirstOrDefault(x => x.Id == id);
         }
 
-        public void Insert(Order entity)
+        public int Insert(Order entity)
         {
             CacheDb.OrderId++;
             entity.Id = CacheDb.OrderId;
             CacheDb.Orders.Add(entity);
+            return entity.Id;
         }
 
         public void Update(Order entity)

@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using SEDC.PizzApp.Services.Helpers;
+using SEDC.PizzApp.Services.Services;
 
 namespace SEDC.PizzApp.WebApp
 {
@@ -30,6 +32,11 @@ namespace SEDC.PizzApp.WebApp
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            // Dependency injection configuration
+            services.AddTransient<IPizzaOrderService, PizzaOrderService>();
+            services.AddTransient<IUserService, UserService>();
+            // Dependency Injection Module
+            DIRepositoryModule.RegisterRepositories(services);
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
