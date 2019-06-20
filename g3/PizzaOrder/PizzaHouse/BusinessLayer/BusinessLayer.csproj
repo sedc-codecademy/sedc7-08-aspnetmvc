@@ -5,16 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.ViewFeatures" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\DataLayer\DataLayer.csproj" />
     <ProjectReference Include="..\DtoModels\DtoModels.csproj" />
     <ProjectReference Include="..\Mappers\Mappers.csproj" />
     <ProjectReference Include="..\ViewModels\ViewModels.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="Microsoft.AspNetCore.Mvc.ViewFeatures">
-      <HintPath>..\..\..\..\..\..\..\Users\risto\.nuget\packages\microsoft.aspnetcore.mvc.viewfeatures\2.0.4\lib\netstandard2.0\Microsoft.AspNetCore.Mvc.ViewFeatures.dll</HintPath>
-    </Reference>
   </ItemGroup>
 
 </Project>

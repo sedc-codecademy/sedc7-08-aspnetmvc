@@ -5,13 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.ComponentModel.Annotations" Version="4.3.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="Microsoft.AspNetCore.Mvc.ViewFeatures">
-      <HintPath>..\..\..\..\..\..\..\Users\risto\.nuget\packages\microsoft.aspnetcore.mvc.viewfeatures\2.0.4\lib\netstandard2.0\Microsoft.AspNetCore.Mvc.ViewFeatures.dll</HintPath>
-    </Reference>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.ViewFeatures" Version="2.2.0" />
+    <PackageReference Include="System.ComponentModel.Annotations" Version="4.5.0" />
   </ItemGroup>
 
 </Project>
