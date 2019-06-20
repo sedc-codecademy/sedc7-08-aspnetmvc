@@ -15,6 +15,7 @@ You will need:
 - View
 - Map the pizzas to view model
 - We need to show Full Name, Price of order and pizzas ( Hint: There is partial view )
+- If there is no id like that show the error view
 ## Create Saving Feedback feature
 - Create Feedback Domain Model
 - Create Repository for Feedback ( Hint: it is similar to our other repositories )
