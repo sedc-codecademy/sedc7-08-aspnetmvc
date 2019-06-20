@@ -20,7 +20,7 @@ namespace Mappers
                     { ViewModels.SizeEnum.Medium, pizza.GetPrice(DtoModels.SizeEnum.Medium) },
                     { ViewModels.SizeEnum.Large, pizza.GetPrice(DtoModels.SizeEnum.Large) }
                 },
-                Ingredients = pizza.Ingredients.Select(x => x.ToViewModel()).ToList()
+                Ingredients = pizza.PizzaIngredients.Select(x => x.Ingredient).Select(x => x.ToViewModel()).ToList()
             };
         }
 
@@ -33,7 +33,7 @@ namespace Mappers
                 Description = pizza.Description,
                 BasePrice = pizza.GetPrice(DtoModels.SizeEnum.Small),
                 AllIngredients = new List<SelectListItem>(),
-                SelectedIngredients = pizza.Ingredients.Select(x => x.Id).ToList()
+                SelectedIngredients = pizza.PizzaIngredients.Select(x => x.Ingredient).Select(x => x.Id).ToList()
             };
         }
     }

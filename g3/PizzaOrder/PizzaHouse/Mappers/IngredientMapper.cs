@@ -1,4 +1,5 @@
-﻿using DtoModels;
+﻿using System.Linq;
+using DtoModels;
 using ViewModels;
 
 namespace Mappers
@@ -11,7 +12,7 @@ namespace Mappers
             {
                 Id = ingredient.Id,
                 Name = ingredient.Name,
-                Allergens = ingredient.Allergens
+                Allergens = ingredient.IngredientAllergens.Select(x => x.Ingredient).Select(x => x.Name).ToList()
             };
         }
     }

@@ -1,12 +1,21 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DtoModels
 {
     public class Order : IEntity
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public User User { get; set; }
-        public List<OrderItem> OrderItems { get; set; }
+        public ICollection<OrderItem> OrderItems { get; set; }
+
+        public Order()
+        {
+            
+        }
 
         public int TotalPrice
         {

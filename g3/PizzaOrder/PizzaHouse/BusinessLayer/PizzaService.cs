@@ -4,6 +4,7 @@ using System.Linq;
 using DataLayer;
 using DtoModels;
 using Mappers;
+using Microsoft.EntityFrameworkCore;
 using ViewModels;
 
 namespace BusinessLayer
@@ -26,14 +27,15 @@ namespace BusinessLayer
         public MenuViewModel GetMenu()
         {
             return new MenuViewModel("Pizza Restaurant",
-                _pizzaRepository.GetAll().Select(x => x.ToViewModel()).ToList());
+                _pizzaRepository
+                    .GetAll(x =>
+                        x.Include(p => p.PizzaIngredients).ThenInclude(p => p.Ingredient)
+                            .ThenInclude(p => p.IngredientAllergens).ThenInclude(p => p.Allergen))
+                    .Select(x => x.ToViewModel()).ToList());
         }
 
         public void CreatePizza(CreatePizzaViewModel pizza)
         {
-            var lastPizza = _pizzaRepository.GetAll().OrderByDescending(x => x.Id).FirstOrDefault();
-            var nextId = lastPizza?.Id + 1 ?? 1;
-
             var ingredients = new List<Ingredient>();
             foreach (var selectedIngredient in pizza.SelectedIngredients)
             {
@@ -47,14 +49,25 @@ namespace BusinessLayer
                 ingredients.Add(ingredient);
             }
 
-            var pizzaModel = new Pizza(nextId, pizza.Name, pizza.Description, ingredients, pizza.BasePrice);
+            var pizzaModel = new Pizza(pizza.Name, pizza.Description, pizza.BasePrice);
+
+            foreach (var ingredient in ingredients)
+            {
+                pizzaModel.PizzaIngredients.Add(new PizzaIngredient
+                {
+                    Pizza = pizzaModel,
+                    Ingredient = ingredient
+                });
+            }
 
             _pizzaRepository.Create(pizzaModel);
         }
 
         public PizzaViewModel GetPizza(int id)
         {
-            return _pizzaRepository.GetById(id).ToViewModel();
+            return _pizzaRepository.GetById(id, x =>
+                x.Include(p => p.PizzaIngredients).ThenInclude(p => p.Ingredient)
+                    .ThenInclude(p => p.IngredientAllergens).ThenInclude(p => p.Allergen)).ToViewModel();
         }
 
         public CreatePizzaViewModel GetEmptyPizza()
@@ -88,7 +101,19 @@ namespace BusinessLayer
                 ingredients.Add(ingredient);
             }
 
-            var pizzaModel = new Pizza(pizza.Id, pizza.Name, pizza.Description, ingredients, pizza.BasePrice);
+            var pizzaModel = _pizzaRepository.GetById(pizza.Id);
+            pizzaModel.Name = pizza.Name;
+            pizzaModel.Description = pizza.Description;
+            pizzaModel.BasePrice = pizza.BasePrice;
+
+            foreach (var ingredient in ingredients)
+            {
+                pizzaModel.PizzaIngredients.Add(new PizzaIngredient
+                {
+                    Pizza = pizzaModel,
+                    Ingredient = ingredient
+                });
+            }
 
             _pizzaRepository.Update(pizzaModel);
         }
