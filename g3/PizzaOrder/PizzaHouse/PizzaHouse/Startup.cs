@@ -1,9 +1,9 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using BusinessLayer;
+using DataLayer;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using PizzaHouse.Data;
-using PizzaHouse.Services;
 
 namespace PizzaHouse
 {
@@ -19,8 +19,8 @@ namespace PizzaHouse
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddTransient<IPizzaRepository, PizzaRepository>();
             services.AddTransient<IPizzaService, PizzaService>();
+            services.AddTransient<IIngredientService, IngredientService>();
             services.AddSingleton(typeof(IRepository<>), typeof(Repository<>));
             services.AddMvc();
         }
