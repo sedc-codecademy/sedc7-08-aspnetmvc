@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SEDC.PizzaHut.DataLayer\SEDC.PizzaHut.DataLayer.csproj" />
+    <ProjectReference Include="..\SEDC.PizzaHut.Domain\SEDC.PizzaHut.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

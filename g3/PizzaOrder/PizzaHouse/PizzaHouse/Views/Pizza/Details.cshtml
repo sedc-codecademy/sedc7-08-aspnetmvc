@@ -1,0 +1,49 @@
+﻿@using System.Globalization
+@model ViewModels.PizzaViewModel
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>@Model.Name</h2>
+<h4>@Model.Description</h4>
+<hr/>
+<h3>Ingredients: </h3>
+@foreach (var ingredient in Model.Ingredients)
+{
+    <li>
+        @ingredient.Name
+        @if (ingredient.Allergens.Any())
+        {
+            <span>[Allergens: </span>
+            foreach (var allergen in ingredient.Allergens)
+            {
+                @allergen
+                <span>|</span>
+            }
+            <span>]</span>
+        }
+    </li>
+
+}
+<hr/>
+<h3>Prices: </h3>
+<table class="table">
+    <thead>
+        <tr>
+            @{
+                foreach (var size in Enum.GetValues(typeof(ViewModels.SizeEnum)).Cast<ViewModels.SizeEnum>().ToList())
+                {
+                    <th>@size.ToString()</th>
+                }
+            }
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model.Prices[ViewModels.SizeEnum.Small].ToString("C", new CultureInfo("mk-Mk"))</td>
+            <td>@Model.Prices[ViewModels.SizeEnum.Medium].ToString("C", new CultureInfo("mk-Mk"))</td>
+            <td>@Model.Prices[ViewModels.SizeEnum.Large].ToString("C", new CultureInfo("mk-Mk"))</td>
+        </tr>
+    </tbody>
+</table>
+

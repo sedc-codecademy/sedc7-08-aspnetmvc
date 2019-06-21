@@ -69,5 +69,10 @@ namespace SEDC.PizzApp.Services.Services
             // validation, proverki itn itn
             _orderRepository.Insert(order);
         }
+        public Pizza GetPizzaFromMenu(string name, PizzaSize size)
+        {
+            List<Pizza> menu = _pizzaRepository.GetAll();
+            return menu.Where(x => x.Name == name && x.Size == size).FirstOrDefault();
+        }
     }
 }

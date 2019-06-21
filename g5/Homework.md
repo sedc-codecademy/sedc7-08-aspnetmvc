@@ -37,3 +37,8 @@ The application will be done bit by bit. The tasks will be added here. Here is w
 8. After the info is filled the view should redirect back to the first view where the new task is visible in the table
 9. Create a multi architecture organization for the project
 11. Create repositories for the models
+12. Create the In progress page, where all tasks that are in progress are shown
+13. Create the Done page, where all tasks that are done are shown
+14. Create a task details page where details of a task are shown
+15. In the details page the information shown should be in inputs ( and status in dropdown ) so that the person can change the details if they want or change status and save
+15. Create a button after every task that is shown in every view that when clicked, will redirect you  to the details view of that task
