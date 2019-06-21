@@ -1,0 +1,53 @@
+﻿@using System.Globalization
+@model SEDC.PizzaApp.Web.ViewModels.MenuViewModel
+@{
+    ViewData["Title"] = Model.RestaurantName;
+    var small = SEDC.PizzaApp.Domain.PizzaSize.Small;
+    var medium = SEDC.PizzaApp.Domain.PizzaSize.Medium;
+    var large = SEDC.PizzaApp.Domain.PizzaSize.Large;
+}
+
+<h2>@Model.RestaurantName</h2>
+
+<div class="container">
+    <a asp-action="Create" asp-controller="Pizza" class="btn btn-primary">Create new pizza</a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Pizza</th>
+                @{
+                    foreach (var size in Model.Sizes)
+                    {
+                        <th>@size.ToString()</th>
+                    }
+                }
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach (var pizza in Model.Pizzas)
+                {
+            <tr>
+                <td>
+                    <h4>@pizza.Name</h4>
+                    <p>@pizza.Description</p>
+                </td>
+                <td>@pizza.GetPrice(small).ToString("C", new CultureInfo("mk-MK"))</td>
+                <td>@pizza.GetPrice(medium).ToString("C", new CultureInfo("mk-MK"))</td>
+                <td>@pizza.GetPrice(large).ToString("C", new CultureInfo("mk-MK"))</td>
+                <td>
+                    <a asp-action="Details" asp-controller="Pizza" asp-route-id="@pizza.Id">Details</a> |
+                    <a asp-action="Edit" asp-controller="Pizza" asp-route-id="@pizza.Id">Edit</a> |
+                    <a asp-action="Delete" asp-controller="Pizza" asp-route-id="@pizza.Id">Delete</a>
+                </td>
+                <td></td>
+            </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+
+

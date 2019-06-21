@@ -4,4 +4,8 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SEDC.PizzaApp.DataAccess\SEDC.PizzaApp.DataAccess.csproj" />
+  </ItemGroup>
+
 </Project>

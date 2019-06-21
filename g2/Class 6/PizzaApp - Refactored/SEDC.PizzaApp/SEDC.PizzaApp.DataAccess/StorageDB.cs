@@ -7,34 +7,16 @@ namespace SEDC.PizzaApp.DataAccess
 {
     public static class StorageDB
     {
+        public static int PizzaId = 3;
+        public static int OrderId = 1;
+        public static int UserId = 2;
+
         public static List<Pizza> Pizzas = new List<Pizza>
         {
-            new Pizza
-            {
-                Id = 1,
-                Name = "Capri",
-                Description = "The best pizza in town!",
-                Size = PizzaSize.Medium,
-                Price = 250
-            },
-            new Pizza
-            {
-                Id = 2,
-                Name = "Pepperoni",
-                Description = "The best pepperoni pizza in town!",
-                Size = PizzaSize.Large,
-                Price = 340
-            },
-            new Pizza
-            {
-                Id = 3,
-                Name = "Napolitana",
-                Description = "The best napolitana pizza in town!",
-                Size = PizzaSize.Small,
-                Price = 180
-            }
-
-        };
+            new Pizza(1, "Capri", "The best capri pizza in town!", 160),
+            new Pizza(2, "Pepperoni", "The best pepperoni pizza in town!", 180),
+            new Pizza(3, "Napolitana", "The best napolitana pizza in town!", 140)
+    };
 
         public static List<User> Users = new List<User>
         {
@@ -77,22 +59,8 @@ namespace SEDC.PizzaApp.DataAccess
                 },
                 Pizzas = new List<Pizza>
                 {
-                    new Pizza
-                    {
-                        Id = 1,
-                        Name = "Capri",
-                        Description = "The best pizza in town!",
-                        Size = PizzaSize.Medium,
-                        Price = 250
-                    },
-                    new Pizza
-                    {
-                        Id = 2,
-                        Name = "Pepperoni",
-                        Description = "The best pepperoni pizza in town!",
-                        Size = PizzaSize.Large,
-                        Price = 340
-                    },
+                    new Pizza(1, "Capri", "The best capri pizza in town!", 160),
+                    new Pizza(2, "Pepperoni", "The best pepperoni pizza in town!", 180)
                 }
             }
         };
