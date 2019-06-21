@@ -13,7 +13,7 @@ namespace SEDC.PizzaApp.Domain
         {
             get
             {
-                return Pizzas.Sum(x => x.Price) + 10;
+                return Pizzas.Sum(x => x.GetPrice(x.Size)) + 10;
             }
 
             //get => Pizzas.Sum(x => x.Price) + 10;

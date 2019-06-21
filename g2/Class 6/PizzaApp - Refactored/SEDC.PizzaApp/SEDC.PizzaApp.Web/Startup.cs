@@ -9,6 +9,9 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using SEDC.PizzaApp.DataAccess;
+using SEDC.PizzaApp.Domain;
+using SEDC.PizzaApp.Services;
 
 namespace SEDC.PizzaApp.Web
 {
@@ -33,6 +36,8 @@ namespace SEDC.PizzaApp.Web
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddTransient(typeof(IRepository<Pizza>), typeof(PizzaRepository));
+            services.AddTransient<IService, PizzaService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -56,7 +61,7 @@ namespace SEDC.PizzaApp.Web
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Pizza}/{action=Index}/{id?}");
             });
         }
     }
