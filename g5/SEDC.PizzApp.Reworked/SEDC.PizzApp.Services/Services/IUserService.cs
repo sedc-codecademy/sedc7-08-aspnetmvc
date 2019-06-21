@@ -10,5 +10,7 @@ namespace SEDC.PizzApp.Services.Services
         User GetUserById(int id);
         int AddNewUser(User entity);
         string GetLastUserName();
+        void GiveFeedback(Feedback feedback);
+        List<Feedback> GetFeedback(int numberOfFeedbackUnits);
     }
 }

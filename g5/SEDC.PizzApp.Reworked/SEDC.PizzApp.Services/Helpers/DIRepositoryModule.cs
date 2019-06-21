@@ -15,6 +15,7 @@ namespace SEDC.PizzApp.Services.Helpers
             services.AddTransient<IRepository<User>, UserRepository>();
             services.AddTransient<IRepository<Order>, OrderRepository>();
             services.AddTransient<IRepository<Pizza>, PizzaRepository>();
+            services.AddTransient<IRepository<Feedback>, FeedbackRepository>();
             return services;
         }
     }

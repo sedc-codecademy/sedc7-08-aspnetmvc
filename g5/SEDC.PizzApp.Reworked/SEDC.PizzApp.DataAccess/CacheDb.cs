@@ -10,9 +10,11 @@ namespace SEDC.PizzApp.DataAccess
         public static List<Order> Orders;
         public static List<User> Users;
         public static List<Pizza> Menu;
+        public static List<Feedback> Feedbacks;
         public static int OrderId;
         public static int UserId;
         public static int PizzaId;
+        public static int FeedbackId;
         static CacheDb()
         {
             Users = new List<User>()
@@ -154,9 +156,11 @@ namespace SEDC.PizzApp.DataAccess
                     Pizzas = new List<Pizza>(){ Menu[1], Menu[8] }
                 }
             };
+            Feedbacks = new List<Feedback>();
             OrderId = 3;
             UserId = 2;
             PizzaId = 12;
+            FeedbackId = 0;
         }
     }
 }

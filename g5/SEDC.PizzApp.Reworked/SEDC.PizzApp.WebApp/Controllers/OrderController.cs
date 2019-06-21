@@ -21,7 +21,10 @@ namespace SEDC.PizzApp.WebApp.Controllers
         [Route("Orders")]
         public IActionResult Index()
         {
+            // Domain models
             List<Order> orders = _pizzaOrderService.GetAllOrders();
+            // View Models
+            // MAPPINT SECTION
             List<OrderItemViewModel> viewOrders = new List<OrderItemViewModel>();
             foreach (Order order in orders)
             {
@@ -54,6 +57,7 @@ namespace SEDC.PizzApp.WebApp.Controllers
                 OrderCount = _pizzaOrderService.GetOrderCount(),
                 Orders = viewOrders
             };
+            // We send mapped view model to the view
             return View(model);
         }
         [HttpGet("Order")]
@@ -92,6 +96,37 @@ namespace SEDC.PizzApp.WebApp.Controllers
             };
             _pizzaOrderService.MakeNewOrder(order);
             return View("_ThankYou");
+        }
+        public IActionResult Details(int id)
+        {
+            Order order = _pizzaOrderService.GetOrderById(id);
+            if (order == null) return View("_Error");
+            List<PizzaViewModel> pizzas = new List<PizzaViewModel>();
+            foreach (Pizza pizza in order.Pizzas)
+            {
+                pizzas.Add(new PizzaViewModel()
+                {
+                    Image = pizza.Image,
+                    Name = pizza.Name,
+                    Price = pizza.Price,
+                    Size = pizza.Size
+                });
+            }
+            if (order == null) return View("_Error");
+            OrderDetailsViewModel viewModel = new OrderDetailsViewModel()
+            {
+                Address = order.User.Address,
+                Order = new OrderItemViewModel()
+                {
+                    Id = order.Id,
+                    FirstName = order.User.FirstName,
+                    Pizzas = pizzas,
+                    LastName = order.User.LastName,
+                    Price = order.Price
+                },
+                Phone = order.User.Phone
+            };
+            return View(viewModel);
         }
     }
 }
