@@ -120,13 +120,14 @@ public void ConfigureServices(IServiceCollection services)
 ```
 ```json
 // appSettings.json
-
+// Registers a connection string (used in Context registering in Startup.cs)
 {
-    // Registers a connection string (used in Context registering in Startup.cs)
     "ConnectionStrings": {
         "DefaultConnection": "Data Source=MKSK-LPT-013;Initial Catalog=ContosoUniversity;Integrated Security=True"
     },
-    // ...some other settings
+    "someOtherSettings": {
+        "someSetting": "..."
+    }
 }
 
 Note: *Data Source* is actually server name where you database should be located and *Initial Catalog* is the database name, you should change this depending on your needs.
