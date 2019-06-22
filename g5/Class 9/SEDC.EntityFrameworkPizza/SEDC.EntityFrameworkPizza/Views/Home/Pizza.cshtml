@@ -1,0 +1,14 @@
+﻿@model PizzaViewModel
+
+<h1>Add Pizza</h1>
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(x => x.Pizza.OrderId)
+    @Html.LabelFor(x => x.Pizza.Name)
+    @Html.TextBoxFor(x => x.Pizza.Name)
+    <br />
+    @Html.LabelFor(x => x.Pizza.Size)
+    @Html.DropDownListFor(x => x.Pizza.Size, Html.GetEnumSelectList(Model.Pizza.Size.GetType()))
+
+    <button class="btn btn-danger" type="submit">Add Pizza</button>
+}
