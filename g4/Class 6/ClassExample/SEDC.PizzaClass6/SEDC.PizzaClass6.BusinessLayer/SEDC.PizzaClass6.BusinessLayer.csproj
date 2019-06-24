@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SEDC.PizzaClass6.DataLayer\SEDC.PizzaClass6.DataLayer.csproj" />
+    <ProjectReference Include="..\SEDC.PizzaClass6.DomainModels\SEDC.PizzaClass6.DomainModels.csproj" />
+  </ItemGroup>
+
+</Project>
