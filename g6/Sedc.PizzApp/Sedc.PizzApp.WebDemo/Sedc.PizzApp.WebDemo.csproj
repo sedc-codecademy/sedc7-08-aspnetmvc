@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PizzApp.Repositories.Abstractions\PizzApp.Repositories.Contracts.csproj" />
+    <ProjectReference Include="..\PizzApp.Repositories.Abstractions\PizzApp.Repositories.Abstractions.csproj" />
     <ProjectReference Include="..\PizzApp.Repositories.MockImplementations\PizzApp.Repositories.MockImplementations.csproj" />
   </ItemGroup>
 

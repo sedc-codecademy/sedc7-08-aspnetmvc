@@ -18,7 +18,7 @@ namespace Sedc.PizzApp.WebDemo.Controllers
 
         public IActionResult Details(int id)
         {
-            var pizza = pizzaRepository.GetById(id);                
+            var pizza = pizzaRepository.GetById(id);
             return View(pizza);
         }
 

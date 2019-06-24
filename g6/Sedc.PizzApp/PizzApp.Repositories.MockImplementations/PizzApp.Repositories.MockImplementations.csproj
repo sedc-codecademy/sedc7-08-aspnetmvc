@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PizzApp.Repositories.Abstractions\PizzApp.Repositories.Contracts.csproj" />
+    <ProjectReference Include="..\PizzApp.Repositories.Abstractions\PizzApp.Repositories.Abstractions.csproj" />
   </ItemGroup>
 
 </Project>
