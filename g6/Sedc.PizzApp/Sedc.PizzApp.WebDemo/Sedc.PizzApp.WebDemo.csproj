@@ -10,4 +10,9 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.9" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\PizzApp.Repositories.Abstractions\PizzApp.Repositories.Contracts.csproj" />
+    <ProjectReference Include="..\PizzApp.Repositories.MockImplementations\PizzApp.Repositories.MockImplementations.csproj" />
+  </ItemGroup>
+
 </Project>

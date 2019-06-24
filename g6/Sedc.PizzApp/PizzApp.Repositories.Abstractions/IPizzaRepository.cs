@@ -6,5 +6,6 @@ namespace PizzApp.Repositories.Abstractions
     public interface IPizzaRepository
     {
         List<Pizza> GetAllPizzas();
+        Pizza GetById(int id);
     }
 }

@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PizzApp.Repositories.Abstractions;
+using PizzApp.Repositories.MockImplementations;
 using Sedc.PizzApp.WebDemo.Models;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,21 +9,16 @@ namespace Sedc.PizzApp.WebDemo.Controllers
 {
     public class PizzaController : Controller
     {
-        private static readonly List<Pizza> pizzas = new List<Pizza>
-            {
-               new Pizza{ Id=1,Name="capri"    },
-               new Pizza{ Id=2,Name="tuna"     },
-               new Pizza{ Id=3,Name="margarita"},
-               new Pizza{ Id=4,Name="pepperoni"},
-            };
+        private readonly IPizzaRepository pizzaRepository;
 
         public PizzaController()
         {
+            pizzaRepository = new InMemoryPizzaRepository();
         }
 
         public IActionResult Details(int id)
         {
-            var pizza = pizzas.FirstOrDefault(p => p.Id == id);
+            var pizza = pizzaRepository.GetById(id);                
             return View(pizza);
         }
 
