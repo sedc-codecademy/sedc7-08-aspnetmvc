@@ -10,9 +10,11 @@ namespace SEDC.PizzApp.DataAccess
         public static List<Order> Orders;
         public static List<User> Users;
         public static List<Pizza> Menu;
+        public static List<Feedback> Feedbacks;
         public static int OrderId;
         public static int UserId;
         public static int PizzaId;
+        public static int FeedbackId;
         static CacheDb()
         {
             Users = new List<User>()
@@ -42,7 +44,7 @@ namespace SEDC.PizzApp.DataAccess
                     Name = "Kapri",
                     Price = 7,
                     Size = PizzaSize.Medium,
-                    Image = "banner1.svg"
+                    Image = "Kapri.png"
                 },
                 new Pizza()
                 {
@@ -50,7 +52,7 @@ namespace SEDC.PizzApp.DataAccess
                     Name = "Kapri",
                     Price = 7,
                     Size = PizzaSize.Large,
-                    Image = "banner1.svg"
+                    Image = "Kapri.png"
                 },
                 new Pizza()
                 {
@@ -58,7 +60,7 @@ namespace SEDC.PizzApp.DataAccess
                     Name = "Kapri",
                     Price = 7,
                     Size = PizzaSize.Family,
-                    Image = "banner1.svg"
+                    Image = "Kapri.png"
                 },
                 new Pizza()
                 {
@@ -66,7 +68,7 @@ namespace SEDC.PizzApp.DataAccess
                     Name = "Peperoni",
                     Price = 9,
                     Size = PizzaSize.Medium,
-                    Image = "banner1.svg"
+                    Image = "Peperoni.png"
                 },
                 new Pizza()
                 {
@@ -74,7 +76,7 @@ namespace SEDC.PizzApp.DataAccess
                     Name = "Peperoni",
                     Price = 8,
                     Size = PizzaSize.Large,
-                    Image = "banner1.svg"
+                    Image = "Peperoni.png"
                 },
                 new Pizza()
                 {
@@ -82,7 +84,7 @@ namespace SEDC.PizzApp.DataAccess
                     Name = "Peperoni",
                     Price = 8,
                     Size = PizzaSize.Family,
-                    Image = "banner1.svg"
+                    Image = "Peperoni.png"
                 },
                 new Pizza()
                 {
@@ -90,7 +92,7 @@ namespace SEDC.PizzApp.DataAccess
                     Name = "Margarita",
                     Price = 10.5,
                     Size = PizzaSize.Medium,
-                    Image = "banner1.svg"
+                    Image = "Margarita.png"
                 },
                 new Pizza()
                 {
@@ -98,7 +100,7 @@ namespace SEDC.PizzApp.DataAccess
                     Name = "Margarita",
                     Price = 10.5,
                     Size = PizzaSize.Large,
-                    Image = "banner1.svg"
+                    Image = "Margarita.png"
                 },
                 new Pizza()
                 {
@@ -106,7 +108,7 @@ namespace SEDC.PizzApp.DataAccess
                     Name = "Margarita",
                     Price = 10.5,
                     Size = PizzaSize.Family,
-                    Image = "banner1.svg"
+                    Image = "Margarita.png"
                 },
                 new Pizza()
                 {
@@ -114,7 +116,7 @@ namespace SEDC.PizzApp.DataAccess
                     Name = "Siciliana",
                     Price = 6.5,
                     Size = PizzaSize.Medium,
-                    Image = "banner1.svg"
+                    Image = "Siciliana.png"
                 },
                 new Pizza()
                 {
@@ -122,7 +124,7 @@ namespace SEDC.PizzApp.DataAccess
                     Name = "Siciliana",
                     Price = 9.5,
                     Size = PizzaSize.Large,
-                    Image = "banner1.svg"
+                    Image = "Siciliana.png"
                 },
                 new Pizza()
                 {
@@ -130,7 +132,7 @@ namespace SEDC.PizzApp.DataAccess
                     Name = "Siciliana",
                     Price = 9.5,
                     Size = PizzaSize.Family,
-                    Image = "banner1.svg"
+                    Image = "Siciliana.png"
                 }
             };
             Orders = new List<Order>()
@@ -154,9 +156,11 @@ namespace SEDC.PizzApp.DataAccess
                     Pizzas = new List<Pizza>(){ Menu[1], Menu[8] }
                 }
             };
+            Feedbacks = new List<Feedback>();
             OrderId = 3;
             UserId = 2;
             PizzaId = 12;
+            FeedbackId = 0;
         }
     }
 }

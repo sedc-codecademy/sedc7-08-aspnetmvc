@@ -4,40 +4,74 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using SEDC.PizzApp.Domain;
+using SEDC.PizzApp.Services.Services;
 using SEDC.PizzApp.WebApp.Models;
 
 namespace SEDC.PizzApp.WebApp.Controllers
 {
     public class HomeController : Controller
     {
+        private IPizzaOrderService _pizzaOrderService;
+        private IUserService _userService;
+        public HomeController(IPizzaOrderService pizzaOrderService, IUserService userService)
+        {
+            _pizzaOrderService = pizzaOrderService;
+            _userService = userService;
+        }
         public IActionResult Index()
         {
-            return View();
+            return View(new HomeViewModel());
         }
-
-        public IActionResult About()
+        [HttpPost]
+        public IActionResult Index(HomeViewModel model)
         {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
+            return RedirectToAction("Order", "Order", new { pizzas = model.NumberOfPizzas });
         }
-
         public IActionResult Contact()
         {
-            ViewData["Message"] = "Your contact page.";
-
             return View();
         }
-
-        public IActionResult Privacy()
+        public IActionResult AboutUs()
         {
             return View();
         }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        public IActionResult Feedback()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View(new FeedbackViewModel());
+        }
+        [HttpPost]
+        public IActionResult Feedback(FeedbackViewModel model)
+        {
+            Feedback feedback = new Feedback()
+            {
+                Email = model.Email,
+                Message = model.Message,
+                Name = model.Name
+            };
+            _userService.GiveFeedback(feedback);
+            return RedirectToAction("Index");
+        }
+        public IActionResult Menu()
+        {
+            List<Pizza> menu = _pizzaOrderService.GetMenu();
+            List<PizzaViewModel> pizzasView = new List<PizzaViewModel>();
+            foreach (var pizza in menu)
+            {
+                pizzasView.Add(new PizzaViewModel()
+                {
+                    Id = pizza.Id,
+                    Image = pizza.Image,
+                    Name = pizza.Name,
+                    Price = pizza.Price,
+                    Size = pizza.Size
+                });
+            };
+            MenuViewModel model = new MenuViewModel()
+            {
+                Menu = pizzasView
+            };
+            return View(model);
         }
     }
 }
