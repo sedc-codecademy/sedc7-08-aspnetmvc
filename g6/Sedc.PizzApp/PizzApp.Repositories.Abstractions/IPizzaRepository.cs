@@ -7,5 +7,8 @@ namespace PizzApp.Repositories.Abstractions
     {
         List<Pizza> GetAllPizzas();
         Pizza GetById(int id);
+        Pizza Create(Pizza model);
+        Pizza Update(Pizza model);
+        void Delete(int id);
     }
 }

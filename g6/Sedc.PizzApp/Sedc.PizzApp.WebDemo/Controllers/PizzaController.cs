@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PizzApp.Models;
 using PizzApp.Repositories.Abstractions;
 using PizzApp.Repositories.MockImplementations;
 using Sedc.PizzApp.WebDemo.Models;
@@ -35,7 +36,8 @@ namespace Sedc.PizzApp.WebDemo.Controllers
 
             //ViewData["pizzas"] = pizzas;
 
-            return View(pizzas.ToList());
+            var pizzas = pizzaRepository.GetAllPizzas();
+            return View(pizzas);
         }
 
         //get pizza that is longer than 4 character
@@ -63,12 +65,7 @@ namespace Sedc.PizzApp.WebDemo.Controllers
         public IActionResult Create(Pizza model)
         {
             //submit the pizza from form
-            var newPizza = new Pizza
-            {
-                Id = pizzas.Max(pizza => pizza.Id) + 1,
-                Name = model.Name
-            };
-            pizzas.Add(newPizza);
+            var newPizza = pizzaRepository.Create(model);
 
             return RedirectToAction("Details", new
             {
@@ -79,15 +76,14 @@ namespace Sedc.PizzApp.WebDemo.Controllers
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            var pizza = pizzas.First(x => x.Id == id);
+            var pizza = pizzaRepository.GetById(id);
             return View(pizza);
         }
 
         [HttpPost]
         public IActionResult Edit(int Id, Pizza model)
         {
-            var pizza = pizzas.First(x => x.Id == Id);
-            pizza.Name = model.Name;
+            var pizza = pizzaRepository.Update(model);
             return RedirectToAction("Details", new
             {
                 id = pizza.Id
@@ -97,15 +93,14 @@ namespace Sedc.PizzApp.WebDemo.Controllers
         [HttpGet]
         public IActionResult Delete(int id)
         {
-            var pizza = pizzas.First(x => x.Id == id);
+            var pizza = pizzaRepository.GetById(id);
             return View(pizza);
         }
 
         [HttpPost]
         public IActionResult Delete(int Id, Pizza model)
         {
-            var pizza = pizzas.First(x => x.Id == Id);
-            pizzas.Remove(pizza);
+            pizzaRepository.Delete(Id);
             return RedirectToAction("Index");
         }
     }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using PizzApp.Models;
 using Sedc.PizzApp.WebDemo.Models;
 
 namespace Sedc.PizzApp.WebDemo.Controllers

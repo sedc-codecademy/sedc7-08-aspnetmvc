@@ -16,6 +16,22 @@ namespace PizzApp.Repositories.MockImplementations
                new Pizza{ Id=4, Name="pepperoni" },
             };
 
+        public Pizza Create(Pizza model)
+        {
+            var newPizza = new Pizza
+            {
+                Id = pizzas.Max(pizza => pizza.Id) + 1,
+                Name = model.Name
+            };
+            return newPizza;
+        }
+
+        public void Delete(int id)
+        {
+            var pizza = pizzas.First(x => x.Id == id);
+            pizzas.Remove(pizza);
+        }
+
         public List<Pizza> GetAllPizzas()
         {
             return pizzas;
@@ -23,6 +39,13 @@ namespace PizzApp.Repositories.MockImplementations
         public Pizza GetById(int id)
         {
             return pizzas.FirstOrDefault(p => p.Id == id);
+        }
+
+        public Pizza Update(Pizza model)
+        {
+            var pizza = pizzas.First(x => x.Id == model.Id);
+            pizza.Name = model.Name;
+            return pizza;
         }
     }
 }
