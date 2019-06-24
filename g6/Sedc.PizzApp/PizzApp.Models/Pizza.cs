@@ -1,4 +1,4 @@
-﻿namespace Sedc.PizzApp.WebDemo.Models
+﻿namespace PizzApp.Models
 {
     public class Pizza
     {   
