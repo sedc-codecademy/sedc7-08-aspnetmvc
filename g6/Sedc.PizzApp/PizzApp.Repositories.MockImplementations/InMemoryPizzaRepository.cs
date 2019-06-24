@@ -1,6 +1,5 @@
 ﻿using PizzApp.Models;
 using PizzApp.Repositories.Abstractions;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -23,6 +22,7 @@ namespace PizzApp.Repositories.MockImplementations
                 Id = pizzas.Max(pizza => pizza.Id) + 1,
                 Name = model.Name
             };
+            pizzas.Add(newPizza);
             return newPizza;
         }
 
