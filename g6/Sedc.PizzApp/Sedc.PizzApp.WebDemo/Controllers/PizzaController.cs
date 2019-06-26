@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PizzApp.Models;
 using PizzApp.Repositories.Abstractions;
+using PizzApp.Repositories.EntityFramework;
 using PizzApp.Repositories.MockImplementations;
 using Sedc.PizzApp.WebDemo.Models;
 using System.Collections.Generic;
@@ -14,7 +15,8 @@ namespace Sedc.PizzApp.WebDemo.Controllers
 
         public PizzaController()
         {
-            pizzaRepository = new InMemoryPizzaRepository();
+            //pizzaRepository = new InMemoryPizzaRepository();
+            pizzaRepository = new EntityFrameworkPizzaRepository();
         }
 
         public IActionResult Details(int id)
