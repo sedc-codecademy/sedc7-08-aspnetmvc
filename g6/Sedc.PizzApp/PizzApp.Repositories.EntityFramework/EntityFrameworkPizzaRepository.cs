@@ -17,9 +17,13 @@ namespace PizzApp.Repositories.EntityFramework
             optionsBuilder.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=PizzaDatabase;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
             Database = new ApplicationDatabase(optionsBuilder.Options);
         }
+
         public Pizza Create(Pizza model)
         {
-            throw new NotImplementedException();
+            model.Id = default;
+            Database.Pizzas.Add(model);
+            int rowsAffected = Database.SaveChanges();
+            return model;
         }
 
         public void Delete(int id)
