@@ -80,8 +80,9 @@ namespace BusinessLayer
 
         public CreatePizzaViewModel GetPizzaUpdateModel(int id)
         {
-            var pizza = _pizzaRepository.GetById(id);
+            var pizza = _pizzaRepository.GetById(id, x => x.Include(y => y.PizzaIngredients).ThenInclude(y => y.Ingredient));
             var updatePizzaViewModel = pizza.ToCreateModel();
+            updatePizzaViewModel.SelectedIngredients = pizza.PizzaIngredients.Select(x => x.Ingredient.Id).ToList();
             updatePizzaViewModel.AllIngredients = _ingredientService.GetIngredientsSelectList();
             return updatePizzaViewModel;
         }

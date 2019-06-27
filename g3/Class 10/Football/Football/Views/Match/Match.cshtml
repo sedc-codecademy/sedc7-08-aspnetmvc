@@ -1,0 +1,23 @@
+﻿@model Football.ViewModels.MatchViewModel
+@{
+    ViewData["Title"] = "Match";
+}
+
+<h2>Match</h2>
+
+<form asp-action="Match" asp-controller="Match">
+    <div class="form-group">
+        <label asp-for="HomeTeamId" class="form-control"></label>
+        <select asp-for="HomeTeamId" asp-items="@Model.AllTeams" class="form-control"></select>
+    </div>
+    <div class="form-group">
+        <label asp-for="AwayTeamId"class="form-control"></label>
+        <select asp-for="AwayTeamId" asp-items="@Model.AllTeams"class="form-control"></select>
+    </div>
+    <div class="form-group">
+        <label asp-for="Score" class="form-control"></label>
+        <input asp-for="Score" class="form-control"/>
+    </div>
+    <input type="submit" class="btn btn-default"/>
+</form>
+
