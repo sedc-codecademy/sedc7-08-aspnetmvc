@@ -42,3 +42,4 @@ The application will be done bit by bit. The tasks will be added here. Here is w
 14. Create a task details page where details of a task are shown
 15. In the details page the information shown should be in inputs ( and status in dropdown ) so that the person can change the details if they want or change status and save
 15. Create a button after every task that is shown in every view that when clicked, will redirect you  to the details view of that task
+16. Try to implement the same logic with a database connected with Entity Framework
