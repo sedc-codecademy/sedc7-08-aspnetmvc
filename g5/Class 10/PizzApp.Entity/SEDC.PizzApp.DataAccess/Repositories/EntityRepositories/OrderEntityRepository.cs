@@ -34,6 +34,7 @@ namespace SEDC.PizzApp.DataAccess.Repositories.EntityRepositories
         {
             return _context.Orders
               .Include(i => i.PizzaOrders)
+              .ThenInclude(i => i.Pizza)
               .Include(i => i.User)
               .FirstOrDefault(x => x.Id == id);
         }

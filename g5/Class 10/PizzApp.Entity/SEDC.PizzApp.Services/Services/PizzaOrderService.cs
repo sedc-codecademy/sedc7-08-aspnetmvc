@@ -9,13 +9,16 @@ namespace SEDC.PizzApp.Services.Services
 {
     public class PizzaOrderService : IPizzaOrderService
     {
+        private IRepository<User> _users;
         private IRepository<Order> _orderRepository;
         private IRepository<Pizza> _pizzaRepository;
         public PizzaOrderService(IRepository<Order> orderRepo, 
-            IRepository<Pizza> pizzaRepo)
+            IRepository<Pizza> pizzaRepo,
+            IRepository<User> users)
         {
             _orderRepository = orderRepo;
             _pizzaRepository = pizzaRepo;
+            _users = users;
         }
         public List<Order> GetAllOrders()
         {
@@ -56,6 +59,15 @@ namespace SEDC.PizzApp.Services.Services
 
         public Order GetOrderById(int id)
         {
+            var x = new User()
+            {
+                Id = 1,
+                FirstName = "Dragi",
+                LastName = "Bobsky",
+                Address = "Bob Street",
+                Phone = 080012312345
+            };
+            _users.Update(x);
             return _orderRepository.GetById(id);
         }
 

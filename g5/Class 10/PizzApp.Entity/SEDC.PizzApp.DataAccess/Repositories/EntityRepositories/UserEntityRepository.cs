@@ -38,12 +38,17 @@ namespace SEDC.PizzApp.DataAccess.Repositories.EntityRepositories
         }
 
         public void Update(User entity)
+
         {
             User user = _context.Users.FirstOrDefault(x => x.Id == entity.Id);
             if (user != null)
             {
-                entity.Id = user.Id;
-                _context.Users.Update(entity);
+                user.Address = entity.Address;
+                user.LastName = entity.LastName;
+                user.FirstName = entity.FirstName;
+                user.Phone = entity.Phone;
+                if (entity.Orders != null) user.Orders = entity.Orders;
+                _context.Users.Update(user);
             }
         }
     }

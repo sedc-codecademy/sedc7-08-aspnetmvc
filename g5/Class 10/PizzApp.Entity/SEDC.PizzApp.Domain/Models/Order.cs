@@ -12,7 +12,7 @@ namespace SEDC.PizzApp.Domain
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public virtual User User { get; set; }
+        public User User { get; set; }
         public int UserId { get; set; }
         public List<PizzaOrder> PizzaOrders { get; set; } = new List<PizzaOrder>();
         [NotMapped]
