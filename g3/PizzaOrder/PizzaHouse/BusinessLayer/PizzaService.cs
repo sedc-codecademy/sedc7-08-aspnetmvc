@@ -14,14 +14,17 @@ namespace BusinessLayer
         private readonly IRepository<Pizza> _pizzaRepository;
         private readonly IRepository<Ingredient> _ingredientRepository;
         private readonly IIngredientService _ingredientService;
+        private readonly IPizzaIngredientRepository _pizzaIngredientRepository;
 
         public PizzaService(IRepository<Pizza> pizzaRepository,
         IRepository<Ingredient> ingredientRepository,
-        IIngredientService ingredientService)
+        IIngredientService ingredientService, 
+        IPizzaIngredientRepository pizzaIngredientRepository)
         {
             _pizzaRepository = pizzaRepository;
             _ingredientRepository = ingredientRepository;
             _ingredientService = ingredientService;
+            _pizzaIngredientRepository = pizzaIngredientRepository;
         }
 
         public MenuViewModel GetMenu()
@@ -106,6 +109,8 @@ namespace BusinessLayer
             pizzaModel.Name = pizza.Name;
             pizzaModel.Description = pizza.Description;
             pizzaModel.BasePrice = pizza.BasePrice;
+
+            _pizzaIngredientRepository.RemoveAllPizzaIngredients(pizza.Id);
 
             foreach (var ingredient in ingredients)
             {

@@ -16,7 +16,7 @@ else
 <div class="row">
     <div class="col-md-6">
         <form asp-action="Create" asp-controller="Pizza">
-            @Html.HiddenFor(x => x.Id);
+            @Html.HiddenFor(x => x.Id)
 
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>

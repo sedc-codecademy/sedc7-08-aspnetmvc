@@ -46,11 +46,13 @@ namespace DtoModels
 
             modelBuilder.Entity<Pizza>()
                 .HasMany(c => c.OrderItems)
-                .WithOne(e => e.Pizza);
+                .WithOne(e => e.Pizza)
+                .HasForeignKey(x => x.PizzaId);
 
             modelBuilder.Entity<Order>()
                 .HasMany(c => c.OrderItems)
-                .WithOne(e => e.Order);
+                .WithOne(e => e.Order)
+                .HasForeignKey(x => x.OrderId);
 
             modelBuilder.Entity<User>()
                 .HasMany(c => c.Orders)

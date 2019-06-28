@@ -23,6 +23,8 @@ namespace PizzaHouse
         {
             services.AddTransient<IPizzaService, PizzaService>();
             services.AddTransient<IIngredientService, IngredientService>();
+            services.AddTransient<IOrderService, OrderService>();
+            services.AddTransient<IPizzaIngredientRepository, PizzaIngredientRepository>();
             services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
             services.AddMvc();
 

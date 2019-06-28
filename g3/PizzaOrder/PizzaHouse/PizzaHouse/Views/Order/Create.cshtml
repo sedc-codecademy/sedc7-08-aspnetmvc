@@ -1,0 +1,46 @@
+﻿@model ViewModels.OrderViewModel
+@{
+    ViewData["Title"] = "Make an order";
+}
+
+<h2>Make an order</h2>
+<hr />
+<form asp-action="Create" asp-controller="Order">
+    <h4>User info</h4>
+    <div class="form-group">
+        <label asp-for="Name" class="control-label"></label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Address" class="control-label"></label>
+        <input asp-for="Address" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Phone" class="control-label"></label>
+        <input asp-for="Phone" class="form-control" />
+    </div>
+    <hr />
+    <h4>Pizzas:</h4>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Size</th>
+                <th>Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (var i = 0; i < Model.OrderItems.Count; i++)
+            {
+                <tr>
+                    @Html.HiddenFor(x => Model.OrderItems[i].Pizza.Id)
+                    @Html.HiddenFor(x => Model.OrderItems[i].Size)
+                    <td>@Model.OrderItems[i].Pizza.Name</td>
+                    <td>@Model.OrderItems[i].Size.ToString()</td>
+                    <td><input asp-for="@Model.OrderItems[i].Quantity" type="number" class="form-control" /></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <input type="submit" value="Order" class="btn btn-primary pull-right" />
+</form>

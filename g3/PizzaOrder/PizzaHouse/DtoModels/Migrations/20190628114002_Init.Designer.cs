@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DtoModels.Migrations
 {
     [DbContext(typeof(PizzaSystemDbContext))]
-    [Migration("20190620144546_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20190628114002_Init")]
+    partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -128,9 +128,9 @@ namespace DtoModels.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("OrderId");
+                    b.Property<int>("OrderId");
 
-                    b.Property<int?>("PizzaId");
+                    b.Property<int>("PizzaId");
 
                     b.Property<int>("Quantity");
 
@@ -217,11 +217,13 @@ namespace DtoModels.Migrations
                 {
                     b.HasOne("DtoModels.Order", "Order")
                         .WithMany("OrderItems")
-                        .HasForeignKey("OrderId");
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("DtoModels.Pizza", "Pizza")
                         .WithMany("OrderItems")
-                        .HasForeignKey("PizzaId");
+                        .HasForeignKey("PizzaId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("DtoModels.PizzaIngredient", b =>
