@@ -51,19 +51,35 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sedc.EntityFramework.WebApp
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Class09", "Class09", "{D7B612A3-A163-4644-B3A4-B17726F9C807}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sedc.OnionArchitecture.WebApp", "Sedc.OnionArchitecture.WebApp\Sedc.OnionArchitecture.WebApp.csproj", "{839A850E-1268-4EDF-9D83-F4F045C4D38D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sedc.OnionArchitecture.WebApp", "Sedc.OnionArchitecture.WebApp\Sedc.OnionArchitecture.WebApp.csproj", "{839A850E-1268-4EDF-9D83-F4F045C4D38D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sedc.OnionArchitecture.Services", "Sedc.OnionArchitecture.Services\Sedc.OnionArchitecture.Services.csproj", "{E2857C65-611C-4541-A648-E1CC23A2CC83}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sedc.OnionArchitecture.Services", "Sedc.OnionArchitecture.Services\Sedc.OnionArchitecture.Services.csproj", "{E2857C65-611C-4541-A648-E1CC23A2CC83}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sedc.OnionArchitecture.Repositories", "Sedc.OnionArchitecture.Repositories\Sedc.OnionArchitecture.Repositories.csproj", "{51DACC6E-6725-4844-8E3E-768D14061710}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sedc.OnionArchitecture.Repositories", "Sedc.OnionArchitecture.Repositories\Sedc.OnionArchitecture.Repositories.csproj", "{51DACC6E-6725-4844-8E3E-768D14061710}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sedc.OnionArchitecture.Entities", "Sedc.OnionArchitecture.Entities\Sedc.OnionArchitecture.Entities.csproj", "{9BF9D4CF-2097-4AAC-9E91-4451A62A01C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sedc.OnionArchitecture.Entities", "Sedc.OnionArchitecture.Entities\Sedc.OnionArchitecture.Entities.csproj", "{9BF9D4CF-2097-4AAC-9E91-4451A62A01C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sedc.OnionArchitecture.ConsoleApp", "Sedc.OnionArchitecture.ConsoleApp\Sedc.OnionArchitecture.ConsoleApp.csproj", "{576B9DB4-A2E6-4524-A917-4CFC584A48F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sedc.OnionArchitecture.ConsoleApp", "Sedc.OnionArchitecture.ConsoleApp\Sedc.OnionArchitecture.ConsoleApp.csproj", "{576B9DB4-A2E6-4524-A917-4CFC584A48F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sedc.OnionArchitecture.UnitTests", "Sedc.OnionArchitecture.UnitTests\Sedc.OnionArchitecture.UnitTests.csproj", "{38DFFAE0-03BC-407E-97A4-E7255C45AC33}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sedc.OnionArchitecture.UnitTests", "Sedc.OnionArchitecture.UnitTests\Sedc.OnionArchitecture.UnitTests.csproj", "{38DFFAE0-03BC-407E-97A4-E7255C45AC33}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "07 - Working with Data and 08 - Multi-Layer Architecture", "07 - Working with Data and 08 - Multi-Layer Architecture", "{93A11358-6785-49AF-A66F-69A4791C9867}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Class10", "Class10", "{4BD1EFB2-492C-4A56-8A5B-674FA2705A61}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Workshop", "Workshop", "{82279905-9AAD-48E3-BBC2-C6E29E827F92}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sedc.Todo03Solution.Entities", "Sedc.Todo03Solution.Entities\Sedc.Todo03Solution.Entities.csproj", "{8736AD13-14DC-4D3D-BC4D-16EDF9D31462}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sedc.Todo03Solution.Repositories", "Sedc.Todo03Solution.Repositories\Sedc.Todo03Solution.Repositories.csproj", "{2543960A-F348-4A49-8AF6-FFDEA3F480E6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sedc.Todo03Solution.WebApp", "Sedc.Todo03Solution.WebApp\Sedc.Todo03Solution.WebApp.csproj", "{AFC790FE-AB07-405F-A0F1-15899DDF037A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sedc.Todo03Initial.Entities", "Sedc.Todo03Initial.Entities\Sedc.Todo03Initial.Entities.csproj", "{469B8613-960A-46B3-BA1C-A5011360B419}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sedc.Todo03Initial.Repositories", "Sedc.Todo03Initial.Repositories\Sedc.Todo03Initial.Repositories.csproj", "{3EB49690-06A0-4AD0-9D65-7EFEE81164D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sedc.Todo03Initial.WebApp", "Sedc.Todo03Initial.WebApp\Sedc.Todo03Initial.WebApp.csproj", "{26AB3920-0EA0-4D77-9F5D-1C0484840A06}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -135,6 +151,30 @@ Global
 		{38DFFAE0-03BC-407E-97A4-E7255C45AC33}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{38DFFAE0-03BC-407E-97A4-E7255C45AC33}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{38DFFAE0-03BC-407E-97A4-E7255C45AC33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8736AD13-14DC-4D3D-BC4D-16EDF9D31462}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8736AD13-14DC-4D3D-BC4D-16EDF9D31462}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8736AD13-14DC-4D3D-BC4D-16EDF9D31462}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8736AD13-14DC-4D3D-BC4D-16EDF9D31462}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2543960A-F348-4A49-8AF6-FFDEA3F480E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2543960A-F348-4A49-8AF6-FFDEA3F480E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2543960A-F348-4A49-8AF6-FFDEA3F480E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2543960A-F348-4A49-8AF6-FFDEA3F480E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFC790FE-AB07-405F-A0F1-15899DDF037A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFC790FE-AB07-405F-A0F1-15899DDF037A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFC790FE-AB07-405F-A0F1-15899DDF037A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFC790FE-AB07-405F-A0F1-15899DDF037A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{469B8613-960A-46B3-BA1C-A5011360B419}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{469B8613-960A-46B3-BA1C-A5011360B419}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{469B8613-960A-46B3-BA1C-A5011360B419}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{469B8613-960A-46B3-BA1C-A5011360B419}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EB49690-06A0-4AD0-9D65-7EFEE81164D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EB49690-06A0-4AD0-9D65-7EFEE81164D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EB49690-06A0-4AD0-9D65-7EFEE81164D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EB49690-06A0-4AD0-9D65-7EFEE81164D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26AB3920-0EA0-4D77-9F5D-1C0484840A06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26AB3920-0EA0-4D77-9F5D-1C0484840A06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26AB3920-0EA0-4D77-9F5D-1C0484840A06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26AB3920-0EA0-4D77-9F5D-1C0484840A06}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -165,6 +205,13 @@ Global
 		{576B9DB4-A2E6-4524-A917-4CFC584A48F4} = {93A11358-6785-49AF-A66F-69A4791C9867}
 		{38DFFAE0-03BC-407E-97A4-E7255C45AC33} = {93A11358-6785-49AF-A66F-69A4791C9867}
 		{93A11358-6785-49AF-A66F-69A4791C9867} = {D7B612A3-A163-4644-B3A4-B17726F9C807}
+		{82279905-9AAD-48E3-BBC2-C6E29E827F92} = {4BD1EFB2-492C-4A56-8A5B-674FA2705A61}
+		{8736AD13-14DC-4D3D-BC4D-16EDF9D31462} = {82279905-9AAD-48E3-BBC2-C6E29E827F92}
+		{2543960A-F348-4A49-8AF6-FFDEA3F480E6} = {82279905-9AAD-48E3-BBC2-C6E29E827F92}
+		{AFC790FE-AB07-405F-A0F1-15899DDF037A} = {82279905-9AAD-48E3-BBC2-C6E29E827F92}
+		{469B8613-960A-46B3-BA1C-A5011360B419} = {82279905-9AAD-48E3-BBC2-C6E29E827F92}
+		{3EB49690-06A0-4AD0-9D65-7EFEE81164D3} = {82279905-9AAD-48E3-BBC2-C6E29E827F92}
+		{26AB3920-0EA0-4D77-9F5D-1C0484840A06} = {82279905-9AAD-48E3-BBC2-C6E29E827F92}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {658F3FFD-723C-4213-BE9D-7FD69B006455}
