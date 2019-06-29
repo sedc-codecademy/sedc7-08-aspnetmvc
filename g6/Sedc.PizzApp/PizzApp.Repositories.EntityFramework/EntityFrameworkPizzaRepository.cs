@@ -20,6 +20,9 @@ namespace PizzApp.Repositories.EntityFramework
 
         public Pizza Create(Pizza model)
         {
+            new PizzaPrice().Pizza
+
+
             model.Id = default;
             Database.Pizzas.Add(model);
             int rowsAffected = Database.SaveChanges();

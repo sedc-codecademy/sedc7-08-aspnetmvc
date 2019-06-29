@@ -15,6 +15,5 @@ namespace PizzApp.Repositories.EntityFramework
             //base.Database.CommitTransaction();
         }
         public DbSet<Pizza> Pizzas { get; set; }
-
     }
 }
