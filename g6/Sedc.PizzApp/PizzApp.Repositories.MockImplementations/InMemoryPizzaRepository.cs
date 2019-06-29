@@ -15,6 +15,11 @@ namespace PizzApp.Repositories.MockImplementations
                new Pizza{ Id=4, Name="pepperoni" },
             };
 
+        public void AddPrice(PizzaPrice pizzaPrice)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public Pizza Create(Pizza model)
         {
             var newPizza = new Pizza

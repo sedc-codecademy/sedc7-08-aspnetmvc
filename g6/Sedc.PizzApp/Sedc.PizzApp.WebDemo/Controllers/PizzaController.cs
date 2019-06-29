@@ -103,5 +103,15 @@ namespace Sedc.PizzApp.WebDemo.Controllers
             pizzaRepository.Delete(Id);
             return RedirectToAction("Index");
         }
+
+        [HttpPost]
+        public IActionResult AddPrice(PizzaPrice pizzaPrice)
+        {
+            pizzaRepository.AddPrice(pizzaPrice);
+            return RedirectToAction("Details", new
+            {
+                Id = pizzaPrice.PizzaId
+            });
+        }
     }
 }

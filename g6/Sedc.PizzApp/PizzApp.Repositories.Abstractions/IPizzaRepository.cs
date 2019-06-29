@@ -10,5 +10,6 @@ namespace PizzApp.Repositories.Abstractions
         Pizza Create(Pizza model);
         Pizza Update(Pizza model);
         void Delete(int id);
+        void AddPrice(PizzaPrice pizzaPrice);
     }
 }

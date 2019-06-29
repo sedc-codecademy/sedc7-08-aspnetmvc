@@ -18,6 +18,15 @@ namespace PizzApp.Repositories.EntityFramework
             Database = new ApplicationDatabase(optionsBuilder.Options);
         }
 
+        public void AddPrice(PizzaPrice pizzaPrice)
+        {
+            var dbPizza = Database.Pizzas
+                .Include(x => x.PizzaPrices)
+                .FirstOrDefault(x => x.Id == pizzaPrice.PizzaId);
+            dbPizza.PizzaPrices.Add(pizzaPrice);
+            Database.SaveChanges();
+        }
+
         public Pizza Create(Pizza model)
         {
             model.Id = default;
@@ -39,6 +48,7 @@ namespace PizzApp.Repositories.EntityFramework
         public Pizza GetById(int id)
         {
             return Database.Pizzas
+                .Include(x => x.PizzaPrices)
                 .FirstOrDefault(pizza => pizza.Id == id);
         }
 
