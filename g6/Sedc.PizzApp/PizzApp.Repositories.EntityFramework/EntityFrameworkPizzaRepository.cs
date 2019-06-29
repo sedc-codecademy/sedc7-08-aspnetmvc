@@ -20,9 +20,6 @@ namespace PizzApp.Repositories.EntityFramework
 
         public Pizza Create(Pizza model)
         {
-            new PizzaPrice().Pizza
-
-
             model.Id = default;
             Database.Pizzas.Add(model);
             int rowsAffected = Database.SaveChanges();
@@ -45,9 +42,13 @@ namespace PizzApp.Repositories.EntityFramework
                 .FirstOrDefault(pizza => pizza.Id == id);
         }
 
-        public Pizza Update(Pizza model)
+        public Pizza Update(Pizza pizza)
         {
-            throw new NotImplementedException();
+            var dbPizza = Database.Pizzas.FirstOrDefault(x => x.Id == pizza.Id);
+            dbPizza.Name = pizza.Name;
+            dbPizza.Description = pizza.Description;
+            Database.SaveChanges();
+            return dbPizza;
         }
     }
 }
