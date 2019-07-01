@@ -3,19 +3,8 @@
 namespace ToDo.WebApp.Models
 {
     public abstract class BaseTask
-    {
-        public static int LastGeneratedId { get; private set; }
-
-        static BaseTask()
-        {
-            LastGeneratedId = 0;
-        }
-
-        public BaseTask()
-        {
-            Id = ++LastGeneratedId;
-        }
-        public int Id { get; }
+    {        
+        public int Id { get; set; }
 
         public string Title { get; set; }
 

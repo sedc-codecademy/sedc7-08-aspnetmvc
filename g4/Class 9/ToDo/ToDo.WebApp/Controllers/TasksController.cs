@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using ToDo.WebApp.Helpers;
 using ToDo.WebApp.Models;
 //using todoModels = ToDo.WebApp.Models;
 using ToDo.WebApp.Models.Enums;
@@ -26,6 +27,7 @@ namespace ToDo.WebApp.Controllers
             {
                 new Task
                 {
+                    Id = IdGenerator.NextId,
                     Description = "Task 1 description",
                     Priority = Priority.Important,
                     Status = Status.ToDo,
@@ -35,18 +37,21 @@ namespace ToDo.WebApp.Controllers
                     {
                         new SubTask
                         {
+                            Id = IdGenerator.NextId,
                             Description = "SubTask 1, Task 1 description",
                             Status = Status.ToDo,
                             Title = "SubTask 1, Task 1 title"
                         },
                         new SubTask
                         {
+                            Id = IdGenerator.NextId,
                             Description = "SubTask 2, Task 1 description",
                             Status = Status.Done,
                             Title = "SubTask 2, Task 1 title"
                         },
                         new SubTask
                         {
+                            Id = IdGenerator.NextId,
                             Description = "SubTask 3, Task 1 description",
                             Status = Status.InProgress,
                             Title = "SubTask 3, Task 1 title"
@@ -55,6 +60,7 @@ namespace ToDo.WebApp.Controllers
                 },
                 new Task
                 {
+                    Id = IdGenerator.NextId,
                     Description = "Task 2 description",
                     Priority = Priority.Medium,
                     Status = Status.InProgress,
@@ -64,6 +70,7 @@ namespace ToDo.WebApp.Controllers
                     {
                         new SubTask
                         {
+                            Id = IdGenerator.NextId,
                             Description = "SubTask 1, Task 2 description",
                             Status = Status.InProgress,
                             Title = "SubTask 1, Task 2 title"
@@ -72,6 +79,7 @@ namespace ToDo.WebApp.Controllers
                 },
                 new Task
                 {
+                    Id = IdGenerator.NextId,
                     Description = "Task 3 description",
                     Priority = Priority.NotImportant,
                     Status = Status.Done,
@@ -81,12 +89,14 @@ namespace ToDo.WebApp.Controllers
                     {
                         new SubTask
                         {
+                            Id = IdGenerator.NextId,
                             Description = "SubTask 1, Task 3 description",
                             Status = Status.Done,
                             Title = "SubTask 1, Task 3 title"
                         },
                         new SubTask
                         {
+                            Id = IdGenerator.NextId,
                             Description = "SubTask 2, Task 3 description",
                             Status = Status.Done,
                             Title = "SubTask 2, Task 3 title"
@@ -171,6 +181,32 @@ namespace ToDo.WebApp.Controllers
                 return NotFound($"Task with id: {id} was not found");
 
             return View(task);
+        }
+
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            var task = _tasks.SingleOrDefault(t => t.Id == id);
+            if (task == null)
+                return NotFound($"Task with id: {id} was not found");
+
+            return View(task);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Task editedTask)
+        {
+            var task = _tasks.SingleOrDefault(t => t.Id == editedTask.Id);
+            if (task == null)
+                return NotFound($"Task was not found");
+
+            task.Priority = editedTask.Priority;
+            task.Status = editedTask.Status;
+            task.Title = editedTask.Title;
+            task.Type = editedTask.Type;
+            task.Description = editedTask.Description;
+
+            return RedirectToAction("Index");
         }
     }
 }
