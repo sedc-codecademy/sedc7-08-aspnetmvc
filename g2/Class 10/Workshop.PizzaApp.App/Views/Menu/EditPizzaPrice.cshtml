@@ -1,0 +1,43 @@
+﻿@model Workshop.PizzaApp.Model.AddPriceViewModel
+
+@{
+    ViewData["Title"] = "EditPizzaPrice";
+}
+
+<h1>EditPizzaPrice</h1>
+
+<h4>AddPriceViewModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditPizzaPrice">
+            @Html.HiddenFor(m => m.PizzaSize.PizzaSizeId)
+            @Html.HiddenFor(m => m.PizzaSize.PizzaId)
+            @Html.HiddenFor(m => m.PizzaSize.SizeId)
+            <div class="form-group">
+                <label asp-for="PizzaSize.PizzaId" class="control-label"></label>
+                @Html.DisplayFor(m => m.PizzaSize.PizzaName)
+            </div>
+            <div class="form-group">
+                <label asp-for="PizzaSize.SizeId" class="control-label"></label>
+                @Html.DisplayFor(m => m.PizzaSize.SizeName)
+            </div>
+            <div class="form-group">
+                <label asp-for="PizzaSize.Price" class="control-label"></label>
+                <input asp-for="PizzaSize.Price" class="form-control" />
+                <span asp-validation-for="PizzaSize.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="/Menu/PriceList">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

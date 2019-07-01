@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Workshop.PizzaApp.Model.PizzaViewModel>
+
+@{
+    ViewData["Title"] = "PizzaList";
+}
+
+<h1>PizzaList</h1>
+
+<p>
+    <a asp-action="AddPizza">Add New Pizza</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PizzaId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PizzaId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "EditPizza", new { id = item.PizzaId }) |
+                    @Html.ActionLink("Delete", "DeletePizza", new { id = item.PizzaId })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

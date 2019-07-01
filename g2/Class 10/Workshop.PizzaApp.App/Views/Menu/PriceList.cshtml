@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Workshop.PizzaApp.Model.PizzaSizeViewModel>
+
+@{
+    ViewData["Title"] = "PriceList";
+}
+
+<h1>PriceList</h1>
+
+<p>
+    <a asp-action="AddPizzaPrice">Add Pizza Price</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PizzaName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SizeName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.HiddenFor(modelItem => item.PizzaSizeId)
+                    @Html.HiddenFor(modelItem => item.PizzaId)
+                    @Html.DisplayFor(modelItem => item.PizzaName)
+                </td>
+                <td>
+                    @Html.HiddenFor(modelItem => item.SizeId)
+                    @Html.DisplayFor(modelItem => item.SizeName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "EditPizzaPrice", new { id = item.PizzaSizeId }) |
+                    @Html.ActionLink("Delete", "DeletePizzaPrice", new { id = item.PizzaSizeId })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
