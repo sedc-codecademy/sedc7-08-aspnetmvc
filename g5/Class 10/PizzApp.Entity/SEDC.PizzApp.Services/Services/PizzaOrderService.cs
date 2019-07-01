@@ -1,0 +1,90 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using SEDC.PizzApp.DataAccess.Repositories;
+using SEDC.PizzApp.Domain;
+
+namespace SEDC.PizzApp.Services.Services
+{
+    public class PizzaOrderService : IPizzaOrderService
+    {
+        private IRepository<User> _users;
+        private IRepository<Order> _orderRepository;
+        private IRepository<Pizza> _pizzaRepository;
+        public PizzaOrderService(IRepository<Order> orderRepo, 
+            IRepository<Pizza> pizzaRepo,
+            IRepository<User> users)
+        {
+            _orderRepository = orderRepo;
+            _pizzaRepository = pizzaRepo;
+            _users = users;
+        }
+        public List<Order> GetAllOrders()
+        {
+            return _orderRepository.GetAll();
+        }
+
+        public Order GetLastOrder()
+        {
+            List<Order> orders = _orderRepository.GetAll();
+            return orders[orders.Count - 1];
+        }
+
+        public List<Pizza> GetMenu()
+        {
+            List<Pizza> menu = _pizzaRepository.GetAll()
+                .GroupBy(x => x.Name)
+                .Select(x => x.First())
+                .ToList();
+            return menu;
+        }
+
+        public string GetMostPopularPizza()
+        {
+            // We get all orders
+            List<Order> orders = _orderRepository.GetAll();
+            // Flattening ( all pizzas from all orders )
+            List<PizzaOrder> pizzas = orders
+                .SelectMany(x => x.PizzaOrders)
+                .ToList();
+            string mostPopularPizza = pizzas
+                .GroupBy(x => x.Pizza.Name) // We group it by name ( 2 peperoni, 3 kapri, 1 margarita, 1 siciliana )
+                .OrderByDescending(x => x.Count()) // Order them by  descending so that the first is the one that has the most pizzas ( 3 kapri, 2 peperoni, 1 margarita, 1 siciliana )
+                .FirstOrDefault() // Takes the first from the group ( 3 kapri pizzas )
+                .Select(x => x.Pizza.Name) // Select only the names ( Kapri, Kapri, Kapri )
+                .FirstOrDefault(); // Select the first ( Kapri )
+            return mostPopularPizza;
+        }
+
+        public Order GetOrderById(int id)
+        {
+            var x = new User()
+            {
+                Id = 1,
+                FirstName = "Dragi",
+                LastName = "Bobsky",
+                Address = "Bob Street",
+                Phone = 080012312345
+            };
+            _users.Update(x);
+            return _orderRepository.GetById(id);
+        }
+
+        public int GetOrderCount()
+        {
+            return _orderRepository.GetAll().Count;
+        }
+
+        public void MakeNewOrder(Order order)
+        {
+            // validation, proverki itn itn
+            _orderRepository.Insert(order);
+        }
+        public Pizza GetPizzaFromMenu(string name, PizzaSize size)
+        {
+            List<Pizza> menu = _pizzaRepository.GetAll();
+            return menu.Where(x => x.Name == name && x.Size == size).FirstOrDefault();
+        }
+    }
+}

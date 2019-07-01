@@ -1,0 +1,43 @@
+﻿@model List<Sedc.Todo02Solution.WebApp.Models.Todo>
+@{
+    ViewData["Title"] = "Todo";
+}
+
+<h2>Todos</h2>
+
+@if (Model.Any())
+{
+    foreach (var todo in Model)
+    {
+        <div>
+            <div>
+                <label asp-for="@todo.Title"></label>
+                <input asp-for="@todo.Title" disabled />
+            </div>
+
+            <div>
+                <label asp-for="@todo.Description"></label>
+                <input asp-for="@todo.Description" disabled />
+            </div>
+            <div>
+                <label asp-for="@todo.DueDate"></label>
+                <input asp-for="@todo.DueDate" disabled />
+            </div>
+            <div>
+                <label asp-for="@todo.IsCompleted"></label>
+                <input asp-for="@todo.IsCompleted" disabled />
+            </div>
+            <div>
+                <a asp-controller="Todo" asp-action="EditTodo" asp-route-id="@todo.Id" class="btn btn-primary">Edit</a>
+                <a asp-controller="Todo" asp-action="DeleteTodo" asp-route-id="@todo.Id" class="btn btn-primary">Delete</a>
+            </div>
+        </div>
+        <hr />
+    }
+}
+else
+{
+    <h6>No todos. Add some!</h6>
+}
+
+<a asp-controller="Todo" asp-action="AddTodo" class="btn btn-primary">Add Todo</a>

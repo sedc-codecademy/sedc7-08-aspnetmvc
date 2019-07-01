@@ -1,0 +1,27 @@
+﻿@model HomeViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+@foreach (var order in Model.Orders)
+{
+    <h2>@order.Name</h2>
+    <p>@order.Address - Phone: @order.Phone</p>
+
+    <ul>
+        @foreach (var pizza in order.Pizzas)
+        {
+            <li>@pizza.Name - @pizza.Size</li>
+        }
+    </ul>
+
+    <button class="btn btn-secondary">@Html.ActionLink("Add pizza", "Create", "Pizza", new { id = order.Id})</button>
+}
+
+<h1>Menu</h1>
+
+@foreach (var pizza in Model.Pizzas)
+{
+    <h4>@pizza.Name</h4>
+}
+

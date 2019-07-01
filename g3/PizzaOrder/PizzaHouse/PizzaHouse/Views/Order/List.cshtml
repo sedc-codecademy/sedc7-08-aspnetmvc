@@ -1,0 +1,36 @@
+﻿@model List<ViewModels.OrderViewModel>
+@{
+    ViewData["Title"] = "All Orders";
+}
+
+<h2>All orders</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Order No.</th>
+            <th>User</th>
+            <th>Order Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in Model)
+        {
+            <tr>
+                <td>@order.Id</td>
+                <td>
+                    @order.Name - <i class="glyphicon glyphicon-home"></i> @order.Address <i class="glyphicon glyphicon-earphone"></i> @order.Phone
+                </td>
+                <td>
+                    <ol>
+                        @foreach (var item in order.OrderItems)
+                        {
+                            <li>@item.Pizza.Name (@item.Size.ToString()) X @item.Quantity</li>
+                        }
+                    </ol>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

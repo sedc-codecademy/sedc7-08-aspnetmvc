@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using BusinessLayer;
+using DataLayer;
+using DtoModels;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using PizzaHouse.Data;
-using PizzaHouse.Services;
 
 namespace PizzaHouse
 {
@@ -19,10 +21,16 @@ namespace PizzaHouse
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddTransient<IPizzaRepository, PizzaRepository>();
             services.AddTransient<IPizzaService, PizzaService>();
-            services.AddSingleton(typeof(IRepository<>), typeof(Repository<>));
+            services.AddTransient<IIngredientService, IngredientService>();
+            services.AddTransient<IOrderService, OrderService>();
+            services.AddTransient<IPizzaIngredientRepository, PizzaIngredientRepository>();
+            services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
             services.AddMvc();
+
+            const string connection = @"Server=.;Database=PizzaRestaurant;Trusted_Connection=True";
+            services.AddDbContext<PizzaSystemDbContext>
+                (options => options.UseSqlServer(connection));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Sedc.PizzApp.WebDemo.Models;
+using PizzApp.Models;
+using PizzApp.Repositories.Abstractions;
+using PizzApp.Repositories.EntityFramework;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -7,25 +9,21 @@ namespace Sedc.PizzApp.WebDemo.Controllers
 {
     public class PizzaController : Controller
     {
-        private static readonly List<Pizza> pizzas = new List<Pizza>
-            {
-               new Pizza{ Id=1,Name="capri"    },
-               new Pizza{ Id=2,Name="tuna"     },
-               new Pizza{ Id=3,Name="margarita"},
-               new Pizza{ Id=4,Name="pepperoni"},
-            };
+        private readonly IPizzaRepository pizzaRepository;
 
         public PizzaController()
         {
+            //pizzaRepository = new InMemoryPizzaRepository();
+            pizzaRepository = new EntityFrameworkPizzaRepository();
         }
 
         public IActionResult Details(int id)
         {
-            var pizza = pizzas.FirstOrDefault(p => p.Id == id);
+            var pizza = pizzaRepository.GetById(id);
             return View(pizza);
         }
 
-        public IActionResult GetAll()
+        public IActionResult Index()
         {
             //TIPP: how foreach works
             //IEnumerator<string> enumerator = pizzas.GetEnumerator();
@@ -38,7 +36,8 @@ namespace Sedc.PizzApp.WebDemo.Controllers
 
             //ViewData["pizzas"] = pizzas;
 
-            return View(pizzas.ToList());
+            var pizzas = pizzaRepository.GetAllPizzas();
+            return View(pizzas);
         }
 
         //get pizza that is longer than 4 character
@@ -50,8 +49,6 @@ namespace Sedc.PizzApp.WebDemo.Controllers
             }.Where(p => p.Length > 4);
             return View("~/Views/Pizza/GetAll.cshtml");
         }
-
-
         public IActionResult TestView()
         {
             return View();
@@ -65,19 +62,55 @@ namespace Sedc.PizzApp.WebDemo.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(string Name)
+        public IActionResult Create(Pizza model)
         {
             //submit the pizza from form
-            var newPizza = new Pizza
-            {
-                Id = pizzas.Max(pizza => pizza.Id) + 1,
-                Name = Name
-            };
-            pizzas.Add(newPizza);
+            var newPizza = pizzaRepository.Create(model);
 
             return RedirectToAction("Details", new
             {
                 id = newPizza.Id
+            });
+        }
+
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            var pizza = pizzaRepository.GetById(id);
+            return View(pizza);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(int Id, Pizza model)
+        {
+            var pizza = pizzaRepository.Update(model);
+            return RedirectToAction("Details", new
+            {
+                id = pizza.Id
+            });
+        }
+
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            var pizza = pizzaRepository.GetById(id);
+            return View(pizza);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(int Id, Pizza model)
+        {
+            pizzaRepository.Delete(Id);
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public IActionResult AddPrice(PizzaPrice pizzaPrice)
+        {
+            pizzaRepository.AddPrice(pizzaPrice);
+            return RedirectToAction("Details", new
+            {
+                Id = pizzaPrice.PizzaId
             });
         }
     }

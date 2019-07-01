@@ -1,13 +1,23 @@
-﻿@model PizzaHouse.ViewModels.PizzaViewModel
+﻿@model ViewModels.CreatePizzaViewModel
 @{
-    ViewData["Title"] = "Create";
+    var title = Model.Id != 0 ? "Edit" : "Create";
+    ViewData["Title"] = title;
 }
 
-<h2>Create new pizza</h2>
+@if (Model.Id != 0)
+{
+    <h2>Create new pizza</h2>
+}
+else
+{
+    <h2>Edit pizza</h2>
+}
 <hr />
 <div class="row">
     <div class="col-md-6">
         <form asp-action="Create" asp-controller="Pizza">
+            @Html.HiddenFor(x => x.Id)
+
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
                 <input asp-for="Name" class="form-control" />
@@ -28,7 +38,7 @@
                 <input asp-for="BasePrice" class="form-control" />
                 <span asp-validation-for="BasePrice" class="text-danger"></span>
             </div>
-            <input type="submit" value="Create" class="btn btn-primary" />
+            <input type="submit" value="@title" class="btn btn-primary" />
         </form>
 
         @*@using (Html.BeginForm("Create", "Pizza", FormMethod.Post))

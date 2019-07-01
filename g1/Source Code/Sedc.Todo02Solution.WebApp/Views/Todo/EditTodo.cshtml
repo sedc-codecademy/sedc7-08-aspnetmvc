@@ -1,0 +1,34 @@
+﻿@model Sedc.Todo02Solution.WebApp.Models.Todo
+@{
+    ViewData["Title"] = "EditTodo";
+}
+
+<h2>Edit Todo</h2>
+
+<form asp-controller="Todo" asp-action="EditTodo" method="post">
+    <div>
+        <label asp-for="Title"></label>
+        <input asp-for="Title" />
+        <span asp-validation-for="Title" style="color:red;"></span>
+    </div>
+
+    <div>
+        <label asp-for="Description"></label>
+        <input asp-for="Description" />
+        <span asp-validation-for="Description" style="color:red;"></span>
+    </div>
+
+    <div>
+        <label asp-for="DueDate"></label>
+        <input asp-for="DueDate" />
+        <span asp-validation-for="DueDate" style="color:red;"></span>
+    </div>
+
+    <div>
+        <label asp-for="IsCompleted"></label>
+        <input asp-for="IsCompleted" />
+        <span asp-validation-for="IsCompleted" style="color:red;"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
