@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 
 namespace Sedc.Todo04Solution.Repositories
 {
@@ -28,7 +27,9 @@ namespace Sedc.Todo04Solution.Repositories
 
         public ICollection<Todo> GetAll(Expression<Func<Todo, bool>> filter = null, Func<IQueryable<Todo>, IIncludableQueryable<Todo, object>> include = null)
         {
-            throw new NotImplementedException();
+            throw new NotImplementedException("implement get_all with sql ado.net");
+            ICollection<Todo> dbResults = new List<Todo>();
+            return dbResults.Where(filter.Compile()).ToList();
         }
 
         public void Update(Todo model)
