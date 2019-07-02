@@ -2,13 +2,13 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
 
 namespace ado.net
 {
     class Program
     {
-        private const string connStr = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=TestPizzaDatabase;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        private const string connStr = @"YOUR_CONNECTION_STRING_HERE";
+        //OPEN CONNECTION BEFORE SENDING COMMANDS TO DATABASE
         private static SqlConnection connection = new SqlConnection(connStr);
 
         static void Main(string[] args)
