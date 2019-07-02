@@ -89,6 +89,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sedc.Todo04Solution.Reposit
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sedc.Todo04Solution.Entities", "Sedc.Todo04Solution.Entities\Sedc.Todo04Solution.Entities.csproj", "{4A291878-73F8-4F81-8EE1-E84020EBB05E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ClassDD1", "ClassDD1", "{C7689EBE-65E2-4524-8F75-4DFCBBD4934F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdoNetDemo", "..\ado.net\AdoNetDemo\AdoNetDemo.csproj", "{5953494F-5333-4922-8E0E-E4FFC9821A85}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -195,6 +199,10 @@ Global
 		{4A291878-73F8-4F81-8EE1-E84020EBB05E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A291878-73F8-4F81-8EE1-E84020EBB05E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4A291878-73F8-4F81-8EE1-E84020EBB05E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5953494F-5333-4922-8E0E-E4FFC9821A85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5953494F-5333-4922-8E0E-E4FFC9821A85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5953494F-5333-4922-8E0E-E4FFC9821A85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5953494F-5333-4922-8E0E-E4FFC9821A85}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -235,6 +243,7 @@ Global
 		{AB98F21B-A0DD-40C6-A645-97721BFCF6EC} = {A491CBA7-EF4A-46E9-82C6-4308A7BF8EDD}
 		{6C895AFD-5FB3-45AA-905D-875A5D45DD26} = {A491CBA7-EF4A-46E9-82C6-4308A7BF8EDD}
 		{4A291878-73F8-4F81-8EE1-E84020EBB05E} = {A491CBA7-EF4A-46E9-82C6-4308A7BF8EDD}
+		{5953494F-5333-4922-8E0E-E4FFC9821A85} = {C7689EBE-65E2-4524-8F75-4DFCBBD4934F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {658F3FFD-723C-4213-BE9D-7FD69B006455}

@@ -1,9 +1,8 @@
-﻿using AdoNetDemo;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 
-namespace ado.net
+namespace AdoNetDemo
 {
     class Program
     {
@@ -43,10 +42,11 @@ namespace ado.net
                 int id = (int)sqlReader["Id"];
                 string name = (string)sqlReader["Name"];
                 string description = sqlReader["Description"] as string ?? string.Empty;
-                pizzas.Add(new Pizza {
+                pizzas.Add(new Pizza
+                {
                     Id = id,
                     Name = name,
-                    Description= description
+                    Description = description
                 });
             }
 
