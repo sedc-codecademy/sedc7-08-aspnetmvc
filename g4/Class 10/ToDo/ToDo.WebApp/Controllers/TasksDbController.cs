@@ -1,40 +1,35 @@
-﻿using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using ToDo.DataLayer.Contracts;
 using todoModels = ToDo.DataLayer.Entities;
 
 namespace ToDo.WebApp.Controllers
 {
     public class TasksDbController : Controller
     {
-        private readonly TasksDbContext _context;
+        private readonly ITaskRepository _taskRepository;
 
-        public TasksDbController(TasksDbContext context)
+        public TasksDbController(ITaskRepository taskRepository)
         {
-            _context = context;
+            _taskRepository = taskRepository;
         }
 
         // GET: TasksDb
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Tasks.ToListAsync());
+            return View(await _taskRepository.GetAllAsync());
         }
 
         // GET: TasksDb/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
-            {
                 return NotFound();
-            }
 
-            var task = await _context.Tasks
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var task = await _taskRepository.GetByIdAsync(id.Value);
             if (task == null)
-            {
                 return NotFound();
-            }
 
             return View(task);
         }
@@ -54,10 +49,10 @@ namespace ToDo.WebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(task);
-                await _context.SaveChangesAsync();
+                await _taskRepository.AddAsync(task);
                 return RedirectToAction(nameof(Index));
             }
+
             return View(task);
         }
 
@@ -65,15 +60,12 @@ namespace ToDo.WebApp.Controllers
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
-            {
                 return NotFound();
-            }
 
-            var task = await _context.Tasks.FindAsync(id);
+            var task = await _taskRepository.GetByIdAsync(id.Value);
             if (task == null)
-            {
                 return NotFound();
-            }
+
             return View(task);
         }
 
@@ -85,30 +77,15 @@ namespace ToDo.WebApp.Controllers
         public async Task<IActionResult> Edit(int id, [Bind("Priority,Type,Id,Title,Description,Status")] todoModels.Task task)
         {
             if (id != task.Id)
-            {
                 return NotFound();
-            }
 
             if (ModelState.IsValid)
             {
-                try
-                {
-                    _context.Update(task);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!TaskExists(task.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
+                bool updated = await _taskRepository.UpdateAsync(task);
+                if (updated)
+                    return RedirectToAction(nameof(Index));
             }
+
             return View(task);
         }
 
@@ -116,16 +93,11 @@ namespace ToDo.WebApp.Controllers
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
-            {
                 return NotFound();
-            }
 
-            var task = await _context.Tasks
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var task = await _taskRepository.GetByIdAsync(id.Value);
             if (task == null)
-            {
                 return NotFound();
-            }
 
             return View(task);
         }
@@ -135,15 +107,10 @@ namespace ToDo.WebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var task = await _context.Tasks.FindAsync(id);
-            _context.Tasks.Remove(task);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
+            var task = await _taskRepository.GetByIdAsync(id);
+            await _taskRepository.RemoveAsync(task);
 
-        private bool TaskExists(int id)
-        {
-            return _context.Tasks.Any(e => e.Id == id);
+            return RedirectToAction(nameof(Index));
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ToDo.DataLayer.Entities;
 
-namespace ToDo.WebApp
+namespace ToDo.DataLayer
 {
     public class TasksDbContext : DbContext
     {

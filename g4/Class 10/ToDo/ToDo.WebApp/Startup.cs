@@ -5,6 +5,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using ToDo.DataLayer;
+using ToDo.DataLayer.Contracts;
+using ToDo.DataLayer.Repositories;
 
 namespace ToDo.WebApp
 {
@@ -29,6 +32,8 @@ namespace ToDo.WebApp
             
             services.AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddScoped<ITaskRepository, TaskRepository>();
 
             var connectionString = Configuration.GetValue<string>("ConnectionString");
             services.AddDbContext<TasksDbContext>(options =>

@@ -1,0 +1,47 @@
+﻿@model Workshop.PizzaApp.Model.AddPriceViewModel
+
+@{
+    ViewData["Title"] = "AddPizzaPrice";
+
+
+
+}
+
+<h1>AddPizzaPrice</h1>
+
+<h4>PizzaSizeViewModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddPizzaPrice">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @Html.HiddenFor(m => m.PizzaSize.PizzaSizeId)
+            <div class="form-group">
+                <label asp-for="PizzaSize.PizzaId" class="control-label"></label>
+                @Html.DropDownListFor(m => m.PizzaSize.PizzaId, Model.Pizzas)
+                <span asp-validation-for="PizzaSize.PizzaId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PizzaSize.SizeId" class="control-label"></label>
+                @Html.DropDownListFor(m => m.PizzaSize.SizeId, Model.Sizes)
+                <span asp-validation-for="PizzaSize.SizeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PizzaSize.Price" class="control-label"></label>
+                <input asp-for="PizzaSize.Price" class="form-control" />
+                <span asp-validation-for="PizzaSize.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="/Menu/PriceList">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

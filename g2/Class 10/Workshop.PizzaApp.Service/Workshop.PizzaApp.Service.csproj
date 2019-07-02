@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Workshop.PizzaApp.Data.Model\Workshop.PizzaApp.Data.Model.csproj" />
+    <ProjectReference Include="..\Workshop.PizzaApp.Data\Workshop.PizzaApp.Data.csproj" />
+    <ProjectReference Include="..\Workshop.PizzaApp.Mapper\Workshop.PizzaApp.Mapper.csproj" />
+    <ProjectReference Include="..\Workshop.PizzaApp.Model\Workshop.PizzaApp.Model.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Workshop.PizzaApp.Model.SizeViewModel>
+
+@{
+    ViewData["Title"] = "SizeList";
+}
+
+<h1>SizeList</h1>
+
+<p>
+    <a asp-action="AddSize">Add New Size</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SizeId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Diameter)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SizeId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Diameter)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "EditSize", new { id = item.SizeId }) |
+                    @Html.ActionLink("Delete", "DeleteSize", new { id = item.SizeId })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
