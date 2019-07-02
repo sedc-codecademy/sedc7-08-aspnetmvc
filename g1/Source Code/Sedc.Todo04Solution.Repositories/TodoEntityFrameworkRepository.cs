@@ -10,7 +10,7 @@ using Sedc.Todo03Solution.Repositories.Interfaces;
 
 namespace Sedc.Todo03Solution.Repositories
 {
-    public class TodoEntityFrameworkRepository : IGenericRepository
+    public class TodoEntityFrameworkRepository : IGenericRepository<Todo>
     {
         private readonly TodoContext _dbContext;
 
@@ -19,9 +19,9 @@ namespace Sedc.Todo03Solution.Repositories
             _dbContext = dbContext;
         }
 
-        public ICollection<TModel> GetAll<TModel>(Expression<Func<TModel, bool>> filter = null, Func<IQueryable<TModel>, IIncludableQueryable<TModel, object>> include = null) where TModel : BaseEntity
+        public ICollection<Todo> GetAll(Expression<Func<Todo, bool>> filter = null, Func<IQueryable<Todo>, IIncludableQueryable<Todo, object>> include = null)
         {
-            IQueryable<TModel> result = _dbContext.Set<TModel>();
+            IQueryable<Todo> result = _dbContext.Set<Todo>();
 
             if (filter != null)
                 result = result.Where(filter);
@@ -32,9 +32,9 @@ namespace Sedc.Todo03Solution.Repositories
             return result.ToList();
         }
 
-        public TModel FindById<TModel>(int id, Func<IQueryable<TModel>, IIncludableQueryable<TModel, object>> include = null) where TModel : BaseEntity
+        public Todo FindById(int id, Func<IQueryable<Todo>, IIncludableQueryable<Todo, object>> include = null)
         {
-            IQueryable<TModel> dbSet = _dbContext.Set<TModel>();
+            IQueryable<Todo> dbSet = _dbContext.Set<Todo>();
 
             if (include != null)
                 dbSet = include(dbSet);
@@ -42,21 +42,21 @@ namespace Sedc.Todo03Solution.Repositories
             return dbSet.SingleOrDefault(x => x.Id == id);
         }
 
-        public void Create<TModel>(TModel model) where TModel : BaseEntity
+        public void Create(Todo model)
         {
-            _dbContext.Set<TModel>().Add(model);
+            _dbContext.Set<Todo>().Add(model);
             _dbContext.SaveChanges();
         }
 
-        public void Update<TModel>(TModel model) where TModel : BaseEntity
+        public void Update(Todo model)
         {
-            _dbContext.Set<TModel>().Update(model);
+            _dbContext.Set<Todo>().Update(model);
             _dbContext.SaveChanges();
         }
 
-        public void DeleteById<TModel>(int id) where TModel : BaseEntity
+        public void DeleteById(int id)
         {
-            var existingEntity = _dbContext.Set<TModel>().Find(id);
+            var existingEntity = _dbContext.Set<Todo>().Find(id);
             _dbContext.Remove(existingEntity);
             _dbContext.SaveChanges();
         }

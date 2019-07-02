@@ -1,15 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Sedc.Todo03Solution.WebApp.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Sedc.Todo03Solution.Entities;
@@ -47,7 +41,7 @@ namespace Sedc.Todo03Solution.WebApp
             services.AddDefaultIdentity<TodoUser>()
                 .AddEntityFrameworkStores<TodoContext>();
 
-            services.AddScoped<IGenericRepository, TodoEntityFrameworkRepository>();
+            services.AddScoped<IGenericRepository<Todo>, TodoEntityFrameworkRepository>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

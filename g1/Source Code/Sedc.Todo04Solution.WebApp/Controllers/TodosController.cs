@@ -17,9 +17,9 @@ namespace Sedc.Todo03Solution.WebApp.Controllers
     public class TodosController : Controller
     {
         private readonly UserManager<TodoUser> _userManager;
-        private readonly IGenericRepository _repository;
+        private readonly IGenericRepository<Todo> _repository;
 
-        public TodosController(UserManager<TodoUser> userManager, IGenericRepository repository)
+        public TodosController(UserManager<TodoUser> userManager, IGenericRepository<Todo> repository)
         {
             _userManager = userManager;
             _repository = repository;
@@ -28,7 +28,7 @@ namespace Sedc.Todo03Solution.WebApp.Controllers
         // GET: Todos
         public IActionResult Index()
         {
-            var todos = _repository.GetAll<Todo>(todo => todo.User.UserName == User.Identity.Name,
+            var todos = _repository.GetAll(todo => todo.User.UserName == User.Identity.Name,
                 queryable => queryable.Include(todo => todo.User));
             return View(todos);
         }
@@ -41,7 +41,7 @@ namespace Sedc.Todo03Solution.WebApp.Controllers
                 return NotFound();
             }
 
-            var todo = _repository.FindById<Todo>(id.Value);
+            var todo = _repository.FindById(id.Value);
             if (todo == null)
             {
                 return NotFound();
@@ -82,7 +82,7 @@ namespace Sedc.Todo03Solution.WebApp.Controllers
                 return NotFound();
             }
 
-            var todo = _repository.FindById<Todo>(id.Value);
+            var todo = _repository.FindById(id.Value);
             if (todo == null)
             {
                 return NotFound();
@@ -132,7 +132,7 @@ namespace Sedc.Todo03Solution.WebApp.Controllers
                 return NotFound();
             }
 
-            var todo = _repository.FindById<Todo>(id.Value);
+            var todo = _repository.FindById(id.Value);
             if (todo == null)
             {
                 return NotFound();
@@ -146,13 +146,13 @@ namespace Sedc.Todo03Solution.WebApp.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(int id)
         {
-            _repository.DeleteById<Todo>(id);
+            _repository.DeleteById(id);
             return RedirectToAction(nameof(Index));
         }
 
         private bool TodoExists(int id)
         {
-            return _repository.GetAll<Todo>().Any(todo => todo.Id == id);
+            return _repository.GetAll().Any(todo => todo.Id == id);
         }
     }
 }

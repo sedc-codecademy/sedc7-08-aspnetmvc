@@ -7,12 +7,12 @@ using Sedc.Todo03Solution.Entities;
 
 namespace Sedc.Todo03Solution.Repositories.Interfaces
 {
-    public interface IGenericRepository
+    public interface IGenericRepository<TModel> where TModel : BaseEntity
     {
-        ICollection<TModel> GetAll<TModel>(Expression<Func<TModel, bool>> filter = null, Func<IQueryable<TModel>, IIncludableQueryable<TModel, object>> include = null) where TModel : BaseEntity;
-        TModel FindById<TModel>(int id, Func<IQueryable<TModel>, IIncludableQueryable<TModel, object>> include = null) where TModel : BaseEntity;
-        void Create<TModel>(TModel model) where TModel : BaseEntity;
-        void Update<TModel>(TModel model) where TModel : BaseEntity;
-        void DeleteById<TModel>(int id) where TModel : BaseEntity;
+        ICollection<TModel> GetAll(Expression<Func<TModel, bool>> filter = null, Func<IQueryable<TModel>, IIncludableQueryable<TModel, object>> include = null);
+        TModel FindById(int id, Func<IQueryable<TModel>, IIncludableQueryable<TModel, object>> include = null);
+        void Create(TModel model);
+        void Update(TModel model);
+        void DeleteById(int id);
     }
 }

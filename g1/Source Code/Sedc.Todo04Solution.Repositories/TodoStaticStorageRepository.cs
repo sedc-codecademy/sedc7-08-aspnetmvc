@@ -9,37 +9,37 @@ using Sedc.Todo03Solution.Repositories.Interfaces;
 
 namespace Sedc.Todo03Solution.Repositories
 {
-    public class TodoStaticStorageRepository : IGenericRepository
+    public class TodoStaticStorageRepository : IGenericRepository<Todo>
     {
         public TodoStaticStorageRepository()
         {
         }
 
-        public ICollection<TModel> GetAll<TModel>(Expression<Func<TModel, bool>> filter = null, Func<IQueryable<TModel>, IIncludableQueryable<TModel, object>> include = null) where TModel : BaseEntity
+        public ICollection<Todo> GetAll(Expression<Func<Todo, bool>> filter = null, Func<IQueryable<Todo>, IIncludableQueryable<Todo, object>> include = null)
         {
-            return StaticStorage<TModel>.DataSet.ToList();
+            return StaticStorage<Todo>.DataSet.ToList();
         }
 
-        public TModel FindById<TModel>(int id, Func<IQueryable<TModel>, IIncludableQueryable<TModel, object>> include = null) where TModel : BaseEntity
+        public Todo FindById(int id, Func<IQueryable<Todo>, IIncludableQueryable<Todo, object>> include = null)
         {
-            return StaticStorage<TModel>.DataSet.SingleOrDefault(x => x.Id == id);
+            return StaticStorage<Todo>.DataSet.SingleOrDefault(x => x.Id == id);
         }
 
-        public void Create<TModel>(TModel model) where TModel : BaseEntity
+        public void Create(Todo model)
         {
-            StaticStorage<TModel>.DataSet.Add(model);
+            StaticStorage<Todo>.DataSet.Add(model);
         }
 
-        public void Update<TModel>(TModel model) where TModel : BaseEntity
+        public void Update(Todo model)
         {
-            var existingEntityIndex = StaticStorage<TModel>.DataSet.IndexOf(StaticStorage<TModel>.DataSet.SingleOrDefault(x => x.Id == model.Id));
-            StaticStorage<TModel>.DataSet[existingEntityIndex] = model;
+            var existingEntityIndex = StaticStorage<Todo>.DataSet.IndexOf(StaticStorage<Todo>.DataSet.SingleOrDefault(x => x.Id == model.Id));
+            StaticStorage<Todo>.DataSet[existingEntityIndex] = model;
         }
 
-        public void DeleteById<TModel>(int id) where TModel : BaseEntity
+        public void DeleteById(int id)
         {
-            var existingEntityIndex = StaticStorage<TModel>.DataSet.IndexOf(StaticStorage<TModel>.DataSet.SingleOrDefault(x => x.Id == id));
-            StaticStorage<TModel>.DataSet.RemoveAt(existingEntityIndex);
+            var existingEntityIndex = StaticStorage<Todo>.DataSet.IndexOf(StaticStorage<Todo>.DataSet.SingleOrDefault(x => x.Id == id));
+            StaticStorage<Todo>.DataSet.RemoveAt(existingEntityIndex);
         }
     }
 }
