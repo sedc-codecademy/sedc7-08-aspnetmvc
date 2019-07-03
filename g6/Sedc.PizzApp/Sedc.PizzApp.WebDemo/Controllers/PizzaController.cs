@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using PizzApp.Models;
 using PizzApp.Repositories.Abstractions;
+using PizzApp.Repositories.AdoNet;
 using PizzApp.Repositories.EntityFramework;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,10 +13,11 @@ namespace Sedc.PizzApp.WebDemo.Controllers
     {
         private readonly IPizzaRepository pizzaRepository;
 
-        public PizzaController()
+        public PizzaController(IConfiguration configuration)
         {
             //pizzaRepository = new InMemoryPizzaRepository();
-            pizzaRepository = new EntityFrameworkPizzaRepository();
+            //pizzaRepository = new EntityFrameworkPizzaRepository();
+            pizzaRepository = new SqlPizzaRepository(configuration["ConnectionString"]);
         }
 
         public IActionResult Details(int id)

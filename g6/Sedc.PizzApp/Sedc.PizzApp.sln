@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PizzApp.Models", "PizzApp.M
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PizzApp.Repositories.MockImplementations", "PizzApp.Repositories.MockImplementations\PizzApp.Repositories.MockImplementations.csproj", "{1EEEBB28-8AD6-43E9-B3B2-6AE0A3479DA4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzApp.Repositories.EntityFramework", "PizzApp.Repositories.EntityFramework\PizzApp.Repositories.EntityFramework.csproj", "{F7543443-DE2D-4DB7-B6E4-B040D927D0C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PizzApp.Repositories.EntityFramework", "PizzApp.Repositories.EntityFramework\PizzApp.Repositories.EntityFramework.csproj", "{F7543443-DE2D-4DB7-B6E4-B040D927D0C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzApp.Repositories.AdoNet", "PizzApp.Repositories.AdoNet\PizzApp.Repositories.AdoNet.csproj", "{1D69341B-9D26-4D46-BA41-0EF5A73FECB9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{F7543443-DE2D-4DB7-B6E4-B040D927D0C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F7543443-DE2D-4DB7-B6E4-B040D927D0C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F7543443-DE2D-4DB7-B6E4-B040D927D0C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D69341B-9D26-4D46-BA41-0EF5A73FECB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D69341B-9D26-4D46-BA41-0EF5A73FECB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D69341B-9D26-4D46-BA41-0EF5A73FECB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D69341B-9D26-4D46-BA41-0EF5A73FECB9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
