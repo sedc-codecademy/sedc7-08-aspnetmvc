@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.329
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29009.5
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Class04", "Class04", "{B221242D-05D3-4E20-A79D-A646E35B3B58}"
 EndProject
@@ -79,7 +79,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sedc.Todo03Initial.Entities
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sedc.Todo03Initial.Repositories", "Sedc.Todo03Initial.Repositories\Sedc.Todo03Initial.Repositories.csproj", "{3EB49690-06A0-4AD0-9D65-7EFEE81164D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sedc.Todo03Initial.WebApp", "Sedc.Todo03Initial.WebApp\Sedc.Todo03Initial.WebApp.csproj", "{26AB3920-0EA0-4D77-9F5D-1C0484840A06}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sedc.Todo03Initial.WebApp", "Sedc.Todo03Initial.WebApp\Sedc.Todo03Initial.WebApp.csproj", "{26AB3920-0EA0-4D77-9F5D-1C0484840A06}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
