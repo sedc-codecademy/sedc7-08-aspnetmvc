@@ -10,10 +10,17 @@ namespace ado.net
         private const string connStr = @"YOUR_CONNECTION_STRING_HERE";
         //OPEN CONNECTION BEFORE SENDING COMMANDS TO DATABASE
         private static SqlConnection connection = new SqlConnection(connStr);
+        private static object reposiotory;
 
         static void Main(string[] args)
         {
-            connection.Open();
+            using (var repository = new Repository())
+            {
+                repository.Work();
+            }
+
+            return;
+            //connection.Open();
             //execute scalar
             //var numberOfPizzas = GetNumberOfPizzas();
             //Console.WriteLine(numberOfPizzas);
