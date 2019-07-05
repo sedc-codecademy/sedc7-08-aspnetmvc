@@ -1,4 +1,6 @@
-﻿using BusinessLayer;
+﻿using System.Security.Claims;
+using BusinessLayer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ViewModels;
 
@@ -21,16 +23,28 @@ namespace PizzaHouse.Controllers
             return View(menu);
         }
 
+        [Authorize]
         [HttpGet]
         public IActionResult Create()
         {
+            if (!HttpContext.User.HasClaim(ClaimTypes.Role, "Administrator"))
+            {
+                RedirectToAction("Menu", "Pizza");
+            }
+
             var pizza = _pizzaService.GetEmptyPizza();
             return View(pizza);
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult Create(CreatePizzaViewModel pizza)
         {
+            if (!HttpContext.User.HasClaim(ClaimTypes.Role, "Administrator"))
+            {
+                RedirectToAction("Menu", "Pizza");
+            }
+
             if (!ModelState.IsValid)
             {
                 pizza.AllIngredients = _ingredientService.GetIngredientsSelectList();
@@ -55,11 +69,17 @@ namespace PizzaHouse.Controllers
             var pizza = _pizzaService.GetPizza(id);
             return View(pizza);
         }
-        
 
+
+        [Authorize]
         [HttpGet]
         public IActionResult Edit(int id)
         {
+            if (!HttpContext.User.HasClaim(ClaimTypes.Role, "Administrator"))
+            {
+                RedirectToAction("Menu", "Pizza");
+            }
+
             var pizza = _pizzaService.GetPizzaUpdateModel(id);
             return View("Create", pizza);
         }

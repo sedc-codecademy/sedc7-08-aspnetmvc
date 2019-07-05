@@ -80,9 +80,16 @@ namespace DtoModels
                 new IngredientAllergen {IngredientId = 3, AllergenId = 2}
             };
 
+            var users = new List<User>
+            {
+                new User("Risto", "Skopje", "+389111111", "risto@gmail.com", "risto") {Id = 1},
+                new User("Martin", "Skopje", "+389222222", "martin@gmail.com", "martin"){Id = 2}
+            };
+
             modelBuilder.Entity<Allergen>().HasData(allergens);
             modelBuilder.Entity<Ingredient>().HasData(ingredients);
             modelBuilder.Entity<IngredientAllergen>().HasData(ingredientAllergens);
+            modelBuilder.Entity<User>().HasData(users);
 
             #endregion
         }

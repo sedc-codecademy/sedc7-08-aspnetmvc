@@ -4,14 +4,16 @@ using DtoModels;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DtoModels.Migrations
 {
     [DbContext(typeof(PizzaSystemDbContext))]
-    partial class PizzaSystemDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190705095104_SecondMigration")]
+    partial class SecondMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -193,26 +195,6 @@ namespace DtoModels.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Address = "Skopje",
-                            Email = "risto@gmail.com",
-                            Name = "Risto",
-                            Password = "risto",
-                            Phone = "+389111111"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Address = "Skopje",
-                            Email = "martin@gmail.com",
-                            Name = "Martin",
-                            Password = "martin",
-                            Phone = "+389222222"
-                        });
                 });
 
             modelBuilder.Entity("DtoModels.IngredientAllergen", b =>

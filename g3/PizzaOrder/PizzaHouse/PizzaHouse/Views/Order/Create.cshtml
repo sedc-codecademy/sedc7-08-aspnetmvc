@@ -8,16 +8,17 @@
 <form asp-action="Create" asp-controller="Order">
     <h4>User info</h4>
     <div class="form-group">
-        <label asp-for="Name" class="control-label"></label>
-        <input asp-for="Name" class="form-control" />
+        @Html.HiddenFor(x => Model.Email)
+        <label asp-for="Email" class="control-label"></label>
+        <input asp-for="Email" class="form-control" disabled="disabled"/>
     </div>
     <div class="form-group">
         <label asp-for="Address" class="control-label"></label>
-        <input asp-for="Address" class="form-control" />
+        <input asp-for="Address" class="form-control" disabled="disabled"/>
     </div>
     <div class="form-group">
         <label asp-for="Phone" class="control-label"></label>
-        <input asp-for="Phone" class="form-control" />
+        <input asp-for="Phone" class="form-control" disabled="disabled"/>
     </div>
     <hr />
     <h4>Pizzas:</h4>
