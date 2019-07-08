@@ -11,7 +11,7 @@ namespace Mappers
             var model = new OrderViewModel
             {
                 Id = order.Id,
-                Name = order.User.Name,
+                Email = order.User.Email,
                 Phone = order.User.Phone,
                 Address = order.User.Address,
                 OrderItems = new List<OrderItemViewModel>()

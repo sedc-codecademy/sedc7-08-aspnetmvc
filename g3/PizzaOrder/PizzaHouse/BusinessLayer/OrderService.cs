@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using DataLayer;
 using DtoModels;
@@ -56,17 +57,12 @@ namespace BusinessLayer
         public void CreateOrder(OrderViewModel model)
         {
             var user = _userRepository.GetAll(x =>
-                    x.Where(y => y.Name == model.Name && y.Address == model.Address && y.Phone == model.Phone))
+                    x.Where(y => y.Email == model.Email))
                 .FirstOrDefault();
 
             if (user == null)
             {
-                var newUser = new User(model.Name, model.Address, model.Phone);
-                _userRepository.Create(newUser);
-
-                user = _userRepository.GetAll(x =>
-                        x.Where(y => y.Name == model.Name && y.Address == model.Address && y.Phone == model.Phone))
-                    .FirstOrDefault();
+                throw new Exception("Please login.");
             }
 
             var orderItems = new List<OrderItem>();

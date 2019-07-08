@@ -1,4 +1,11 @@
-﻿<!DOCTYPE html>
+﻿@using System.Security.Claims
+@{
+    var user = Context.User;
+    var isLoggedIn = user.FindFirst(ClaimTypes.Name) != null;
+    var isAdmin = isLoggedIn && Context.User.HasClaim(ClaimTypes.Role, "Administrator");
+}
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -26,18 +33,38 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" asp-controller="Pizza" asp-action="Menu" class="navbar-brand">Pizza Restaurant</a>
-                
+                <a asp-area="" asp-controller="Pizza" asp-action="Menu" class="navbar-brand">Menu</a>
+
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav" style="width: 80%">
                     <a asp-controller="Ingredient" asp-action="ListAllIngredients" class="navbar-brand">Ingredients</a>
-                    <a asp-controller="Order" asp-action="Create" class="navbar-brand">Make an order</a>
-                    <a asp-controller="Order" asp-action="List" class="navbar-brand">Orders</a>
+                    @if (isLoggedIn)
+                    {
+                        if (!isAdmin)
+                        {
+                            <a asp-controller="Order" asp-action="Create" class="navbar-brand">Make an order</a>
+                        }
+                        else
+                        {
+                            <a asp-controller="Order" asp-action="List" class="navbar-brand">Orders</a>
+                        }
+                        <a asp-controller="User" asp-action="Logout" class="navbar-brand pull-right">Logout</a>
+                    }
+                    else
+                    {
+                        <a asp-controller="User" asp-action="Login" class="navbar-brand pull-right">Login</a>
+                    }
                 </ul>
             </div>
         </div>
     </nav>
+    @if (isLoggedIn)
+    {
+        <div>
+            <p class="pull-right" style="margin-right: 15%" id="name-label"></p>
+        </div>
+    }
     <div class="container body-content">
         @RenderBody()
         <hr />
@@ -45,6 +72,7 @@
             <p>&copy; @DateTime.Now.Year - SEDC</p>
         </footer>
     </div>
+
 
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
@@ -66,6 +94,21 @@
         </script>
         <script src="~/js/site.min.js" asp-append-version="true"></script>
     </environment>
+
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                type: 'GET',
+                url: '/User/GetName',
+                success: function (name) {
+                    $('#name-label').text(name);
+                },
+                error: function (jqXHR, status, err) {//status is Error and the errorThrown is undefined
+                    console.log('Request Status : ' + jqXHR.status + ' has issued a status text of  : ' + jqXHR.statusText);
+                }
+            });
+        });
+    </script>
 
     @RenderSection("Scripts", required: false)
 </body>

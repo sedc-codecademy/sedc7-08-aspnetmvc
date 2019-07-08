@@ -1,43 +1,53 @@
 ﻿@using System.Globalization
+@using System.Security.Claims
 @model ViewModels.MenuViewModel
 
 @{
     ViewData["Title"] = "Menu";
+    var user = Context.User;
+    var isLoggedIn = user.FindFirst(ClaimTypes.Name) != null;
+    var isAdmin = isLoggedIn && Context.User.HasClaim(ClaimTypes.Role, "Administrator");
 }
 
 <h2>@Model.RestaurantName</h2>
 
 <div class="container">
-    <a asp-action="Create" asp-controller="Pizza" class="btn btn-primary">Create new pizza</a>
+    @if (isAdmin)
+    {
+        <a asp-action="Create" asp-controller="Pizza" class="btn btn-primary">Create new pizza</a>
+    }
     <table class="table">
         <thead>
-        <tr>
-            <th>Pizza</th>
-            @{
-                foreach (var size in Model.Sizes)
-                {
-                    <th>@size.ToString()</th>
+            <tr>
+                <th>Pizza</th>
+                @{
+                    foreach (var size in Model.Sizes)
+                    {
+                        <th>@size.ToString()</th>
+                    }
                 }
-            }
-        </tr>
+            </tr>
         </thead>
         <tbody>
-        @{
-            foreach (var pizza in Model.PizzasList)
-            {
-            <tr>
-                <td>
-                    <h4>@pizza.Name</h4>
-                    <p>@pizza.Description</p>
-                </td>
-                <td>@pizza.Prices[ViewModels.SizeEnum.Small].ToString("C", new CultureInfo("mk-Mk"))</td>
-                <td>@pizza.Prices[ViewModels.SizeEnum.Medium].ToString("C", new CultureInfo("mk-Mk"))</td>
-                <td>@pizza.Prices[ViewModels.SizeEnum.Large].ToString("C", new CultureInfo("mk-Mk"))</td>
-                <td><a asp-action="Details" asp-controller="Pizza" asp-route-id="@pizza.Id">Details</a></td>
-                <td><a asp-action="Edit" asp-controller="Pizza" asp-route-id="@pizza.Id">Edit</a></td>
-            </tr>
+            @{
+                foreach (var pizza in Model.PizzasList)
+                {
+                    <tr>
+                        <td>
+                            <h4>@pizza.Name</h4>
+                            <p>@pizza.Description</p>
+                        </td>
+                        <td>@pizza.Prices[ViewModels.SizeEnum.Small].ToString("C", new CultureInfo("mk-Mk"))</td>
+                        <td>@pizza.Prices[ViewModels.SizeEnum.Medium].ToString("C", new CultureInfo("mk-Mk"))</td>
+                        <td>@pizza.Prices[ViewModels.SizeEnum.Large].ToString("C", new CultureInfo("mk-Mk"))</td>
+                        <td><a asp-action="Details" asp-controller="Pizza" asp-route-id="@pizza.Id">Details</a></td>
+                        @if (isAdmin)
+                        {
+                            <td><a asp-action="Edit" asp-controller="Pizza" asp-route-id="@pizza.Id">Edit</a></td>
+                        }
+                    </tr>
+                }
             }
-        }
         </tbody>
     </table>
 </div>
