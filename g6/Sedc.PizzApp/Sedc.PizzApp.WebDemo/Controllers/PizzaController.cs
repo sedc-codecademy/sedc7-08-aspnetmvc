@@ -3,6 +3,7 @@ using Microsoft.Extensions.Configuration;
 using PizzApp.Models;
 using PizzApp.Repositories.Abstractions;
 using PizzApp.Repositories.AdoNet;
+using PizzApp.Repositories.Dapper;
 using PizzApp.Repositories.EntityFramework;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,8 @@ namespace Sedc.PizzApp.WebDemo.Controllers
         {
             //pizzaRepository = new InMemoryPizzaRepository();
             //pizzaRepository = new EntityFrameworkPizzaRepository();
-            pizzaRepository = new SqlPizzaRepository(configuration["ConnectionString"]);
+            //pizzaRepository = new SqlPizzaRepository(configuration["ConnectionString"]);
+            pizzaRepository = new DapperPizzaRepository(configuration["ConnectionString"]);
         }
 
         public IActionResult Details(int id)

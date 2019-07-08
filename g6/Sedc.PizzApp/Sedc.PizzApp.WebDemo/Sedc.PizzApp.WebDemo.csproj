@@ -13,6 +13,7 @@
   <ItemGroup>
     <ProjectReference Include="..\PizzApp.Repositories.Abstractions\PizzApp.Repositories.Abstractions.csproj" />
     <ProjectReference Include="..\PizzApp.Repositories.AdoNet\PizzApp.Repositories.AdoNet.csproj" />
+    <ProjectReference Include="..\PizzApp.Repositories.Dapper\PizzApp.Repositories.Dapper.csproj" />
     <ProjectReference Include="..\PizzApp.Repositories.EntityFramework\PizzApp.Repositories.EntityFramework.csproj" />
     <ProjectReference Include="..\PizzApp.Repositories.MockImplementations\PizzApp.Repositories.MockImplementations.csproj" />
   </ItemGroup>
