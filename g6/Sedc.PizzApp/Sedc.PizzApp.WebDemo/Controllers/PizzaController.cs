@@ -17,9 +17,9 @@ namespace Sedc.PizzApp.WebDemo.Controllers
         public PizzaController(IConfiguration configuration)
         {
             //pizzaRepository = new InMemoryPizzaRepository();
-            //pizzaRepository = new EntityFrameworkPizzaRepository();
             //pizzaRepository = new SqlPizzaRepository(configuration["ConnectionString"]);
-            pizzaRepository = new DapperPizzaRepository(configuration["ConnectionString"]);
+            //pizzaRepository = new DapperPizzaRepository(configuration["ConnectionString"]);
+            pizzaRepository = new EntityFrameworkPizzaRepository();
         }
 
         public IActionResult Details(int id)

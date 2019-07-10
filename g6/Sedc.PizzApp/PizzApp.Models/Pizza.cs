@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PizzApp.Models
 {
@@ -6,6 +7,7 @@ namespace PizzApp.Models
     {
         public int Id { get; set; }
 
+        //[Column("Pizza Name")]
         public string Name { get; set; }
         public string Description { get; set; }
 
