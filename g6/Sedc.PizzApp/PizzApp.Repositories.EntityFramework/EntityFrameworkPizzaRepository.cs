@@ -20,6 +20,9 @@ namespace PizzApp.Repositories.EntityFramework
 
         public void AddPrice(PizzaPrice pizzaPrice)
         {
+            //var shortPiza = Database.Pizzas
+            //    .Select(x=>new { Id = x.Id, Name = x.Name })
+            //    .FirstOrDefault(x => x.Id == pizzaPrice.PizzaId);
             var dbPizza = Database.Pizzas
                 .Include(x => x.PizzaPrices)
                 .FirstOrDefault(x => x.Id == pizzaPrice.PizzaId);
